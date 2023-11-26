@@ -1,0 +1,9 @@
+status: 1
+pattern: '[embederator:embed_id]'
+escape: false
+preserve_titles: false
+dependencies:
+  config:
+    - embederator.embederator_type.uky_maps_embed
+save: 0
+chunk: '50'

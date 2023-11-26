@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: news_landing
+label: 'News Landing'
+logic: and
+conditions:
+  13346505-d5ac-455c-b309-1bb55e2cfd9f:
+    id: request_path
+    pages: /news
+    negate: false
+    context_mapping: {  }
+    uuid: 13346505-d5ac-455c-b309-1bb55e2cfd9f
+allow_other_conditions: false

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: big_4
+label: 'Big 4x3'
+effects:
+  761e6cfa-5061-46f6-af51-ef1a0c2c2211:
+    uuid: 761e6cfa-5061-46f6-af51-ef1a0c2c2211
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 900
+      crop_type: focal_point

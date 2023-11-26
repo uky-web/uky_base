@@ -1,0 +1,18 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+id: uky_search
+theme: ukd8
+region: content_prefix
+weight: -9
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+  page_id: ''
+visibility: {  }

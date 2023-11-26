@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: medium_3x1
+label: 'Medium 3x1'
+effects:
+  5edebaba-9310-47bc-ba62-777f1b08661f:
+    uuid: 5edebaba-9310-47bc-ba62-777f1b08661f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 850
+      height: 283
+      crop_type: focal_point

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_flip
+    - paragraphs.paragraphs_type.2_1_slab
+id: paragraph.2_1_slab.field_flip
+field_name: field_flip
+entity_type: paragraph
+bundle: 2_1_slab
+label: Flip
+description: 'Show the aside first'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

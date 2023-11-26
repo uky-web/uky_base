@@ -1,0 +1,40 @@
+name: UK News Node
+description: 'Provides News content type and related configuration. News article'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - block
+  - block_visibility_groups
+  - chosen_field
+  - entity_browser
+  - entity_reference_revisions
+  - field
+  - field_group
+  - headline_group
+  - menu_ui
+  - node
+  - paragraphs
+  - paragraphs_previewer_popup
+  - path
+  - pathauto
+  - system
+  - taxonomy
+  - text
+  - user
+  - uky_base_media
+  - uky_base_node
+  - uky_base_paragraph_body
+  - uky_base_paragraph_calls_to_action
+  - uky_base_paragraph_carousel
+  - uky_base_paragraph_custom_teasers
+  - uky_base_paragraph_editorial_aside
+  - uky_base_paragraph_feed
+  - uky_base_paragraph_flex_grid
+  - uky_base_paragraph_gallery
+  - uky_base_paragraph_link_lists
+  - uky_base_paragraph_media
+  - uky_base_paragraph_statistics
+  - uky_base_paragraph_zipper
+  - uky_base_paragraph_2_1_slab
+  - views
+package: uky_base

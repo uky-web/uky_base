@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.3x2
+label: 3x2
+targetEntityType: media
+cache: true

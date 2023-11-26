@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.collection_item.custom_teaser
+    - field.storage.collection_item.field_link
+  module:
+    - link
+id: collection_item.custom_teaser.field_link
+field_name: field_link
+entity_type: collection_item
+bundle: custom_teaser
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

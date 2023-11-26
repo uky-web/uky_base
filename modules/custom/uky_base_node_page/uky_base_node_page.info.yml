@@ -1,0 +1,41 @@
+name: UK Page Node
+description: 'Provides Page content type and related configuration. A paragraphs-based page'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - auto_entitylabel
+  - entity_browser
+  - entity_browser_entity_form
+  - entity_reference_revisions
+  - field
+  - field_group
+  - headline_group
+  - inline_entity_form
+  - link
+  - menu_ui
+  - metatag
+  - node
+  - paragraphs
+  - paragraphs_previewer_popup
+  - path
+  - pathauto
+  - uky_base_eck_page_header
+  - uky_base_eck_page_header_small
+  - uky_base_node
+  - uky_base_paragraph_body
+  - uky_base_paragraph_calls_to_action
+  - uky_base_paragraph_carousel
+  - uky_base_paragraph_custom_teasers
+  - uky_base_paragraph_editorial_aside
+  - uky_base_paragraph_feed
+  - uky_base_paragraph_flex_grid
+  - uky_base_paragraph_gallery
+  - uky_base_paragraph_link_lists
+  - uky_base_paragraph_media
+  - uky_base_paragraph_statistics
+  - uky_base_paragraph_zipper
+  - uky_base_paragraph_2_1_slab
+
+  - user
+
+package: uky_base

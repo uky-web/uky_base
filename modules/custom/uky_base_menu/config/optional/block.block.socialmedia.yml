@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social-media
+  module:
+    - block_visibility_groups
+    - menu_block
+id: socialmedia
+theme: ukd8
+region: footer_right
+weight: 0
+provider: null
+plugin: 'menu_block:social-media'
+settings:
+  id: 'menu_block:social-media'
+  label: 'Social Media'
+  provider: menu_block
+  label_display: '0'
+  follow: 0
+  follow_parent: '0'
+  level: 1
+  depth: 0
+  expand: 0
+  parent: 'social-media:'
+  suggestion: social_media
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

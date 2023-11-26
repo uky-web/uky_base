@@ -1,0 +1,12 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function uky_base_user_install() {
+  $roles = \Drupal::service('module_handler')->invokeAll('uky_roles_default');
+  foreach ($roles as $role => $permissions) {
+    user_role_grant_permissions($role, $permissions);
+  }
+}

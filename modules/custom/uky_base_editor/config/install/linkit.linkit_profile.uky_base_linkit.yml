@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+label: uky_base_linkit
+id: uky_base_linkit
+description: 'Linkit profile for uky_base'
+matchers:
+  34cb167d-d72b-427a-a276-2acc01c463f0:
+    id: 'entity:node'
+    uuid: 34cb167d-d72b-427a-a276-2acc01c463f0
+    settings:
+      metadata: 'by [node:author] | [node:created:medium]'
+      bundles: {  }
+      group_by_bundle: false
+      substitution_type: canonical
+      limit: 100
+      include_unpublished: false
+    weight: 0
+  08c91a95-3e9f-4522-aee4-4273ffc24dcf:
+    id: 'entity:media'
+    uuid: 08c91a95-3e9f-4522-aee4-4273ffc24dcf
+    settings:
+      metadata: 'by [media:uid] | [media:bundle]'
+      bundles: {  }
+      group_by_bundle: false
+      substitution_type: media
+      limit: 100
+    weight: 0
+  f5c18354-c6b3-43c7-b1ab-2287aa868755:
+    id: email
+    uuid: f5c18354-c6b3-43c7-b1ab-2287aa868755
+    settings: {  }
+    weight: 0

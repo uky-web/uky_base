@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'People Categories'
+vid: people_categories
+description: 'Organization for persons'
+hierarchy: 0
+weight: 0

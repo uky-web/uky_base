@@ -1,0 +1,14 @@
+name: UK Block
+description: 'Provides base configuration for blocks.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - drupal:block
+  - block_visibility_groups
+  - emergency_alerts
+  - menu_block
+themes:
+  - ukd8
+
+
+package: uky_base

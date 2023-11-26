@@ -1,0 +1,8 @@
+name: 'UK ECK Location'
+description: 'Provides configuration for ECK Location entity type'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - uky_base_eck
+
+package: uky_base

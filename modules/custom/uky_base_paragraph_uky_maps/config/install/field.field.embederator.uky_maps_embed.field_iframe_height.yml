@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - embederator.embederator_type.uky_maps_embed
+    - field.storage.embederator.field_iframe_height
+id: embederator.uky_maps_embed.field_iframe_height
+field_name: field_iframe_height
+entity_type: embederator
+bundle: uky_maps_embed
+label: 'iFrame Height'
+description: 'Enter iFrame height in pixels, 300 - 9999.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 300
+default_value_callback: ''
+settings:
+  min: 300
+  max: 9999
+  prefix: ''
+  suffix: ''
+field_type: integer

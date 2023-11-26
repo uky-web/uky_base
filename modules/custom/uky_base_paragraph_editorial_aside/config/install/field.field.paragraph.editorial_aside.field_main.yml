@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.collection_item.body
+    - field.storage.paragraph.field_main
+    - paragraphs.paragraphs_type.editorial_aside
+id: paragraph.editorial_aside.field_main
+field_name: field_main
+entity_type: paragraph
+bundle: editorial_aside
+label: Main
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:collection_item'
+  handler_settings:
+    target_bundles:
+      body: body
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: body
+field_type: entity_reference

@@ -1,0 +1,31 @@
+name: UK Event Node
+description: 'Provides Event content type and related configuration. A structured event'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - better_formats
+  - block_visibility_groups
+  - chosen_field
+  - datetime
+  - datetime_range
+  - entity_browser
+  - entity_browser_entity_form
+  - entity_reference_revisions
+  - field
+  - field_group
+  - headline_group
+  - inline_entity_form
+  - link
+  - menu_ui
+  - node
+  - paragraphs
+  - paragraphs_previewer_popup
+  - path
+  - pathauto
+  - taxonomy
+  - text
+  - uky_base_eck_location
+  - uky_base_node
+  - user
+  - views
+package: uky_base

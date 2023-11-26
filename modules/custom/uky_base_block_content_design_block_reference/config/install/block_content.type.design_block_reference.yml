@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: design_block_reference
+label: 'Design block reference'
+revision: 0
+description: 'Insert a collection item (normally used in a slab) as a block'

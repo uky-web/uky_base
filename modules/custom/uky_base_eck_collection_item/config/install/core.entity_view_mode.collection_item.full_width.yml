@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  config: 
+    - eck.eck_entity_type.collection_item
+  module:
+    - eck
+id: collection_item.full_width
+label: 'Full width'
+targetEntityType: collection_item
+cache: true

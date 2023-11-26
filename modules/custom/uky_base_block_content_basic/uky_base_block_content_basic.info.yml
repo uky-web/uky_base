@@ -1,0 +1,9 @@
+name: UK Basic Block
+description: 'Provides base configuration for a basic block.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - uky_base_block_content
+  - field
+
+package: uky_base

@@ -1,0 +1,33 @@
+name: 'UK ECK Collection Item'
+description: 'Provides configuration for ECK Collection Item entity type.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - auto_entitylabel
+  - better_formats
+  - block_content
+  - chosen_field
+  - described_link
+  - entity_browser
+  - entity_browser_entity_form
+  - field
+  - field_group
+  - headline_group
+  - inline_entity_form
+  - link
+  - name
+  - node
+  - paragraphs
+  - telephone
+  - text
+  - uky_base_eck
+  - uky_base_user
+  - uky_base_media
+  # - uky_base_node_event
+  # - uky_base_node_news
+  # - uky_base_node_person
+  - user
+  - viewfield
+  - views
+
+package: uky_base

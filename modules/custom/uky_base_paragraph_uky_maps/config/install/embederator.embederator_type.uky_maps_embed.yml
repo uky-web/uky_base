@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: uky_maps_embed
+label: 'UKY Maps Embed'
+use_ssi: false
+embed_markup:
+  value: '<iframe width=100% height=[embederator:field_iframe_height] frameborder=0 scrolling=no marginheight=0 marginwidth=0 src=https://maps.uky.edu/campusmap/?app=campusmap&Bldg=[embederator:field_building_number]> </iframe>'
+  format: inline_html
+embed_url: ''
+wrapper_class: ''
+description: 'Used to embed maps from maps.uky.edu.  '

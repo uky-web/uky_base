@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.audio
+    - media.type.hosted_video
+    - media.type.image
+    - media.type.video
+  module:
+    - entity_embed
+    - media
+label: Media
+id: media
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles:
+    - audio
+    - hosted_video
+    - image
+    - video
+  display_plugins:
+    - 'view_mode:media.full_width'
+    - 'view_mode:media.half_width'
+  preview_display_plugin: 'view_mode:media.preview'
+  entity_browser: media_browser_iframe
+  entity_browser_settings:
+    display_review: false
+icon_uuid: null

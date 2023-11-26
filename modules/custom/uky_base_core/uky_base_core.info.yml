@@ -1,0 +1,31 @@
+name: UK Core
+description: 'Provides common modules and configuration required by other features.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - block
+  - block_content
+  - crop
+  - eck
+  - embederator
+  - entity_reference_revisions
+  - field
+  - file
+  - focal_point
+  - headline_group
+  - image
+  - link
+  - media
+  - menu_link_content
+  - name
+  - node
+  - paragraphs
+  - shortcut
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - tour
+  - user
+  - views
+package: uky_base

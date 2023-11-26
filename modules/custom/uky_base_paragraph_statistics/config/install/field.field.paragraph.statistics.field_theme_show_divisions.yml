@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_theme_show_divisions
+    - paragraphs.paragraphs_type.statistics
+  module:
+    - options
+id: paragraph.statistics.field_theme_show_divisions
+field_name: field_theme_show_divisions
+entity_type: paragraph
+bundle: statistics
+label: 'Show divisions'
+description: 'Divide statistic collections with separators'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: site_builder
+label: 'Site Builder'
+weight: 5
+is_admin: null
+permissions:
+  - 'access administration pages'
+

@@ -1,0 +1,9 @@
+name: 'UK ECK'
+description: 'Provides base configuration for all distribution Entity Construction Kit implementation'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - eck
+  - eck_autolabel
+
+package: uky_base

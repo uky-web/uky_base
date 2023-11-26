@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_theme_carousel_centered
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - options
+id: paragraph.carousel.field_theme_carousel_centered
+field_name: field_theme_carousel_centered
+entity_type: paragraph
+bundle: carousel
+label: Centered
+description: 'Use centered carousel style'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

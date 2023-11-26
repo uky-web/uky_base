@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility-navigation
+  module:
+    - block_visibility_groups
+    - menu_block
+  theme:
+    - ukd8
+id: utilitynavigation_3
+theme: ukd8
+region: mobile_tab_utility_nav
+weight: 0
+provider: null
+plugin: 'menu_block:utility-navigation'
+settings:
+  id: 'menu_block:utility-navigation'
+  label: 'Utility Navigation (mobile)'
+  provider: menu_block
+  label_display: visible
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'utility-navigation:'
+  suggestion: utility_navigation
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+    context_mapping: {  }

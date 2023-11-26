@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: person_node
+label: 'Person Node'
+logic: and
+conditions:
+  d46fb396-b9a3-45eb-912d-de6720d86f37:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: d46fb396-b9a3-45eb-912d-de6720d86f37
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      person: person
+allow_other_conditions: false

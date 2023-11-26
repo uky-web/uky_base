@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'News and Events Categories'
+vid: news_events_categories
+description: ''
+weight: 0

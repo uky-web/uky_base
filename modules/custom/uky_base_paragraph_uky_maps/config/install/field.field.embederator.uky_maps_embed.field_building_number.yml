@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - embederator.embederator_type.uky_maps_embed
+    - field.storage.embederator.field_building_number
+id: embederator.uky_maps_embed.field_building_number
+field_name: field_building_number
+entity_type: embederator
+bundle: uky_maps_embed
+label: 'Building Number'
+description: 'Enter the building number found on maps.uky.edu.  Ex. 0676 would be the Bill Gatton Student Center.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

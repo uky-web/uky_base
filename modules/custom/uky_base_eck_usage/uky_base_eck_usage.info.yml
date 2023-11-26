@@ -1,0 +1,10 @@
+name: 'UK ECK Usage Views'
+description: 'Provides Views of usage of ECK entities.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - uky_base_eck
+  - uky_base_eck_collection_item
+  - uky_base_paragraph
+
+package: uky_base

@@ -1,0 +1,96 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.page_header.full_width_3x1
+    - entity_browser.browser.media_browser_modal
+    - field.field.page_header.full_width_3x1.field_cta_link
+    - field.field.page_header.full_width_3x1.field_headline_group
+    - field.field.page_header.full_width_3x1.field_media
+    - field.field.page_header.full_width_3x1.field_secondary_link
+    - field.field.page_header.full_width_3x1.field_secondary_media
+    - field.field.page_header.full_width_3x1.field_theme_color_scheme
+  module:
+    - entity_browser
+    - field_group
+    - headline_group
+    - link
+third_party_settings:
+  field_group:
+    group_settings:
+      children:
+        - field_theme_color_scheme
+      parent_name: ''
+      weight: 0
+      format_type: settings
+      format_settings:
+        id: ''
+        classes: ''
+      label: Settings
+id: page_header.full_width_3x1.default
+targetEntityType: page_header
+bundle: full_width_3x1
+mode: default
+content:
+  field_cta_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_headline_group:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: headline_complete
+    region: content
+  field_media:
+    weight: 1
+    settings:
+      entity_browser: media_browser_modal
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: half_width
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_secondary_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_secondary_media:
+    weight: 5
+    settings:
+      entity_browser: media_browser_modal
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_theme_color_scheme:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  title: true

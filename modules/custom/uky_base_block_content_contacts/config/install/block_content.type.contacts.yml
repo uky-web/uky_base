@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: contacts
+label: Contacts
+revision: 0
+description: 'A set of contact blocks'

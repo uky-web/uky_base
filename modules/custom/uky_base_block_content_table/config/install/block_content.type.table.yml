@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: table
+label: Table
+revision: 0
+description: 'A two-column tabular presentation for e.g., name and phone number'

@@ -1,0 +1,11 @@
+langcode: en
+name: 'UKY Web Platform Project Template'
+mail: noreply@uky.edu
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

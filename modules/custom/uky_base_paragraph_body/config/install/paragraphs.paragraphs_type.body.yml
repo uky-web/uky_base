@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: body
+label: Body
+icon_uuid: null
+description: 'Rich text block'
+behavior_plugins: {  }

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - embederator
+id: embederator.token
+label: Token
+targetEntityType: embederator
+cache: true

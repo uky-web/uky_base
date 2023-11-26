@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.page_header
+name: 'Split hero (small)'
+type: split_header_16x9
+description: 'Hero-style 16x9 header split between text and image'

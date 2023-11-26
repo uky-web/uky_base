@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: editorial_aside
+label: 'Editorial Aside'
+icon_uuid: null
+description: 'Content with a floated aside'
+behavior_plugins: {  }

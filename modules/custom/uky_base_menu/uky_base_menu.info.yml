@@ -1,0 +1,12 @@
+name: 'UK Menu'
+description: 'Provides base configuration for all menu implementation'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  # - menu
+  - block
+  - block_visibility_groups
+  - easy_breadcrumb
+  - menu_block 
+
+package: uky_base

@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.collection_item.accordion_panel
+    - field.storage.paragraph.field_collection_items
+    - paragraphs.paragraphs_type.zipper
+id: paragraph.zipper.field_collection_items
+field_name: field_collection_items
+entity_type: paragraph
+bundle: zipper
+label: Panels
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:collection_item'
+  handler_settings:
+    target_bundles:
+      accordion_panel: accordion_panel
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

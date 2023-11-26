@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embederator.field_embed_type
+    - paragraphs.paragraphs_type.embederator
+  module:
+    - entity_browser_entity_form
+    - inline_entity_form
+id: paragraph.embederator.default
+targetEntityType: paragraph
+bundle: embederator
+mode: default
+content:
+  field_embed_type:
+    type: inline_entity_form_complex
+    weight: 0
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: true
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+hidden:
+  created: true
+  status: true

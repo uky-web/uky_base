@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility-nav
+  module:
+    - block_visibility_groups
+    - menu_block
+  theme:
+    - ukd8
+id: utilitynav
+theme: ukd8
+region: utility_nav
+weight: 0
+provider: null
+plugin: 'menu_block:utility-nav'
+settings:
+  id: 'menu_block:utility-nav'
+  label: 'Utility Nav'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: '0'
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'utility-nav:'
+  suggestion: utility_nav
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.collection_item
+name: Statistic
+type: statistic
+description: 'A large number or number-like phrase with some short explanation.'

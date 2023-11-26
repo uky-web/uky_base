@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.collection_item.content_reference
+    - field.field.collection_item.content_reference.field_content
+  module:
+    - chosen_field
+id: collection_item.content_reference.default
+targetEntityType: collection_item
+bundle: content_reference
+mode: default
+content:
+  field_content:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: chosen_select
+    region: content
+hidden:
+  title: true

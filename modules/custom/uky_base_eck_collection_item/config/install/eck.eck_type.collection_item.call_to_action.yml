@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.collection_item
+name: 'Call to Action'
+type: call_to_action
+description: 'A titled callout with a single button link out'

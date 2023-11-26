@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.page_header.full_width_3x1
+    - field.storage.page_header.field_theme_color_scheme
+id: page_header.full_width_3x1.field_theme_color_scheme
+field_name: field_theme_color_scheme
+entity_type: page_header
+bundle: full_width_3x1
+label: 'Color theme'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

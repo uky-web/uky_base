@@ -1,0 +1,156 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the uky_base installation profile.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function uky_base_install() {
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // We install some menu links, so we have to rebuild the router, to ensure the
+  // menu links are valid.
+  \Drupal::service('router.builder')->rebuildIfNeeded();
+
+  // Populate the default shortcut set.
+  $shortcut = Shortcut::create([
+    'shortcut_set' => 'default',
+    'title' => t('Add content'),
+    'weight' => -20,
+    'link' => ['uri' => 'internal:/node/add'],
+  ]);
+  $shortcut->save();
+
+  $shortcut = Shortcut::create([
+    'shortcut_set' => 'default',
+    'title' => t('All content'),
+    'weight' => -19,
+    'link' => ['uri' => 'internal:/admin/content'],
+  ]);
+  $shortcut->save();
+}
+
+
+
+/**
+ * Updates uky base to enable uky maps module.
+ *
+ */
+function uky_base_update_9201() {
+  // Update to enable uky maps moudle.
+
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_uky_maps']);
+}
+
+
+/**
+ * Install D10-related modules and uninstall color, and rdf.
+ */
+function uky_base_update_9202() {
+  
+  // Enable ckeditor 5 and admin_toolbar_tools
+  $module_list = array(
+    'admin_toolbar_tools',
+    'ckeditor5',
+    'upgrade_status'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+  
+  // Uninstall color and rdf
+  \Drupal::service('module_installer')->uninstall(['color']);
+  \Drupal::service('module_installer')->uninstall(['rdf']);
+}
+
+
+/**
+ * Update the field_page_header configuration.
+ */
+function uky_base_update_9203() {
+  // Enable uky_base_eck_page_header_small module
+  $module_list = array(
+    'uky_base_eck_page_header_small'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+  
+  // Set page content type page header field to include new header options
+  $config_name = 'field.field.node.page.field_page_header';
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  // Get the current 'target_bundles' settings.
+  $target_bundles = $config->get('settings.handler_settings.target_bundles');
+
+  // Define the new bundles to add.
+  $new_bundles = [
+    'full_width_3x1' => 'full_width_3x1',
+    'split_header_16x9' => 'split_header_16x9',
+  ];
+
+  // Merge the new bundles with the existing ones.
+  $target_bundles = array_merge($target_bundles, $new_bundles);
+
+  // Set the updated 'target_bundles' settings.
+  $config->set('settings.handler_settings.target_bundles', $target_bundles);
+
+  // Save the updated configuration.
+  $config->save();
+}
+
+
+/**
+ * Enable the CKEditor 4 module
+ */
+function uky_base_update_9204() {
+  
+  // Enable ckeditor 5 module
+  $module_list = array(
+    'ckeditor'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+}
+
+/**
+ * Enable the person_sidenav view
+ */
+function uky_base_update_9205() {
+  //empty string to store a message
+  $message = "";
+
+  //names of the configs to be updated
+  $config_names = ['block_visibility_groups.block_visibility_group.person_node', 'views.view.person_sidenav', 'block.block.views_block__person_sidenav_block_1'];
+  //obtain the path of these configs using getPath service
+  $path_to_module = \Drupal::service('extension.path.resolver')->getPath('module', 'uky_base_node_person');
+
+  //if the config is available, parse the yaml config and set it to the configFactory
+  foreach($config_names as $config_name) {
+  $config_path1 = $path_to_module . "/config/install/" .$config_name . ".yml";
+  $config_path2 = $path_to_module . "/config/optional/" .$config_name . ".yml";
+
+  if(file_exists($config_path1)) {
+    $data = Yaml::parseFile($config_path1);
+    \Drupal::configFactory()->getEditable($config_name)->setData($data)->save(TRUE);
+    $message .= "Config" .$config_name ."installed .\n";
+  } elseif (file_exists($config_path2)) {
+    $data = Yaml::parseFile($config_path2);
+    \Drupal::configFactory()->getEditable($config_name)->setData($data)->save(TRUE);
+    $message .= "Config" .$config_name ."installed .\n";
+  } else {
+    $message .= "Config update didn't work\n";
+  }
+ }
+
+ return $message;
+}

@@ -1,0 +1,5 @@
+name: 'UK ECK Page Header (Small)'
+description: 'Provides configuration for ECK Page Header 3x1 Full Width and 16x9 split entity type'
+type: module
+core_version_requirement: ^9.5 || ^10
+package: uky_base

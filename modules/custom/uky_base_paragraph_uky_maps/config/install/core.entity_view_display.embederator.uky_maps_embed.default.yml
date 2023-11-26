@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - embederator.embederator_type.uky_maps_embed
+    - field.field.embederator.uky_maps_embed.field_building_number
+    - field.field.embederator.uky_maps_embed.field_iframe_height
+  module:
+    - embederator
+id: embederator.uky_maps_embed.default
+targetEntityType: embederator
+bundle: uky_maps_embed
+mode: default
+content:
+  embed_id:
+    type: embederator_default
+    label: hidden
+    settings:
+      append_unique_id: false
+      nullify_cache: false
+      loadstyle: ''
+      initial_height: 500
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_building_number: true
+  field_iframe_height: true
+  label: true
+  user_id: true

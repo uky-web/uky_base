@@ -1,0 +1,10 @@
+name: 'UK Paragraphs'
+description: 'Provides common configuration for all Paragraphs implementation.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - paragraphs
+  - paragraphs_type_permissions
+  - uky_base_user
+  - uky_base_eck_collection_item
+package: uky_base

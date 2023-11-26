@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.collection_item
+name: 'Custom Teaser'
+type: custom_teaser
+description: 'Similar to a content reference, but a DIY teaser'

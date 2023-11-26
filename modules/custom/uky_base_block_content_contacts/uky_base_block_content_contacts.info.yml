@@ -1,0 +1,9 @@
+name: UK Contacts Block
+description: 'Provides base configuration for a contacts block.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - uky_base_block_content
+  - uky_base_eck_collection_item
+
+package: uky_base

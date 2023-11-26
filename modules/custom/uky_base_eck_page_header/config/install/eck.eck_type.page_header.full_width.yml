@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.page_header
+name: 'Full-width hero'
+type: full_width
+description: 'Full-width media with page header below'

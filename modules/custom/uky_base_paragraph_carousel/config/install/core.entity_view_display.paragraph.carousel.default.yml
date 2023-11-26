@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.carousel.field_body
+    - field.field.paragraph.carousel.field_collection_items
+    - field.field.paragraph.carousel.field_headline_group
+    - field.field.paragraph.carousel.field_theme_carousel_centered
+    - field.field.paragraph.carousel.field_theme_color_scheme
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - headline_group
+    - text
+id: paragraph.carousel.default
+targetEntityType: paragraph
+bundle: carousel
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_collection_items:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: full_width
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_headline_group:
+    type: headline_default
+    label: hidden
+    settings:
+      headline_group_tag: h2
+      headline_group_class: ''
+      headline_group_bem: '1'
+      headline_group_anchor: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_theme_carousel_centered: true
+  field_theme_color_scheme: true
+  search_api_excerpt: true

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  canonical_url: '[site:url]'
+  image_src: '[node:field_page_header:entity:field_media:entity:field_media_image:medium_16x9:url]'
+  og_image: '[node:field_page_header:entity:field_media:entity:field_media_image:medium_16x9:url]'
+  og_site_name: '[site:name] | University of Kentucky'
+  og_title: '[current-page:title] | [site:name]'
+  og_url: '[node:url]'
+  shortlink: '[site:url]'
+  twitter_cards_image: '[node:field_page_header:entity:field_media:entity:field_media_image:medium_16x9:url]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_site: '@ukcollegeoflaw'
+  twitter_cards_site_id: '260745925'
+  twitter_cards_title: '[current-page:title] | [site:name]'
+  twitter_cards_type: summary_large_image

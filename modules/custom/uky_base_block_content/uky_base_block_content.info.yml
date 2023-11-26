@@ -1,0 +1,11 @@
+name: UK Block Content
+description: 'Provides base configuration for block content entity implementation.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - block
+  - block_content
+  - field
+  - uky_base_eck_collection_item
+
+package: uky_base

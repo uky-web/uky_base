@@ -1,0 +1,10 @@
+name: UK Node
+description: 'Provides base configuration for node entity implementation.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - node
+  - override_node_options
+  - uky_base_eck_page_header
+  
+package: uky_base

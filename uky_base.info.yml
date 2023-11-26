@@ -1,0 +1,112 @@
+name: University of Kentucky Drupal Platform
+type: profile
+version: 3.99.0
+core_version_requirement: ^9.5 || ^10
+
+# Modules to install to support the profile but not make required.
+install:
+  - admin_toolbar_tools
+  - captcha
+  - contact
+  - file_delete
+  - fpa
+  - ldap
+  - ldap_authentication
+  - ldap_query
+  - ldap_servers
+  - ldap_user
+  - metatag
+  - metatag_facebook
+  - metatag_open_graph
+  - metatag_twitter_cards
+  - r4032login
+  - raven
+  - recaptcha
+  - update
+  - upgrade_status
+
+# Required modules.
+dependencies:
+  - admin_toolbar
+  - automated_cron
+  - ckeditor
+  - components
+  - config
+  - contextual
+  - dblog
+  - dynamic_page_cache
+  - embederator
+  - emergency_alerts
+  - field
+  - field_group
+  - field_group_settings
+  - field_ui
+  - file_browser
+  - fourxx_templates
+  - help
+  - history
+  - jquery_timepicker
+  - masquerade
+  - menu_block
+  - module_filter
+  - node
+  - page_cache
+  - permissions_filter
+  - redirect
+  - search
+  - shortcut
+  - system
+  - tab_toolbar
+  - ukd8_customizations
+  - uky_base_block
+  - uky_base_block_content
+  - uky_base_block_content_basic
+  - uky_base_block_content_contacts
+  - uky_base_block_content_design_block_reference
+  - uky_base_block_content_table
+  - uky_base_core
+  - uky_base_eck
+  - uky_base_eck_collection_item
+  - uky_base_eck_collection_item_content_reference
+  - uky_base_eck_location
+  - uky_base_eck_page_header
+  - uky_base_eck_page_header_small
+  - uky_base_editor
+  - uky_base_media
+  - uky_base_menu
+  - uky_base_node
+  - uky_base_node_event
+  - uky_base_node_news
+  - uky_base_node_page
+  - uky_base_node_person
+  - uky_base_paragraph
+  - uky_base_paragraph_2_1_slab
+  - uky_base_paragraph_body
+  - uky_base_paragraph_calls_to_action
+  - uky_base_paragraph_carousel
+  - uky_base_paragraph_custom_teasers
+  - uky_base_paragraph_editorial_aside
+  - uky_base_paragraph_feed
+  - uky_base_paragraph_flex_grid
+  - uky_base_paragraph_gallery
+  - uky_base_paragraph_link_lists
+  - uky_base_paragraph_media
+  - uky_base_paragraph_statistics
+  - uky_base_paragraph_uky_maps
+  - uky_base_paragraph_zipper
+  - uky_base_user
+  - uky_base_webform
+  - user
+  - views
+  - views_ui
+  - xmlsitemap
+  
+themes:
+  - ukd8
+  - claro
+  
+package: uky_base
+distribution:
+  name: UK Drupal Platform
+  # install:
+  #   theme: ukd8

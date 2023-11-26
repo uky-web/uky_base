@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.collection_item
+name: 'Definition List Item'
+type: definition_list_item
+description: 'A dt / dd pair'

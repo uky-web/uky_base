@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: 2_1_slab
+label: '*2:1 Slab'
+icon_uuid: null
+description: 'A content + aside slab'
+behavior_plugins: {  }

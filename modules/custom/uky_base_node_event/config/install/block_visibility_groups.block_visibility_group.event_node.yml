@@ -1,0 +1,15 @@
+langcode: en
+status: true
+id: event_node
+label: 'Event Node'
+logic: and
+conditions:
+  b07897b6-48b0-4952-b982-af51e10a64db:
+    id: 'entity_bundle:node'
+    bundles:
+      event: event
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uuid: b07897b6-48b0-4952-b982-af51e10a64db
+allow_other_conditions: false

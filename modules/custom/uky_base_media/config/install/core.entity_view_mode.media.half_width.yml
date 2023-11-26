@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.half_width
+label: 'Partial width'
+targetEntityType: media
+cache: true

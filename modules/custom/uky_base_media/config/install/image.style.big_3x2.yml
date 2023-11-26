@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: big_3x2
+label: 'Big 3x2'
+effects:
+  18fd500c-2594-4b01-8a7e-2b2cb1b1974f:
+    uuid: 18fd500c-2594-4b01-8a7e-2b2cb1b1974f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 400
+      crop_type: focal_point

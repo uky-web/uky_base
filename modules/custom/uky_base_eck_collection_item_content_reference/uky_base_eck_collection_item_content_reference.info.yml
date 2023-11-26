@@ -1,0 +1,11 @@
+name: 'UK ECK Collection Item Content References'
+description: 'Provides configuration for ECK Collection Item entity type content references.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - uky_base_eck_collection_item
+  - uky_base_node_event
+  - uky_base_node_news
+  - uky_base_node_person
+
+package: uky_base

@@ -1,0 +1,13 @@
+name: UK User
+description: 'Provide User related configuration.'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - field
+  - file
+  - image
+  - metatag
+  - path
+  - system
+  - user
+package: uky_base

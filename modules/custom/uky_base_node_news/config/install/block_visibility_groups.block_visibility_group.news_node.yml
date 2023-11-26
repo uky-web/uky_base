@@ -1,0 +1,15 @@
+langcode: en
+status: true
+id: news_node
+label: 'News Node'
+logic: and
+conditions:
+  d0b4d43a-ef48-4bf4-b094-5a859bf90196:
+    id: 'entity_bundle:node'
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uuid: d0b4d43a-ef48-4bf4-b094-5a859bf90196
+allow_other_conditions: false

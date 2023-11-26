@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.embederator.field_embed_type
+    - paragraphs.paragraphs_type.embederator
+id: paragraph.embederator.default
+targetEntityType: paragraph
+bundle: embederator
+mode: default
+content:
+  field_embed_type:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

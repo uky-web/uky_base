@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - headline_group
+    - node
+id: node.field_headline_group
+field_name: field_headline_group
+entity_type: node
+type: headline_group
+settings: {  }
+module: headline_group
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

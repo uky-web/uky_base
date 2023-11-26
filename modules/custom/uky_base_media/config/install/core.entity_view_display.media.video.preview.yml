@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.preview
+    - field.field.media.video.field_attribution
+    - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_tags
+    - media.type.video
+    - responsive_image.styles.half_width
+  module:
+    - responsive_image
+id: media.video.preview
+targetEntityType: media
+bundle: video
+mode: preview
+content:
+  thumbnail:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: half_width
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_attribution: true
+  field_media_video_file: true
+  field_tags: true
+  name: true
+  uid: true

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: file_entity_browser_thumbnail
+label: 'File Entity Browser thumbnail'
+effects:
+  d8f9d864-ff67-436a-ab23-a58940911c30:
+    uuid: d8f9d864-ff67-436a-ab23-a58940911c30
+    id: focal_point_scale_and_crop
+    weight: -9
+    data:
+      width: 350
+      height: 260
+      crop_type: focal_point
+  fa68c041-1ee0-4d16-a1f2-09de0b6fac3d:
+    uuid: fa68c041-1ee0-4d16-a1f2-09de0b6fac3d
+    id: image_scale
+    weight: -10
+    data:
+      width: 350
+      height: null
+      upscale: true

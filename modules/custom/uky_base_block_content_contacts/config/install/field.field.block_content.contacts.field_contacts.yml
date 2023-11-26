@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.contacts
+    - eck.eck_type.collection_item.contact_info
+    - field.storage.block_content.field_contacts
+id: block_content.contacts.field_contacts
+field_name: field_contacts
+entity_type: block_content
+bundle: contacts
+label: Contacts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:collection_item'
+  handler_settings:
+    target_bundles:
+      contact_info: contact_info
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

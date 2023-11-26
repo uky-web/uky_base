@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Module file for the uky_base_user module.
+ */
+
+use Drupal\uky_base_user\RolesHelper;
+
+function uky_base_user_modules_installed($modules){
+    foreach ($modules as $module){
+        RolesHelper::assignModuleRoles($module);
+    }
+}
+
+
+

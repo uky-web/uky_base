@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.big_3x1
+    - image.style.medium_3x1
+    - image.style.small_3x1
+  theme:
+    - ukd8
+id: 3x1
+label: 3x1
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: big_3x1
+    breakpoint_id: ukd8.large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: medium_3x1
+    breakpoint_id: ukd8.medium
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: small_3x1
+    breakpoint_id: ukd8.small
+    multiplier: 1x
+breakpoint_group: ukd8
+fallback_image_style: small_3x1

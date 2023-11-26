@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_lists.field_collection_items
+    - field.field.paragraph.link_lists.field_headline_group
+    - paragraphs.paragraphs_type.link_lists
+  module:
+    - headline_group
+id: paragraph.link_lists.default
+targetEntityType: paragraph
+bundle: link_lists
+mode: default
+content:
+  field_collection_items:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_headline_group:
+    weight: 0
+    label: hidden
+    settings:
+      headline_group_tag: h2
+      headline_group_class: ''
+      headline_group_bem: '1'
+    third_party_settings: {  }
+    type: headline_default
+    region: content
+hidden: {  }

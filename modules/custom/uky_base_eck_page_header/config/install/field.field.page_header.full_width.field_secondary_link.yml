@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.page_header.full_width
+    - field.storage.page_header.field_secondary_link
+  module:
+    - link
+id: page_header.full_width.field_secondary_link
+field_name: field_secondary_link
+entity_type: page_header
+bundle: full_width
+label: 'Secondary Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - uky_base_eck_page_header
+    - uky_base_eck_page_header_small
+  config:
+    - eck.eck_type.page_header.full_width
+    - eck.eck_type.page_header.split_header
+    - eck.eck_type.page_header.text_only
+    - field.storage.node.field_page_header
+    - node.type.page
+id: node.page.field_page_header
+field_name: field_page_header
+entity_type: node
+bundle: page
+label: 'Page Header'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:page_header'
+  handler_settings:
+    target_bundles:
+      full_width: full_width
+      full_width_3x1: full_width_3x1
+      split_header: split_header
+      split_header_16x9: split_header_16x9
+      text_only: text_only
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: full_width
+field_type: entity_reference

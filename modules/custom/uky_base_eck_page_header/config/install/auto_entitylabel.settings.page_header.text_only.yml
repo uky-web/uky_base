@@ -1,0 +1,7 @@
+status: '1'
+pattern: '[page_header:field_headline_group:headline]'
+php: 0
+escape: 0
+dependencies:
+  config:
+    - eck.eck_type.page_header.text_only

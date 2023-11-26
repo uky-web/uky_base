@@ -1,0 +1,15 @@
+langcode: en
+status: false
+dependencies: {  }
+id: uky_local_actions
+theme: ukd8
+region: content
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,9 @@
+name: UK Embederator Paragraph
+description: 'Provides an embederator paragraph type to embed maps from maps.uky.edu. '
+type: module
+core_version_requirement: ^9 || ^10
+bundle: uky_base
+dependencies:
+  - embederator
+  - paragraphs
+package: uky_base

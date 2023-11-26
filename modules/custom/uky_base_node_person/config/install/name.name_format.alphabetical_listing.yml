@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: alphabetical_listing
+label: 'Alphabetical Listing'
+locked: false
+pattern: 'f+(, )g (=(\()c-(\)))'
