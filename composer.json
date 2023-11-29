@@ -12,7 +12,7 @@
         }
     ],
     "support": {
-      "source": "https://gitlab.com/uky-web/university-web-platform/drupal-8/ukd8-install-profile"
+      "source": "https://github.com/uky-web/test_uky_base"
     },
     "repositories": [
       {
