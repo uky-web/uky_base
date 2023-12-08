@@ -1,6 +1,6 @@
 name: University of Kentucky Drupal Platform
 type: profile
-version: '3.99.0'
+version: '3.99.1'
 core_version_requirement: ^9.5 || ^10
 
 # Modules to install to support the profile but not make required.
