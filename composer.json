@@ -12,7 +12,7 @@
     }
   ],
   "support": {
-    "source": "https://github.com/uky-web/test_uky_base"
+    "source": "https://github.com/uky-web/uky_base"
   },
   "repositories": [
     {
@@ -132,7 +132,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^11.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.99.3"
+    "uky-web/ukd8": "^3.0.5"
   },
   "config": {
     "optimize-autoloader": true,
