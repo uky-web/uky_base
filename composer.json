@@ -44,7 +44,7 @@
     "drupal/block_visibility_groups": "^2.0.0",
     "drupal/bpmn_io": "^1.1",
     "drupal/captcha": "^1.0",
-    "drupal/chosen": "3.0.3",
+    "drupal/chosen": "^4.0.0",
     "drupal/ckeditor": "^1.0",
     "drupal/config_ignore": "^2.1",
     "drupal/config_split": "^1.7",
@@ -132,7 +132,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^11.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.0.5"
+    "uky-web/ukd8": "^3.0.6"
   },
   "config": {
     "optimize-autoloader": true,
