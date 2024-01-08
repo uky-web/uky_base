@@ -131,7 +131,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^11.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^v3.0.11"
+    "uky-web/ukd8": "^v3.0.12"
   },
   "config": {
     "optimize-autoloader": true,
