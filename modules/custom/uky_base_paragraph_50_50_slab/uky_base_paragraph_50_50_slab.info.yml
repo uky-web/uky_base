@@ -1,0 +1,8 @@
+name: UK 50 50 Slab Paragraph
+description: 'Provides a 50 50 slab paragraph type.'
+type: module
+core_version_requirement: ^10
+bundle: uky_base
+dependencies:
+  - paragraphs
+package: uky_base

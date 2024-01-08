@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.50_50_slab.field_aside
+    - field.field.paragraph.50_50_slab.field_background
+    - field.field.paragraph.50_50_slab.field_headline_group
+    - field.field.paragraph.50_50_slab.field_main
+    - paragraphs.paragraphs_type.50_50_slab
+  module:
+    - headline_group
+    - options
+id: paragraph.50_50_slab.default
+targetEntityType: paragraph
+bundle: 50_50_slab
+mode: default
+content:
+  field_aside:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_background:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_headline_group:
+    type: headline_default
+    label: hidden
+    settings:
+      headline_group_tag: div
+      headline_group_class: headline-group
+      headline_group_bem: true
+      headline_group_anchor: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_main:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

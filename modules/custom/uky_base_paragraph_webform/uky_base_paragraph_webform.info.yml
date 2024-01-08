@@ -1,0 +1,9 @@
+name: UK Webform Paragraph
+description: 'Provides a webform paragraph type.'
+type: module
+core_version_requirement: ^10
+bundle: uky_base
+dependencies:
+  - paragraphs
+  - webform
+package: uky_base

@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_background
+field_name: field_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: none
+    -
+      value: radial
+      label: radial
+    -
+      value: speckled
+      label: speckled
+    -
+      value: splash
+      label: splash
+    -
+      value: squares
+      label: squares
+    -
+      value: stone
+      label: stone
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

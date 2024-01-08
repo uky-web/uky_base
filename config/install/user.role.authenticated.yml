@@ -32,3 +32,6 @@ permissions:
   - 'view paragraph content media'
   - 'view paragraph content statistics'
   - 'view paragraph content zipper'
+  - 'view paragraph content pullquote'
+  - 'view paragraph content 50_50_slab'
+  - 'view paragraph content webform'

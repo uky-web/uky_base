@@ -42,9 +42,11 @@ function uky_base_install() {
     'link' => ['uri' => 'internal:/admin/content'],
   ]);
   $shortcut->save();
+
+  // Run update hooks that change default core config.
+  uky_base_update_9207();
+
 }
-
-
 
 /**
  * Updates uky base to enable uky maps module.
@@ -154,3 +156,82 @@ function uky_base_update_9205() {
 
  return $message;
 }
+
+/**
+ * Updates uky base to enable uky 50 50 slab paragraph, webform paragraph, and pullquote paragraph
+ */
+function uky_base_update_9206() {
+  // Update to enable uky maps module.
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_50_50_slab']);
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_pullquote']);
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_webform']);
+
+  // Define the permissions to be added to roles.
+  $view_permissions = [
+    'view paragraph content pullquote',
+    'view paragraph content 50_50_slab',
+    'view paragraph content webform',
+  ];
+
+  $create_update_delete_permissions = [
+    'create paragraph content 50_50_slab',
+    'create paragraph content pullquote',
+    'create paragraph content webform',
+    'delete paragraph content 50_50_slab',
+    'delete paragraph content pullquote',
+    'delete paragraph content webform',
+    'update paragraph content 50_50_slab',
+    'update paragraph content pullquote',
+    'update paragraph content webform',
+  ];
+
+  // Load roles using the RoleStorageInterface service.
+  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+
+  // Add permissions to 'authenticated' role.
+  $authenticated_role = $role_storage->load('authenticated');
+  if ($authenticated_role) {
+    user_role_grant_permissions($authenticated_role->id(), $view_permissions);
+  }
+
+  // Add permissions to 'anonymous' role.
+  $anonymous_role = $role_storage->load('anonymous');
+  if ($anonymous_role) {
+    user_role_grant_permissions($anonymous_role->id(), $view_permissions);
+  }
+
+  // Add additional permissions to 'content_editor' role.
+  $content_editor_role = $role_storage->load('content_editor');
+  if ($content_editor_role) {
+    user_role_grant_permissions($content_editor_role->id(), $create_update_delete_permissions);
+  }
+}
+
+
+/**
+ * Update function to modify the views.view.frontpage configuration to diable the /node view.
+ */
+function uky_base_update_9207() {
+  // Load the Config Factory service.
+  $configFactory = \Drupal::configFactory();
+
+  // Get the configuration for the views.view.frontpage.
+  $config = $configFactory->getEditable('views.view.frontpage');
+
+  // Check if the configuration has the 'status' key.
+  if ($config->get('status') !== null) {
+    // Update the 'status' value to false.
+    $config->set('status', FALSE);
+    
+    // Save the updated configuration.
+    $config->save();
+  }
+}
+
+/**
+ * Uninstall obsolete permissions_filter module
+ */
+function uky_base_update_9208() {
+  \Drupal::service('module_installer')->uninstall(['permissions_filter']);
+}
+

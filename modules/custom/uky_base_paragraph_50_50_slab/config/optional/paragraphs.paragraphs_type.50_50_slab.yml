@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: 50_50_slab
+label: '*50:50 Slab'
+icon_uuid: null
+icon_default: null
+description: 'Split component with media and call-to-action.'
+behavior_plugins: {  }

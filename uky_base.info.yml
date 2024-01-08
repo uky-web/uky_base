@@ -1,6 +1,6 @@
 name: University of Kentucky Drupal Platform
 type: profile
-version: '3.0.10'
+version: 'v3.0.11'
 core_version_requirement: ^9.5 || ^10
 
 # Modules to install to support the profile but not make required.
@@ -51,7 +51,6 @@ dependencies:
   - module_filter
   - node
   - page_cache
-  - permissions_filter
   - redirect
   - search
   - shortcut
@@ -81,6 +80,7 @@ dependencies:
   - uky_base_node_person
   - uky_base_paragraph
   - uky_base_paragraph_2_1_slab
+  - uky_base_paragraph_50_50_slab
   - uky_base_paragraph_body
   - uky_base_paragraph_calls_to_action
   - uky_base_paragraph_carousel
@@ -91,8 +91,10 @@ dependencies:
   - uky_base_paragraph_gallery
   - uky_base_paragraph_link_lists
   - uky_base_paragraph_media
+  - uky_base_paragraph_pullquote
   - uky_base_paragraph_statistics
   - uky_base_paragraph_uky_maps
+  - uky_base_paragraph_webform
   - uky_base_paragraph_zipper
   - uky_base_user
   - uky_base_webform

@@ -1,0 +1,8 @@
+name: UK Pullquote Paragraph
+description: 'Provides a pullquote paragraph type.'
+type: module
+core_version_requirement: ^10
+bundle: uky_base
+dependencies:
+  - paragraphs
+package: uky_base

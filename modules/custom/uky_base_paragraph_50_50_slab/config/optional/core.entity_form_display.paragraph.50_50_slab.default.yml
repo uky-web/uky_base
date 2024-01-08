@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.50_50_slab.field_aside
+    - field.field.paragraph.50_50_slab.field_background
+    - field.field.paragraph.50_50_slab.field_headline_group
+    - field.field.paragraph.50_50_slab.field_main
+    - paragraphs.paragraphs_type.50_50_slab
+  module:
+    - entity_browser_entity_form
+    - headline_group
+    - inline_entity_form
+id: paragraph.50_50_slab.default
+targetEntityType: paragraph
+bundle: 50_50_slab
+mode: default
+content:
+  field_aside:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+  field_background:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_headline_group:
+    type: headline_headline_only
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_main:
+    type: inline_entity_form_complex
+    weight: 1
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+hidden:
+  created: true
+  status: true
