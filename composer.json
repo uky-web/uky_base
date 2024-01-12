@@ -96,7 +96,6 @@
     "drupal/override_node_options": "^2.3",
     "drupal/paragraphs": "^1.0",
     "drupal/pathauto": "1.*",
-    "drupal/permissions_filter": "^1.1",
     "drupal/protected_pages": "^1.4",
     "drupal/quick_node_clone": "^1.15",
     "drupal/r4032login": "^2.2",
@@ -132,7 +131,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^11.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^v3.0.13"
+    "uky-web/ukd8": "^v3.0.14"
   },
   "config": {
     "optimize-autoloader": true,
