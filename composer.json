@@ -46,12 +46,12 @@
     "drupal/captcha": "^1.0",
     "drupal/chosen": "^4.0.0",
     "drupal/ckeditor": "^1.0",
-    "drupal/config_ignore": "^2.1",
+    "drupal/config_ignore": "^3.1",
     "drupal/config_split": "^1.7",
     "drupal/config_update": "^2.0@alpha",
     "drupal/content_access": "^2.0.0",
-    "drupal/core": "^10.1.0",
-    "drupal/core-composer-scaffold": "^10.1",
+    "drupal/core": "^10.2.1",
+    "drupal/core-composer-scaffold": "^10.2",
     "drupal/date_popup": "^2.0.0",
     "drupal/described_link": "^2.0.0",
     "drupal/easy_breadcrumb": "^2.0",
@@ -129,9 +129,9 @@
     "drupal/webform": "^6.2.0@beta",
     "drupal/webform_score": "^2.1",
     "drupal/xmlsitemap": "^1.1",
-    "drush/drush": "^11.0.0",
+    "drush/drush": "^12.4.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.0.15"
+    "uky-web/ukd8": "^3.0.16"
   },
   "config": {
     "optimize-autoloader": true,
