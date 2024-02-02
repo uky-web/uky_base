@@ -1,0 +1,12 @@
+uky_base_mega_menu.settings:
+  type: config_object
+  label: 'Mega Menu Settings'
+  mapping:
+    menu_type:
+      type: string
+      label: 'Menu Type'
+      constraints:
+        - Choice:
+            choices:
+              standard_menu: 'Standard Menu'
+              mega_menu: 'Mega Menu'

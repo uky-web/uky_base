@@ -1,0 +1,4 @@
+administer uky base mega menu settings:
+  title: 'Administer UKY Base Mega Menu settings'
+  description: 'Access to UKY Base Mega Menu configuration settings.'
+  restrict access: true

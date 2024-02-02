@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_featured
+    - system.menu.main
+id: menu_link_content.main.field_featured
+field_name: field_featured
+entity_type: menu_link_content
+bundle: main
+label: 'Featured Link?'
+description: 'Adds visual emphasis. Will also display the description on a line below the link. '
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

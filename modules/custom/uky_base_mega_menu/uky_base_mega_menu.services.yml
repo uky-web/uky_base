@@ -1,0 +1,8 @@
+services:
+  uky_base_mega_menu.form:
+    class: Drupal\uky_base_mega_menu\Form\MegaMenuSettingsForm
+    arguments:
+      - '@config.factory'
+      - '@block.repository'
+    tags:
+      - { name: form_type, id: 'uky_base_mega_menu.admin_settings' }

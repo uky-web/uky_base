@@ -1,0 +1,5 @@
+uky_base_mega_menu.settings:
+  title: 'UK Platform Menu Settings'
+  route_name: uky_base_mega_menu.admin_settings
+  description: 'Configure UK Platform Menu Settings.'
+  parent: system.admin_config

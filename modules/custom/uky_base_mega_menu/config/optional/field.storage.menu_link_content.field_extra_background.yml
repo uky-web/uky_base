@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_link_content
+    - options
+id: menu_link_content.field_extra_background
+field_name: field_extra_background
+entity_type: menu_link_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: radial
+      label: radial
+    -
+      value: speckled
+      label: speckled
+    -
+      value: splash
+      label: splash
+    -
+      value: squares
+      label: squares
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

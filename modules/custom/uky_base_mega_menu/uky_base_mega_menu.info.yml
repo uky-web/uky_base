@@ -1,0 +1,9 @@
+name: 'UK Mega Menu'
+description: 'Extends UK Menu to add Mega Menu functionality'
+type: module
+core_version_requirement: ^9.5 || ^10
+dependencies:
+  - uky_base_menu
+  - menu_item_extras
+
+package: uky_base

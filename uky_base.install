@@ -235,3 +235,114 @@ function uky_base_update_9208() {
   \Drupal::service('module_installer')->uninstall(['permissions_filter']);
 }
 
+/**
+ * uky_base - CKEditor5
+ */
+function uky_base_update_9209() {
+  
+  // Enable ckeditor 5 module
+  $module_list = array(
+    'ckeditor5'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+    
+  // // Define the directory path where config files are located.
+  // $config_directory = 'profiles/custom/uky_base/modules/custom/uky_base_editor/config/install';
+
+  // // Get the config factory service.
+  // $config_factory = \Drupal::configFactory();
+
+  // // Get a list of all the config files in the specified directory.
+  // $config_files = $config_factory->listAll($config_directory);
+
+  // // Iterate through each config file and import it.
+  // foreach ($config_files as $config_name) {
+  //   // Import the configuration.
+  //   \Drupal::service('config.importer')->import($config_name, TRUE);
+  // }
+
+  // Trigger a configuration synchronization.
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'uky_base_editor');
+
+
+  // Uninstall ckeditor 4 module
+  \Drupal::service('module_installer')->uninstall(['ckeditor']);
+
+  // Clear the cache.
+  drupal_flush_all_caches();
+
+}
+
+/**
+ * uky_base - Update People section menu view block offset to hide nodes
+ */
+function uky_base_update_9210() {
+  // Load the Config Factory service.
+  $configFactory = \Drupal::configFactory();
+
+  // Get the configuration for the views.view.frontpage.
+  $config = $configFactory->getEditable('views.view.person_sidenav');
+
+  // // Check if the configuration has the pager count
+  // if ($config->get('display.default.display_options.pager.options.offset') !== null) {
+  //   // Update the 'status' value to false.
+    $config->set('display.default.display_options.pager.options.offset', 9999);
+    
+    // Save the updated configuration.
+    $config->save();
+  // }
+}
+
+/**
+ * uky_base - Install UKY Base Mega Menu
+ */
+function uky_base_update_9211() {
+  
+  // Enable mega menu module
+  $module_list = array(
+    'uky_base_mega_menu'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Define the permissions to be added to roles.
+  $view_permissions = [
+    'administer uky base mega menu settings',
+  ];
+
+  // Load roles using the RoleStorageInterface service.
+  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+
+  // Add permissions to 'site builder' role.
+  $site_builder = $role_storage->load('site_builder');
+  if ($site_builder) {
+    user_role_grant_permissions($site_builder->id(), $view_permissions);
+  }
+
+}
+
+/**
+ * uky_base - Update file.settings.yml for file sanitization.
+ */
+function uky_base_update_9212() {
+
+  // Load the configuration service.
+  $config = \Drupal::configFactory()->getEditable('file.settings');
+
+  // Get the current filename_sanitization configuration.
+  $filename_sanitization_config = $config->get('filename_sanitization');
+
+  // Update the configuration values.
+  $filename_sanitization_config['transliterate'] = TRUE;
+  $filename_sanitization_config['replace_whitespace'] = TRUE;
+  $filename_sanitization_config['replace_non_alphanumeric'] = TRUE;
+  $filename_sanitization_config['deduplicate_separators'] = TRUE;
+  $filename_sanitization_config['lowercase'] = TRUE;
+
+  // Set the updated filename_sanitization configuration.
+  $config->set('filename_sanitization', $filename_sanitization_config);
+
+  // Save the updated configuration.
+  $config->save();
+
+}

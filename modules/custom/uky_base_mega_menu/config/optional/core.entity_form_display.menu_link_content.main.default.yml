@@ -1,0 +1,75 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.main.field_extra_background
+    - field.field.menu_link_content.main.field_extra_heading
+    - field.field.menu_link_content.main.field_extra_links
+    - field.field.menu_link_content.main.field_featured
+    - system.menu.main
+  module:
+    - field_group
+    - link
+third_party_settings:
+  field_group:
+    group_feature_callout_box:
+      children:
+        - field_extra_heading
+        - field_extra_background
+        - field_extra_links
+      label: 'Menu Callout (Top-Level Only)'
+      region: content
+      parent_name: ''
+      weight: 21
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: 'Callout box (with textured background) that appears on the far right. '
+        required_fields: true
+id: menu_link_content.main.default
+targetEntityType: menu_link_content
+bundle: main
+mode: default
+content:
+  field_extra_background:
+    type: options_buttons
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_extra_heading:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_extra_links:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_featured:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  view_mode: true

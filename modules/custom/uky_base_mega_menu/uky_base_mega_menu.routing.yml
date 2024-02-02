@@ -1,0 +1,7 @@
+uky_base_mega_menu.admin_settings:
+  path: '/admin/uky/menu'
+  defaults:
+    _form: '\Drupal\uky_base_mega_menu\Form\MegaMenuSettingsForm'
+    _title: 'Mega Menu Settings'
+  requirements:
+    _permission: 'administer uky base mega menu settings'

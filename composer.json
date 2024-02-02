@@ -84,6 +84,7 @@
     "drupal/masquerade": "2.*",
     "drupal/media_bulk_upload": "^3.0",
     "drupal/menu_block": "^1.5",
+    "drupal/menu_item_extras": "^2.16",
     "drupal/metatag": "^1.1",
     "drupal/migrate_plus": "^6.0",
     "drupal/migrate_source_csv": "^3.5",
@@ -131,7 +132,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^12.4.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.0.17"
+    "uky-web/ukd8": "^3.0.18"
   },
   "config": {
     "optimize-autoloader": true,
@@ -143,8 +144,14 @@
       "npm-asset"
     ],
     "patches": {
+      "drupal/core": {
+        "Missing Structure Menu Patch": "https://www.drupal.org/files/issues/2024-01-09/3413508-2.patch"
+      },
       "drupal/linkit": {
         "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch"
+      },
+      "drupal/stage_file_proxy": {
+        "disable in config export": "https://www.drupal.org/files/issues/2019-11-18/disable_fetching-2864016-26.patch"
       }
     },
     "composer-exit-on-patch-failure": true,
