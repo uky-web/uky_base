@@ -289,7 +289,6 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'administer taxonomy_term display',
         'administer taxonomy_term fields',
         'administer taxonomy_term form display',
-        'administer uky base mega menu settings',
         'administer views',
         'administer webform',
         'bypass eck entity access',

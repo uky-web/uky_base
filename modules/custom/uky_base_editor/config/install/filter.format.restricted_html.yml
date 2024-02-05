@@ -1,4 +1,3 @@
-uuid: c5ba8234-6cb4-4646-8c56-b9a0d1312d1e
 langcode: en
 status: true
 dependencies:
@@ -8,7 +7,7 @@ dependencies:
     - linkit
     - media
 _core:
-  default_config_hash: gEknBrTS2amUd83U0CLOqo9zrzBOnuS1TMYWCRYWVTA
+  default_config_hash: 8NU5yHZtX3CnvPZ6JLUlHK1vE3UI6Ltcgi29KxCDUXQ
 name: 'Restricted HTML'
 format: restricted_html
 weight: -8
@@ -49,7 +48,7 @@ filters:
     status: true
     weight: -50
     settings:
-      allowed_html: '<br> <p class="intro" id> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a class="link--fancy" hreflang title href data-entity-type data-entity-uuid data-entity-substitution> <table class="content-table"> <div class="table-wrapper"> <cite> <dl> <dt> <dd> <blockquote cite> <ul type> <ol type start> <drupal-entity data-entity-type data-embed-button alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode> <strong> <em> <li> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption>'
+      allowed_html: '<br> <p class="intro" id> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a class="link--fancy" hreflang title href data-entity-type data-entity-uuid data-entity-substitution> <table class="content-table"> <div class="table-wrapper"> <cite> <dl> <dt> <dd> <blockquote cite> <ul type> <ol type start> <drupal-entity data-entity-type data-embed-button alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode> <strong> <em> <sub> <sup> <li> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_escape:

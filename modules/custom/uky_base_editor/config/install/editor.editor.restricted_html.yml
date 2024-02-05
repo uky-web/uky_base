@@ -1,4 +1,3 @@
-uuid: c3c263b5-b1d9-4450-8d52-346771154227
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,8 @@ dependencies:
     - filter.format.restricted_html
   module:
     - ckeditor5
+_core:
+  default_config_hash: CdHuTHFHOlQ4QQuTuiQvWDYEe_zUrVKySxp19HejkmU
 format: restricted_html
 editor: ckeditor5
 settings:
@@ -15,6 +16,9 @@ settings:
       - italic
       - style
       - heading
+      - subscript
+      - superscript
+      - removeFormat
       - '|'
       - link
       - '|'
