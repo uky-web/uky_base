@@ -294,37 +294,11 @@ function uky_base_update_9210() {
   // }
 }
 
-/**
- * uky_base - Install UKY Base Mega Menu
- */
-function uky_base_update_9211() {
-  
-  // Enable mega menu module
-  $module_list = array(
-    'uky_base_mega_menu'
-  );
-  \Drupal::service('module_installer')->install($module_list);
-
-  // Define the permissions to be added to roles.
-  $view_permissions = [
-    'administer uky base mega menu settings',
-  ];
-
-  // Load roles using the RoleStorageInterface service.
-  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
-
-  // Add permissions to 'site builder' role.
-  $site_builder = $role_storage->load('site_builder');
-  if ($site_builder) {
-    user_role_grant_permissions($site_builder->id(), $view_permissions);
-  }
-
-}
 
 /**
  * uky_base - Update file.settings.yml for file sanitization.
  */
-function uky_base_update_9212() {
+function uky_base_update_9211() {
 
   // Load the configuration service.
   $config = \Drupal::configFactory()->getEditable('file.settings');
