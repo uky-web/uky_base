@@ -1,6 +1,6 @@
 name: University of Kentucky Drupal Platform
 type: profile
-version: '3.0.20'
+version: '3.1.0'
 core_version_requirement: ^9.5 || ^10
 
 # Modules to install to support the profile but not make required.
@@ -72,6 +72,7 @@ dependencies:
   - uky_base_eck_page_header_small
   - uky_base_editor
   - uky_base_media
+  - uky_base_mega_menu
   - uky_base_menu
   - uky_base_node
   - uky_base_node_event
