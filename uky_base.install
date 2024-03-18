@@ -348,3 +348,14 @@ function uky_base_update_9212() {
   }
 
 }
+
+/**
+ * uky_base - Install Limestone Module
+ */
+function uky_base_update_9213() {
+  
+  $module_list = array(
+    'limestone'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+}
