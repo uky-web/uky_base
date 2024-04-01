@@ -7,12 +7,12 @@ type: ad
 address: gc.ad.uky.edu
 port: 3268
 timeout: 10
-tls: false
-followrefs: null
+encryption: none
 weight: null
 bind_method: service_account
 binddn: ldp_ukit_drupal
-basedn: 'dc=uky,dc=edu'
+basedn:
+  - 'dc=uky,dc=edu'
 user_attr: samaccountname
 account_name_attr: ''
 mail_attr: mail
@@ -30,9 +30,7 @@ grp_user_memb_attr_exists: false
 grp_user_memb_attr: ''
 grp_memb_attr: ''
 grp_memb_attr_match_user_attr: ''
-grp_derive_from_dn: '0'
+grp_derive_from_dn: false
 grp_derive_from_dn_attr: ''
 grp_test_grp_dn: ''
 grp_test_grp_dn_writeable: ''
-search_pagination: false
-search_page_size: null

@@ -1,12 +1,13 @@
+langcode: en
 sids:
   ukad: ukad
-authenticationMode: 2
-loginUIUsernameTxt: ''
-loginUIPasswordTxt: ''
-ldapUserHelpLinkUrl: ''
-ldapUserHelpLinkText: ''
-emailOption: 3
-emailUpdate: 1
+authenticationMode: exclusive
+loginUIUsernameTxt: 'Enter your linkblue ID (e.g., wldct234). Do not include @uky.edu.'
+loginUIPasswordTxt: 'Enter your linkblue password.'
+ldapUserHelpLinkUrl: 'https://uky.edu/linkblue/'
+ldapUserHelpLinkText: 'Need Assistance? Visit the linkblue help page.'
+emailOption: disable
+emailUpdate: update_notify
 emailTemplateHandling: none
 emailTemplate: '@username@example.com'
 emailTemplateUsageResolveConflict: false
@@ -14,10 +15,8 @@ emailTemplateUsageNeverUpdate: false
 emailTemplateUsagePromptUser: false
 emailTemplateUsageRedirectOnLogin: false
 emailTemplateUsagePromptRegex: '.*@example\\.com'
-passwordOption: 3
+passwordOption: hide
 allowOnlyIfTextInDn: {  }
 excludeIfTextInDn: {  }
-excludeIfNoAuthorizations: 0
-langcode: en
-_core:
-  default_config_hash: hSFOSjTAPcCBordJmChil6mui8q7uLwYfc5STlXL0yY
+excludeIfNoAuthorizations: false
+skipAdministrators: false
