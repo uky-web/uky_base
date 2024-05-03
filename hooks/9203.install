@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Enable uky_base_eck_page_header_small module
+  $module_list = array(
+    'uky_base_eck_page_header_small'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Set page content type page header field to include new header options
+  $config_name = 'field.field.node.page.field_page_header';
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  // Get the current 'target_bundles' settings.
+  $target_bundles = $config->get('settings.handler_settings.target_bundles');
+
+  // Define the new bundles to add.
+  $new_bundles = [
+    'full_width_3x1' => 'full_width_3x1',
+    'split_header_16x9' => 'split_header_16x9',
+  ];
+
+  // Merge the new bundles with the existing ones.
+  $target_bundles = array_merge($target_bundles, $new_bundles);
+
+  // Set the updated 'target_bundles' settings.
+  $config->set('settings.handler_settings.target_bundles', $target_bundles);
+
+  // Save the updated configuration.
+  $config->save();

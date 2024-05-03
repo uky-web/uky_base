@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Enable mega menu module
+  $module_list = array(
+    'uky_base_mega_menu'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Define the permissions to be added to roles.
+  $view_permissions = [
+    'administer uky base mega menu settings',
+  ];
+
+  // Load roles using the RoleStorageInterface service.
+  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+
+  // Add permissions to 'site builder' role.
+  $site_builder = $role_storage->load('site_builder');
+  if ($site_builder) {
+    user_role_grant_permissions($site_builder->id(), $view_permissions);
+  }

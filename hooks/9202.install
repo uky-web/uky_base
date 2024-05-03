@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+// Enable ckeditor 5 and admin_toolbar_tools
+  $module_list = array(
+    'admin_toolbar_tools',
+    'ckeditor5',
+    'upgrade_status'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Uninstall color and rdf
+  \Drupal::service('module_installer')->uninstall(['color']);
+  \Drupal::service('module_installer')->uninstall(['rdf']);

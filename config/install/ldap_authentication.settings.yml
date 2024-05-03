@@ -3,7 +3,7 @@ sids:
   ukad: ukad
 authenticationMode: exclusive
 loginUIUsernameTxt: 'Enter your linkblue ID (e.g., wldct234). Do not include @uky.edu.'
-loginUIPasswordTxt: 'Enter your linkblue password.'
+loginUIPasswordTxt: 'Enter your linkblue password.<br /><p>Need Assistance?  <a href="https://www.uky.edu/linkblue/">Visit the linkblue help page.</a></p>'
 ldapUserHelpLinkUrl: 'https://uky.edu/linkblue/'
 ldapUserHelpLinkText: 'Need Assistance? Visit the linkblue help page.'
 emailOption: disable

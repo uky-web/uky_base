@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Enable ckeditor 5 module
+  $module_list = array(
+    'ckeditor5'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Trigger a configuration synchronization.
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'uky_base_editor');
+
+  // Uninstall ckeditor 4 module
+  \Drupal::service('module_installer')->uninstall(['ckeditor']);

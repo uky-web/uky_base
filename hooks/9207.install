@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Load the Config Factory service.
+  $configFactory = \Drupal::configFactory();
+
+  // Get the configuration for the views.view.frontpage.
+  $config = $configFactory->getEditable('views.view.frontpage');
+
+  // Check if the configuration has the 'status' key.
+  if ($config->get('status') !== null) {
+    // Update the 'status' value to false.
+    $config->set('status', FALSE);
+
+    // Save the updated configuration.
+    $config->save();
+  }

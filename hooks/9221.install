@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  // Specify path of config file to import
+  $config_file = 'profiles/custom/uky_base/modules/custom/uky_base_menu/config/optional/block.block.utilitynav_mobile.yml';
+
+  // Load the Config Factory service
+  $configFactory = \Drupal::configFactory();
+
+  // Check if the config file exists before importing
+  if (file_exists($config_file)) {
+    // Load config into an object
+    // Should be an empty config set since this is a new block placement
+    $config_name = str_replace('.yml', '', basename($config_file));
+    $config = $configFactory->getEditable($config_name);
+    // Parse YAML
+    $yaml_content = file_get_contents($config_file);
+    $parsed_yaml = Yaml::parse($yaml_content);
+    // Save config with settings from the file
+    $config->setData($parsed_yaml)->save();
+  }

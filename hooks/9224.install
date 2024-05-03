@@ -1,0 +1,50 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+
+  $config_factory = \Drupal::configFactory();
+
+  // Define locations for current/new config
+  $config = [
+    'cur' => [
+      'view' => $config_factory->getEditable('views.view.events'),
+      'block' => $config_factory->getEditable('block.block.ukd8_views_block__events_block_past_events'),
+    ],
+    'new' => [
+      'view' => 'profiles/custom/uky_base/modules/custom/uky_base_node_event/config/install/views.view.events.yml',
+      'block' => 'profiles/custom/uky_base/modules/custom/uky_base_node_event/config/optional/block.block.ukd8_views_block__events_block_past_events.yml',
+    ]
+  ];
+
+  // Load/parse current and new config into arrays
+  $config_cur_view_data = $config['cur']['view']->get();
+  $config_cur_block_data = $config['cur']['block']->get();
+  $config_new_view_data = Yaml::parseFile($config['new']['view']);
+  $config_new_block_data = Yaml::parseFile($config['new']['block']);
+
+  // Update upcoming events page admin title
+  if (isset($config_cur_view_data['display']['page_1'])) {
+    $config_cur_view_data['display']['page_1']['display_title'] = 'Upcoming Events Page';
+  }
+
+  // Create block/page for view if they don't exist already
+  if (!isset($config_cur_view_data['display']['block_past_events'])) {
+    $config_cur_view_data['display']['block_past_events'] = $config_new_view_data['display']['block_past_events'];
+  }
+  if (!isset($config_cur_view_data['display']['page_past_events'])) {
+    $config_cur_view_data['display']['page_past_events'] = $config_new_view_data['display']['page_past_events'];
+  }
+
+  // Add block to sidebar if not already defined
+  if (!isset($config_cur_block_data['id'])) {
+    $config_cur_block_data = $config_new_block_data;
+  }
+
+  // Save updated config
+  $config['cur']['view']->setData($config_cur_view_data)->save();
+  $config['cur']['block']->setData($config_cur_block_data)->save();

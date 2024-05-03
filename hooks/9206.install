@@ -1,0 +1,50 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_50_50_slab']);
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_pullquote']);
+  \Drupal::service('module_installer')->install(['uky_base_paragraph_webform']);
+
+  // Define the permissions to be added to roles.
+  $view_permissions = [
+    'view paragraph content pullquote',
+    'view paragraph content 50_50_slab',
+    'view paragraph content webform',
+  ];
+
+  $create_update_delete_permissions = [
+    'create paragraph content 50_50_slab',
+    'create paragraph content pullquote',
+    'create paragraph content webform',
+    'delete paragraph content 50_50_slab',
+    'delete paragraph content pullquote',
+    'delete paragraph content webform',
+    'update paragraph content 50_50_slab',
+    'update paragraph content pullquote',
+    'update paragraph content webform',
+  ];
+
+  // Load roles using the RoleStorageInterface service.
+  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+
+  // Add permissions to 'authenticated' role.
+  $authenticated_role = $role_storage->load('authenticated');
+  if ($authenticated_role) {
+    user_role_grant_permissions($authenticated_role->id(), $view_permissions);
+  }
+
+  // Add permissions to 'anonymous' role.
+  $anonymous_role = $role_storage->load('anonymous');
+  if ($anonymous_role) {
+    user_role_grant_permissions($anonymous_role->id(), $view_permissions);
+  }
+
+  // Add additional permissions to 'content_editor' role.
+  $content_editor_role = $role_storage->load('content_editor');
+  if ($content_editor_role) {
+    user_role_grant_permissions($content_editor_role->id(), $create_update_delete_permissions);
+  }

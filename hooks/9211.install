@@ -1,0 +1,25 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Load the configuration service.
+  $config = \Drupal::configFactory()->getEditable('file.settings');
+
+  // Get the current filename_sanitization configuration.
+  $filename_sanitization_config = $config->get('filename_sanitization');
+
+  // Update the configuration values.
+  $filename_sanitization_config['transliterate'] = TRUE;
+  $filename_sanitization_config['replace_whitespace'] = TRUE;
+  $filename_sanitization_config['replace_non_alphanumeric'] = TRUE;
+  $filename_sanitization_config['deduplicate_separators'] = TRUE;
+  $filename_sanitization_config['lowercase'] = TRUE;
+
+  // Set the updated filename_sanitization configuration.
+  $config->set('filename_sanitization', $filename_sanitization_config);
+
+  // Save the updated configuration.
+  $config->save();

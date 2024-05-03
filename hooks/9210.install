@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Load the Config Factory service.
+  $configFactory = \Drupal::configFactory();
+
+  // Get the configuration for the views.view.frontpage.
+  $config = $configFactory->getEditable('views.view.person_sidenav');
+
+  // Set the value
+  $config->set('display.default.display_options.pager.options.offset', 9999);
+
+  // Save the updated configuration.
+  $config->save();

@@ -1,0 +1,79 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  // Load the views config factory service.
+  $config_factory = \Drupal::configFactory();
+
+  // Load the content_teaser_grids view config.
+  $view_config = $config_factory->getEditable('views.view.content_teaser_grids');
+
+  // Get the existing filter configuration.
+  $filters = $view_config->get('display.block_2.display_options.filters');
+
+  // Define the new filter configuration.
+  $new_filter = [
+    'field_dates_end_value' => [
+      'id' => 'field_dates_end_value',
+      'operator' => '>=',
+      'field' => 'field_dates_end_value',
+      'relationship' => 'none',
+      'group_type' => 'group',
+      'admin_label' => '',
+      'plugin_id' => 'datetime',
+      'table' => 'node__field_dates',
+      'group' => 1,
+      'exposed' => false,
+      'is_grouped' => false,
+      'value' => [
+        'type' => 'date',
+        'min' => '',
+        'max' => '',
+        'value' => 'now',
+      ],
+      'group_info' => [
+        'label' => '',
+        'description' => '',
+        'identifier' => '',
+        'optional' => true,
+        'widget' => 'select',
+        'multiple' => false,
+        'remember' => false,
+        'default_group' => 'All',
+        'default_group_multiple' => [],
+        'group_items' => [],
+      ],
+      'expose' => [
+        'operator_id' => '',
+        'label' => '',
+        'description' => '',
+        'use_operator' => false,
+        'operator' => '',
+        'operator_limit_selection' => false,
+        'operator_list' => [],
+        'identifier' => '',
+        'required' => false,
+        'remember' => false,
+        'multiple' => false,
+        'remember_roles' => [
+          'authenticated' => 'authenticated',
+        ],
+        'min_placeholder' => '',
+        'max_placeholder' => '',
+        'placeholder' => '',
+      ],
+    ],
+  ];
+
+  // Merge the new filter configuration with existing filters.
+  $filters = array_merge($filters, $new_filter);
+
+  // Set the updated filters configuration.
+  $view_config->set('display.block_2.display_options.filters', $filters);
+
+  // Save the updated view config.
+  $view_config->save();

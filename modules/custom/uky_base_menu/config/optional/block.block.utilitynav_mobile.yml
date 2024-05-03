@@ -2,30 +2,32 @@ langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.utility-navigation
+    - system.menu.utility-nav
   module:
     - block_visibility_groups
     - menu_block
   theme:
     - ukd8
-id: utilitynavigation_3
+id: utilitynav_mobile
 theme: ukd8
 region: mobile_tab_utility_nav
 weight: 0
 provider: null
-plugin: 'menu_block:utility-navigation'
+plugin: 'menu_block:utility-nav'
 settings:
-  id: 'menu_block:utility-navigation'
-  label: 'Utility Navigation (mobile)'
+  id: 'menu_block:utility-nav'
+  label: 'Utility Nav (mobile)'
   provider: menu_block
-  label_display: visible
+  label_display: '0'
   follow: false
   follow_parent: child
   level: 1
   depth: 0
+  label_link: false
+  label_type: block
   expand: false
-  parent: 'utility-navigation:'
-  suggestion: utility_navigation
+  parent: 'utility-nav:'
+  suggestion: utility_nav
 visibility:
   condition_group:
     id: condition_group

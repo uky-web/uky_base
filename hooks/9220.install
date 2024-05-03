@@ -1,0 +1,39 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  \Drupal::service('module_installer')->install(['webp']);
+  // Specify the paths of the configuration files.
+  $config_files = [
+    'profiles/custom/uky_base/modules/custom/uky_base_media/config/install/core.entity_view_mode.media.webp.yml',
+    'profiles/custom/uky_base/modules/custom/uky_base_media/config/install/core.entity_view_display.media.image.webp.yml',
+    'profiles/custom/uky_base/modules/custom/uky_base_media/config/install/image.style.webp.yml'
+  ];
+  // Get the config factory service.
+  $config_factory = \Drupal::service('config.factory');
+  // Import each specified configuration file.
+  foreach ($config_files as $config_file) {
+    // Check if the file exists before importing.
+    if (file_exists($config_file)) {
+      // Load the configuration object.
+      $config_name = str_replace('.yml', '', basename($config_file));
+      $config = $config_factory->getEditable($config_name);
+      // Parse YAML file.
+      $yaml_content = file_get_contents($config_file);
+      $parsed_yaml = Yaml::parse($yaml_content);
+      // Import configuration.
+      $config->setData($parsed_yaml)->save();
+    }
+  }
+  // Get the configuration object for core.entity_view_display.node.person.default.
+  $config = \Drupal::configFactory()->getEditable('core.entity_view_display.node.person.default');
+  // Get the current content array.
+  $content = $config->get('content');
+  // Update the field_media settings if it exists.
+  $content['field_media']['settings']['view_mode'] = 'webp';
+  // Save the updated configuration.
+  $config->set('content', $content)->save();

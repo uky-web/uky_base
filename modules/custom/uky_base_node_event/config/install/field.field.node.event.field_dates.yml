@@ -12,7 +12,7 @@ entity_type: node
 bundle: event
 label: Dates
 description: 'Start and optional end datetime for event'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

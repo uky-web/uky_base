@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+//enable the module
+    $module_list = array(
+      'view_unpublished'
+    );
+    \Drupal::service('module_installer')->install($module_list);
+
+  // Define the permissions to be added to roles.
+  $new_permissions = [
+    'view any unpublished content'
+  ];
+
+  // Load roles using the RoleStorageInterface service.
+  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+
+  // Apply permissions to roles
+  $content_editor_role = $role_storage->load('content_editor');
+  if ($content_editor_role) {
+    user_role_grant_permissions($content_editor_role->id(), $new_permissions);
+  }
+
+  $content_manager_role = $role_storage->load('content_manager');
+  if ($content_manager_role) {
+    user_role_grant_permissions($content_manager_role->id(), $new_permissions);
+  }
+
+  $site_builder_role = $role_storage->load('site_builder');
+  if ($site_builder_role) {
+    user_role_grant_permissions($site_builder_role->id(), $new_permissions);
+  }

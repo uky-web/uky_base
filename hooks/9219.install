@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('field.storage.node.field_dates');
+
+  // Set the optional_end_date to true.
+  $settings = $config->get('settings');
+  $settings['optional_end_date'] = TRUE;
+  $config->set('settings', $settings);
+
+  // Save the updated configuration.
+  $config->save();

@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  $files = ['field.field.media.audio.field_media_audio_file', 'field.field.media.image.field_media_image', 'field.field.media.video.field_media_video_file'];
+
+    // Iterate over each file configuration and update the max_filesize.
+    foreach ($files as $file) {
+        // Load the configuration for the field.
+        $config = \Drupal::configFactory()->getEditable($file);
+        
+        // Check if the configuration exists before attempting to save.
+        if ($config) {
+            // Update the max_filesize setting.
+            $config->set('settings.max_filesize', '100 MB')->save();
+        }
+    }

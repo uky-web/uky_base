@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  // Load the configuration for the field.
+  $config = \Drupal::configFactory()->getEditable('field.field.media.file.field_media_file');
+  
+  // Update the file_extensions setting.
+  $config->set('settings.file_extensions', 'txt rtf doc docx ppt pptx xls xlsx pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages zip csv')
+         ->set('settings.max_filesize', '100 MB')
+         ->save();

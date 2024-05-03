@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+  // Load the Config Factory service.
+  $configFactory = \Drupal::configFactory();
+
+  // Get the configuration for the field.field.node.event.field_dates.
+  $config = $configFactory->getEditable('field.field.node.event.field_dates');
+
+  // Update the 'required' value to true.
+  $config->set('required', true);
+
+  // Save the updated configuration.
+  $config->save();

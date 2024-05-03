@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+$module_list = array(
+    'limestone'
+  );
+  \Drupal::service('module_installer')->install($module_list);

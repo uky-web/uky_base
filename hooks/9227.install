@@ -1,0 +1,67 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Url;
+
+
+  // Uninstall the xmlsitemap module
+  \Drupal::service('module_installer')->uninstall(['xmlsitemap']);
+
+  // Install the simple_sitemap module
+  $module_list = array(
+    'simple_sitemap'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+
+  // Install the config for simple_sitemap
+  $config_files = [
+    'simple_sitemap.bundle_settings.default.node.event',
+    'simple_sitemap.bundle_settings.default.node.news',
+    'simple_sitemap.bundle_settings.default.node.page',
+    'simple_sitemap.bundle_settings.default.node.person',
+  ];
+
+  // Get the active configuration storage.
+  $config_storage = \Drupal::service('config.storage');
+
+  // Install each config file.
+  foreach ($config_files as $config_name) {
+    // Check if the config file already exists.
+    if ($config_storage->exists($config_name)) {
+      continue;
+    }
+
+    // Get the path to the config file.
+    $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+    $config_path = $module_path . '/config/install/' . $config_name . '.yml';
+
+    // Load the YAML file.
+    $yaml_contents = file_get_contents($config_path);
+    $config_data = Yaml::parse($yaml_contents);
+
+    // Save the configuration.
+    $config_storage->write($config_name, $config_data);
+  }
+
+  // Set the base_url in the simple_sitemap.settings.yml
+
+    // Load and edit the active configuration of simple_sitemap.settings.
+    $config = \Drupal::service('config.factory')->getEditable('simple_sitemap.settings');
+
+    // Set the base URL in the configuration.
+    $config->set('base_url', "")->save();
+
+  // Set the permissions for simple_sitemap for site_builder role.
+    $config_factory = \Drupal::service('config.factory');
+    $config = $config_factory->getEditable('user.role.site_builder');
+  
+    // Get the current permissions and add the new permission if it doesn't already exist.
+    $permissions = $config->get('permissions') ?: [];
+    if (!in_array('administer sitemap settings', $permissions)) {
+      $permissions[] = 'administer sitemap settings';
+      $config->set('permissions', $permissions)->save();
+    }

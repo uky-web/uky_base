@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+$role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+// Define the permissions to be added to roles.
+$new_permissions = [
+ 'bypass field_group_settings field visibility'
+];
+// Add additional permissions to 'content_editor' role.
+$content_editor_role = $role_storage->load('content_editor');
+if ($content_editor_role) {
+ user_role_grant_permissions($content_editor_role->id(), $new_permissions);
+}

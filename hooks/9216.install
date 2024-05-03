@@ -1,0 +1,106 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  //enable the module
+  $module_list = array(
+    'file_replace'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Define the permissions to be added to roles.
+  $new_permissions = [
+    'replace files'
+  ];
+
+  // Load roles using the RoleStorageInterface service.
+  $role_storage = \Drupal::entityTypeManager()->getStorage('user_role');
+
+  // Apply permissions to roles
+  $content_editor_role = $role_storage->load('content_editor');
+  if ($content_editor_role) {
+    user_role_grant_permissions($content_editor_role->id(), $new_permissions);
+  }
+
+  $content_manager_role = $role_storage->load('content_manager');
+  if ($content_manager_role) {
+    user_role_grant_permissions($content_manager_role->id(), $new_permissions);
+  }
+
+  $site_builder_role = $role_storage->load('site_builder');
+  if ($site_builder_role) {
+    user_role_grant_permissions($site_builder_role->id(), $new_permissions);
+  }
+
+  // Load the views.view.files configuration.
+  $config_factory = \Drupal::service('config.factory');
+  $config = $config_factory->getEditable('views.view.files');
+
+  // Get the current configuration data.
+  $config_data = $config->get();
+
+  // Update the display options for 'page_1' if it exists.
+  if (isset($config_data['display']['page_1'])) {
+    $config_data['display']['page_1']['display_options']['fields']['file_replace_link'] = [
+      'id' => 'file_replace_link',
+      'table' => 'file_managed',
+      'field' => 'file_replace_link',
+      'relationship' => 'none',
+      'group_type' => 'group',
+      'admin_label' => '',
+      'entity_type' => 'file',
+      'plugin_id' => 'file_replace_link',
+      'label' => 'Link to replace file',
+      'exclude' => false,
+      'alter' => [
+        'alter_text' => false,
+        'text' => '',
+        'make_link' => false,
+        'path' => '',
+        'absolute' => false,
+        'external' => false,
+        'replace_spaces' => false,
+        'path_case' => 'none',
+        'trim_whitespace' => false,
+        'alt' => '',
+        'rel' => '',
+        'link_class' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'nl2br' => false,
+        'max_length' => 0,
+        'word_boundary' => true,
+        'ellipsis' => true,
+        'more_link' => false,
+        'more_link_text' => '',
+        'more_link_path' => '',
+        'strip_tags' => false,
+        'trim' => false,
+        'preserve_tags' => '',
+        'html' => false,
+        'element_type' => '',
+        'element_class' => '',
+        'element_label_type' => '',
+        'element_label_class' => '',
+        'element_label_colon' => true,
+        'element_wrapper_type' => '',
+        'element_wrapper_class' => '',
+        'element_default_classes' => true,
+        'empty' => '',
+        'hide_empty' => false,
+        'empty_zero' => false,
+        'hide_alter_empty' => true,
+        'text' => 'replace',
+        'output_url_as_text' => 0,
+        'absolute' => 0,
+      ],
+    ];
+
+    // Save the updated configuration.
+    $config->setData($config_data)->save();
+  }

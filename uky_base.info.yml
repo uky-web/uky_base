@@ -1,6 +1,6 @@
 name: University of Kentucky Drupal Platform
 type: profile
-version: '3.2.2'
+version: '3.3.0'
 core_version_requirement: ^9.5 || ^10
 
 # Modules to install to support the profile but not make required.
@@ -42,6 +42,7 @@ dependencies:
   - field_group_settings
   - field_ui
   - file_browser
+  - file_replace
   - fourxx_templates
   - help
   - history
@@ -51,10 +52,12 @@ dependencies:
   - menu_block
   - module_filter
   - node
+  - optional_end_date
   - page_cache
   - redirect
   - search
   - shortcut
+  - simple_sitemap
   - system
   - tab_toolbar
   - ukd8_customizations
@@ -103,7 +106,8 @@ dependencies:
   - user
   - views
   - views_ui
-  - xmlsitemap
+  - view_unpublished
+  - webp
   
 themes:
   - ukd8

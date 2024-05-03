@@ -34,7 +34,7 @@ settings:
     height: null
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
+  max_filesize: '100 MB'
   handler: 'default:file'
   handler_settings: {  }
 field_type: image

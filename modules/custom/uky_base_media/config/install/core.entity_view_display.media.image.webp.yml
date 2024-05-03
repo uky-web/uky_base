@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.webp
+    - field.field.media.image.field_attribution
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_tags
+    - image.style.webp
+    - media.type.image
+  module:
+    - image
+id: media.image.webp
+targetEntityType: media
+bundle: image
+mode: webp
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_attribution: true
+  field_tags: true
+  name: true
+  thumbnail: true
+  uid: true
