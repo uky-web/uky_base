@@ -7,12 +7,12 @@ use Drupal\Core\Config\FileStorage;
 
   // Specify the paths of the configuration files.
   $config_files = [
-    'profiles/custom/uky_base/modules/custom/uky_base_node_person/config/optional/block.block.ukd8_views_block__duplicate_of_person_sidenav_block_1.yml',
-    'profiles/custom/uky_base/modules/custom/uky_base_node_person/config/optional/views.view.duplicate_of_person_sidenav.yml',
-    'profiles/custom/uky_base/modules/custom/uky_base_node_news/config/optional/block.block.ukd8_views_block__duplicate_of_news_sidenav_block_1.yml',
-    'profiles/custom/uky_base/modules/custom/uky_base_node_news/config/optional/views.view.duplicate_of_news_sidenav.yml',
-    'profiles/custom/uky_base/modules/custom/uky_base_node_event/config/optional/block.block.ukd8_views_block__duplicate_of_events_sidenav_block_1.yml',
-    'profiles/custom/uky_base/modules/custom/uky_base_node_event/config/optional/views.view.duplicate_of_events_sidenav.yml',
+    'profiles/uky_platform/uky_base/modules/custom/uky_base_node_person/config/optional/block.block.ukd8_views_block__duplicate_of_person_sidenav_block_1.yml',
+    'profiles/uky_platform/uky_base/modules/custom/uky_base_node_person/config/optional/views.view.duplicate_of_person_sidenav.yml',
+    'profiles/uky_platform/uky_base/modules/custom/uky_base_node_news/config/optional/block.block.ukd8_views_block__duplicate_of_news_sidenav_block_1.yml',
+    'profiles/uky_platform/uky_base/modules/custom/uky_base_node_news/config/optional/views.view.duplicate_of_news_sidenav.yml',
+    'profiles/uky_platform/uky_base/modules/custom/uky_base_node_event/config/optional/block.block.ukd8_views_block__duplicate_of_events_sidenav_block_1.yml',
+    'profiles/uky_platform/uky_base/modules/custom/uky_base_node_event/config/optional/views.view.duplicate_of_events_sidenav.yml',
   ];
 
   // Get the config factory service.

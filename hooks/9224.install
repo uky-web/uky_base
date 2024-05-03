@@ -16,8 +16,8 @@ use Drupal\Core\Config\FileStorage;
       'block' => $config_factory->getEditable('block.block.ukd8_views_block__events_block_past_events'),
     ],
     'new' => [
-      'view' => 'profiles/custom/uky_base/modules/custom/uky_base_node_event/config/install/views.view.events.yml',
-      'block' => 'profiles/custom/uky_base/modules/custom/uky_base_node_event/config/optional/block.block.ukd8_views_block__events_block_past_events.yml',
+      'view' => 'profiles/uky_platform/uky_base/modules/custom/uky_base_node_event/config/install/views.view.events.yml',
+      'block' => 'profiles/uky_platform/uky_base/modules/custom/uky_base_node_event/config/optional/block.block.ukd8_views_block__events_block_past_events.yml',
     ]
   ];
 
