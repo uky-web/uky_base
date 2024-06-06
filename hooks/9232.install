@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Yaml;
   $config_storage = \Drupal::service('config.storage');
   
   // Get the module path.
-  $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+  $module_path = \Drupal::service('extension.list.module')->getPath('uky_base_user');
 
   // Install each config file.
   foreach ($config_files as $config_name) {
