@@ -1,0 +1,23 @@
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+
+// Words to remove
+$remove = ['off', 'on'];
+
+$config_factory = \Drupal::configFactory();
+
+// Define config name and fetch current ignore_words config
+$config = $config_factory->getEditable('pathauto.settings');
+$words = explode(', ', $config->get('ignore_words'));
+
+// Iterate over removal array and remove each word from config
+foreach ($remove as $word) {
+  if (($key = array_search($word, $words)) !== FALSE) {
+    unset($words[$key]);
+  }
+}
+
+// Reassemble string and save config
+$config->set('ignore_words', implode(', ', $words));
+$config->save();

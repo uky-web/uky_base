@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.3.3",
+  "version": "3.4.0",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -53,7 +53,9 @@
     "drupal/core": "^10.2.1",
     "drupal/core-composer-scaffold": "^10.2",
     "drupal/date_popup": "^2.0.0",
+    "drupal/daterange_compact": "^2.1",
     "drupal/described_link": "^2.0.0",
+    "drupal/draggableviews": "^2.1",
     "drupal/easy_breadcrumb": "^2.0",
     "drupal/eca": "^1.1",
     "drupal/eck": "^2.0.0",
@@ -120,7 +122,7 @@
     "drupal/tablefield": "^2.3",
     "drupal/taxonomy_menu": "^3.5",
     "drupal/twig_tweak": "^3.2.1",
-    "drupal/upgrade_status": "^4.0.0",
+    "drupal/upgrade_status": "^4.3.2",
     "drupal/url_embed": "^2.0@alpha",
     "drupal/video_embed_field": "^2.0",
     "drupal/viewfield": "^3.0@beta",
@@ -128,6 +130,7 @@
     "drupal/views_bulk_edit": "^2.6",
     "drupal/views_bulk_operations": "^4.1",
     "drupal/views_fieldsets": "^4.0.0",
+    "drupal/views_infinite_scroll": "^2.0",
     "drupal/views_taxonomy_term_name_depth": "^7.0",
     "drupal/views_taxonomy_term_name_into_id": "^1.0@alpha",
     "drupal/webform": "^6.2.0@beta",
@@ -136,7 +139,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^12.4.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.3.3"
+    "uky-web/ukd8": "^3.4.0"
   },
   "config": {
     "optimize-autoloader": true,
@@ -152,13 +155,17 @@
         "Missing Structure Menu Patch": "https://www.drupal.org/files/issues/2024-01-09/3413508-2.patch"
       },
       "drupal/linkit": {
-        "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch"
+        "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch",
+        "fix double-encoded spaces in relative paths": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
       },
       "drupal/stage_file_proxy": {
         "disable in config export": "https://www.drupal.org/files/issues/2019-11-18/disable_fetching-2864016-26.patch"
       },
       "drupal/field_group_settings": {
         "Fix for cog being covered up by other elements": "https://www.drupal.org/files/issues/2023-11-27/field_group_settings-3404420-2.patch"
+      },
+      "drupal/draggableviews": {
+        "Reset button for Draggable Views": "https://www.drupal.org/files/issues/2023-09-21/3388659-reset-button-2.patch"
       }
     },
     "composer-exit-on-patch-failure": true,

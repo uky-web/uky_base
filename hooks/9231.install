@@ -1,0 +1,12 @@
+<?php
+
+// Load the user.settings configuration.
+  $config = \Drupal::configFactory()->getEditable('user.settings');
+
+  // Change the register setting from 'visitors_admin_approval' to 'admin_only'.
+  if ($config->get('register') === 'visitors_admin_approval') {
+    $config->set('register', 'admin_only');
+  }
+
+  // Save the updated configuration.
+  $config->save();

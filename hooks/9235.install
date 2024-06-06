@@ -1,0 +1,34 @@
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+
+  // Install the config for 12 hour datesr.
+  $config_files = [
+    'core.date_format.12_hour_long',
+    'core.date_format.12_hour_medium',
+    'core.date_format.12_hour_short'
+  ];
+
+  // Get the active configuration storage.
+  $config_storage = \Drupal::service('config.storage');
+  
+  // Get the module path.
+  $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+
+  // Install each config file.
+  foreach ($config_files as $config_name) {
+    // Check if the config file already exists.
+    if ($config_storage->exists($config_name)) {
+      continue;
+    }
+
+    // Get the path to the config file.
+    $config_path = $module_path . '/config/install/' . $config_name . '.yml';
+
+    // Load the YAML file.
+    $yaml_contents = file_get_contents($config_path);
+    $config_data = Yaml::parse($yaml_contents);
+
+    // Save the configuration.
+    $config_storage->write($config_name, $config_data);
+  }

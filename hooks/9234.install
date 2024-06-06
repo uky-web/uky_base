@@ -1,0 +1,68 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+// This is from 9220...
+
+  $config_files = [
+    'core.entity_view_mode.media.webp',
+    'core.entity_view_display.media.image.webp',
+    'image.style.webp'
+  ];
+
+  // Get the active configuration storage.
+  $config_storage = \Drupal::service('config.storage');
+
+  // Install each config file.
+  foreach ($config_files as $config_name) {
+    // Check if the config file already exists.
+    if ($config_storage->exists($config_name)) {
+      continue;
+    }
+
+    // Get the path to the config file.
+    $module_path = \Drupal::service('extension.list.module')->getPath('uky_base_media');
+    $config_path = $module_path . '/config/install/' . $config_name . '.yml';
+
+    // Load the YAML file.
+    $yaml_contents = file_get_contents($config_path);
+    $config_data = Yaml::parse($yaml_contents);
+
+    // Save the configuration.
+    $config_storage->write($config_name, $config_data);
+  }
+
+
+
+  // This is from 9221...
+
+  $config_files = [
+    'block.block.utilitynav_mobile'
+  ];
+
+  // Get the active configuration storage.
+  $config_storage = \Drupal::service('config.storage');
+
+  // Install each config file.
+  foreach ($config_files as $config_name) {
+    // Check if the config file already exists.
+    if ($config_storage->exists($config_name)) {
+      continue;
+    }
+
+    // Get the path to the config file.
+    $module_path = \Drupal::service('extension.list.module')->getPath('uky_base_menu');
+    $config_path = $module_path . '/config/optional/' . $config_name . '.yml';
+
+    // Load the YAML file.
+    $yaml_contents = file_get_contents($config_path);
+    $config_data = Yaml::parse($yaml_contents);
+
+    // Save the configuration.
+    $config_storage->write($config_name, $config_data);
+  }

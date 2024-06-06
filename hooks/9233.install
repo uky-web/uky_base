@@ -1,0 +1,24 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+  // Load the role configuration.
+  $config_factory = \Drupal::configFactory();
+  $role_config = $config_factory->getEditable('user.role.content_manager');
+
+  // Get the existing permissions.
+  $permissions = $role_config->get('permissions') ?: [];
+
+  // Add the new permission if it doesn't already exist.
+  if (!in_array('override all sticky option', $permissions)) {
+    $permissions[] = 'override all sticky option';
+    $role_config->set('permissions', $permissions);
+
+    // Save the updated configuration.
+    $role_config->save();
+  }

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: 12_hour_long
+label: '12 hour long'
+locked: false
+pattern: 'l, F d, Y - g:i a'

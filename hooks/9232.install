@@ -1,0 +1,59 @@
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+
+  // Install the config for content reviewer.
+  $config_files = [
+    'user.role.content_reviewer',
+    'system.action.user_remove_role_action.content_reviewer',
+    'system.action.user_add_role_action.content_reviewer'
+  ];
+
+  // Get the active configuration storage.
+  $config_storage = \Drupal::service('config.storage');
+  
+  // Get the module path.
+  $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+
+  // Install each config file.
+  foreach ($config_files as $config_name) {
+    // Check if the config file already exists.
+    if ($config_storage->exists($config_name)) {
+      continue;
+    }
+
+    // Get the path to the config file.
+    $config_path = $module_path . '/config/install/' . $config_name . '.yml';
+
+    // Load the YAML file.
+    $yaml_contents = file_get_contents($config_path);
+    $config_data = Yaml::parse($yaml_contents);
+
+    // Save the configuration.
+    $config_storage->write($config_name, $config_data);
+  }
+
+
+  // Get the configuration entity for the content reviewer role.
+  $role = \Drupal\user\Entity\Role::load('content_reviewer');
+
+  if ($role) {
+    // Define the new permissions.
+    $permissions = [
+      'access administration pages',
+      'access content overview',
+      'access help pages',
+      'access toolbar',
+      'view all revisions',
+      'view any unpublished content',
+      'view the administration theme',
+    ];
+
+    // Add each permission to the role.
+    foreach ($permissions as $permission) {
+      $role->grantPermission($permission);
+    }
+
+    // Save the updated role.
+    $role->save();
+  }

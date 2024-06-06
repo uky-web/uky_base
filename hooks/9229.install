@@ -1,0 +1,77 @@
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+
+
+  // Install the draggableviews module
+  \Drupal::service('module_installer')->install(['draggableviews']);
+
+  // Install the config for the directory order draggable view.
+  $config_files = [
+    'views.view.directory_order',
+  ];
+   // Get the active configuration storage.
+   $config_storage = \Drupal::service('config.storage');
+
+   // Install each config file.
+   foreach ($config_files as $config_name) {
+     // Check if the config file already exists.
+     if ($config_storage->exists($config_name)) {
+       continue;
+     }
+ 
+     // Get the path to the config file.
+     $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+     $config_path = $module_path . '/modules/custom/uky_base_node_person/config/install/' . $config_name . '.yml';
+ 
+     // Load the YAML file.
+     $yaml_contents = file_get_contents($config_path);
+     $config_data = Yaml::parse($yaml_contents);
+ 
+     // Save the configuration.
+     $config_storage->write($config_name, $config_data);
+   }
+
+
+   // Load the 'content_manager' role configuration.
+  $config = \Drupal::configFactory()->getEditable('user.role.content_manager');
+
+  // Add 'draggableviews' to the list of modules in dependencies if not already present.
+  $modules = $config->get('dependencies.module');
+  if (!in_array('draggableviews', $modules)) {
+    $modules[] = 'draggableviews';
+    $config->set('dependencies.module', $modules);
+  }
+
+  // Add 'access draggableviews' to the list of permissions if not already present.
+  $permissions = $config->get('permissions');
+  if (!in_array('access draggableviews', $permissions)) {
+    $permissions[] = 'access draggableviews';
+    $config->set('permissions', $permissions);
+  }
+
+  // Save the updated configuration.
+  $config->save();
+
+
+
+
+  // Load the 'site_builder' role configuration.
+  $config = \Drupal::configFactory()->getEditable('user.role.site_builder');
+
+  // Add 'draggableviews' to the list of modules in dependencies if not already present.
+  $modules = $config->get('dependencies.module');
+  if (!in_array('draggableviews', $modules)) {
+    $modules[] = 'draggableviews';
+    $config->set('dependencies.module', $modules);
+  }
+
+  // Add 'access draggableviews' to the list of permissions if not already present.
+  $permissions = $config->get('permissions');
+  if (!in_array('access draggableviews', $permissions)) {
+    $permissions[] = 'access draggableviews';
+    $config->set('permissions', $permissions);
+  }
+
+  // Save the updated configuration.
+  $config->save();

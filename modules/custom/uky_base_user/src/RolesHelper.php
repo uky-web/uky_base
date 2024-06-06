@@ -9,6 +9,7 @@ class RolesHelper {
 
     const CONTENT_EDITOR = 'content_editor';
     const CONTENT_MANAGER = 'content_manager';
+    const CONTENT_REVIEWER = 'content_reviewer';
     const SITE_BUILDER = 'site_builder';
 
     public static function assignModuleRoles($module){

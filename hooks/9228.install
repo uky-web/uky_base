@@ -1,0 +1,48 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+$config_factory = \Drupal::configFactory();
+
+// Define locations for current/new config
+$config = [
+'cur' => [
+    'date_format' => $config_factory->getEditable('core.date_format.rfc822.yml'),
+    'news' => $config_factory->getEditable('views.view.news'),
+    'events' => $config_factory->getEditable('views.view.events'),
+],
+'new' => [
+    'date_format' => 'profiles/uky_platform/uky_base/config/install/core.date_format.rfc822.yml',
+    'news' => 'profiles/uky_platform/uky_base/modules/custom/uky_base_node_news/config/install/views.view.news.yml',
+    'events' => 'profiles/uky_platform/uky_base/modules/custom/uky_base_node_event/config/install/views.view.events.yml',
+]
+];
+
+// Save RFC-822 date format
+$config['cur']['date_format']->setData(
+    Yaml::parseFile($config['new']['date_format'])
+)->save();
+
+// Load/parse current and new config into arrays
+$config_cur_news_data = $config['cur']['news']->get();
+$config_cur_events_data = $config['cur']['events']->get();
+$config_new_news_data = Yaml::parseFile($config['new']['news']);
+$config_new_events_data = Yaml::parseFile($config['new']['events']);
+
+// Create view for news/evens RSS feeds, if they don't already exist
+if (!isset($config_cur_news_data['display']['rss_feed'])) {
+    $config_cur_news_data['display']['rss_feed'] = $config_new_news_data['display']['rss_feed'];
+}
+if (!isset($config_cur_events_data['display']['rss_feed_upcoming_events'])) {
+    $config_cur_events_data['display']['rss_feed_upcoming_events'] = $config_new_events_data['display']['rss_feed_upcoming_events'];
+}
+if (!isset($config_cur_events_data['display']['rss_feed_past_events'])) {
+    $config_cur_events_data['display']['rss_feed_past_events'] = $config_new_events_data['display']['rss_feed_past_events'];
+}
+
+// Save updated config
+$config['cur']['news']->setData($config_cur_news_data)->save();
+$config['cur']['events']->setData($config_cur_events_data)->save();

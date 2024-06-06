@@ -1,0 +1,30 @@
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+
+$config_factory = \Drupal::configFactory();
+
+// Define config name and YAML path
+$config_name = 'views.view.events';
+$config_path = sprintf("profiles/uky_platform/uky_base/modules/custom/uky_base_node_event/config/install/%s.yml", $config_name);
+
+// Load current config/data and parse updated YAML
+$config = $config_factory->getEditable($config_name);
+$config_new = Yaml::parseFile($config_path);
+$config_data = $config->get();
+
+// Define view displays that are being updated
+$update_keys = [
+    'block_past_events',
+    'page_past_events',
+    'rss_feed_past_events'
+];
+
+foreach ($update_keys as $key) {
+    // Update each display's sort options and defaults
+    $config_data['display'][$key]['display_options']['sorts'] = $config_new['display'][$key]['display_options']['sorts'];
+    $config_data['display'][$key]['display_options']['defaults']['sorts'] = $config_new['display'][$key]['display_options']['defaults']['sorts'];
+}
+
+// Save updated config
+$config->setData($config_data)->save();

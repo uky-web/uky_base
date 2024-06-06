@@ -238,3 +238,66 @@ function uky_base_update_9226() {
 function uky_base_update_9227() {
   include_once dirname(__FILE__) . '/hooks/9227.install';
 }
+
+/**
+ * uky_base - Add RSS feeds for news/events
+ */
+function uky_base_update_9228() {
+  include_once dirname(__FILE__) . '/hooks/9228.install';
+}
+
+/**
+ * uky_base - Install draggable views and import config for the directory sorting view.
+ */
+function uky_base_update_9229() {
+  include_once dirname(__FILE__) . '/hooks/9229.install';
+}
+
+/**
+* uky_base - Remove ignored pathauto words
+ */
+function uky_base_update_9230() {
+  include_once dirname(__FILE__) . '/hooks/9230.install';
+}
+
+/**
+ * uky_base - Setting Who can register accounts to administator only
+ */
+function uky_base_update_9231() {
+  include_once dirname(__FILE__) . '/hooks/9231.install';
+}
+
+/**
+ * uky_base - Adding content reviewer role
+ */
+function uky_base_update_9232() {
+  include_once dirname(__FILE__) . '/hooks/9232.install';
+}
+
+/**
+ * uky_base - Add sticky override perm to content manager role. 
+ */
+function uky_base_update_9233() {
+  include_once dirname(__FILE__) . '/hooks/9233.install';
+}
+
+/**
+ * uky_base - Redo hooks from 9220 and 9221 for path.
+ */
+function uky_base_update_9234() {
+  include_once dirname(__FILE__) . '/hooks/9234.install';
+}
+
+/**
+ * uky_base - Adding 12 hour date formats
+ */
+function uky_base_update_9235() {
+  include_once dirname(__FILE__) . '/hooks/9235.install';
+}
+
+/**
+ * uky_base - Sort past events by date (desc)
+ */
+function uky_base_update_9236() {
+  include_once dirname(__FILE__) . '/hooks/9236.install';
+}

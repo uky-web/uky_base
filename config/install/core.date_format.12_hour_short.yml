@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: 12_hour_short
+label: '12 hour short'
+locked: false
+pattern: 'm/d/Y - g:i a'

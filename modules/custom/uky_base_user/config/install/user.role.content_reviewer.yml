@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: { }
+id: content_reviewer
+label: 'Content Reviewer'
+weight: 6
+is_admin: null
+permissions:
+  - 'access administration pages'

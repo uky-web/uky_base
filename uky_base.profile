@@ -176,6 +176,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'access administration pages',
         'access content overview',
         'access contextual links',
+        'access draggableviews',
         'access files overview',
         'access media overview',
         'access media_browser_iframe entity browser pages',
@@ -233,6 +234,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'edit terms in news_events_categories',
         'edit terms in people_categories',
         'hide format selection for paragraph',
+        'override all sticky option',
         'override event published option',
         'override news authored on option',
         'override news published option',
@@ -255,6 +257,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'access browse_files entity browser pages',
         'access browse_files_modal entity browser pages',
         'access content overview',
+        'access draggableviews',
         'access media_browser_iframe entity browser pages',
         'access media_browser_modal entity browser pages',
         'access toolbar',
@@ -314,8 +317,16 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'use text format inline_html',
         'use text format restricted_html',
         'view any unpublished content'
+      ],
+      RolesHelper::CONTENT_REVIEWER => [
+        'access administration pages',
+        'access content overview',
+        'access help pages',
+        'access toolbar',
+        'view all revisions',
+        'view any unpublished content',
+        'view the administration theme'
       ]
-
       ];
 
 }
