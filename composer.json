@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -139,7 +139,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^12.4.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.4.1"
+    "uky-web/ukd8": "^3.4.2"
   },
   "config": {
     "optimize-autoloader": true,
@@ -151,9 +151,6 @@
       "npm-asset"
     ],
     "patches": {
-      "drupal/core": {
-        "Missing Structure Menu Patch": "https://www.drupal.org/files/issues/2024-01-09/3413508-2.patch"
-      },
       "drupal/linkit": {
         "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch",
         "fix double-encoded spaces in relative paths": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
