@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.4.4",
+  "version": "3.5.0",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -52,10 +52,12 @@
     "drupal/content_access": "^2.0.0",
     "drupal/core": "^10.2.1",
     "drupal/core-composer-scaffold": "^10.2",
+    "drupal/ctools": "^4.1",
     "drupal/date_popup": "^2.0.0",
     "drupal/daterange_compact": "^2.1",
     "drupal/described_link": "^2.0.0",
     "drupal/draggableviews": "^2.1",
+    "drupal/dubbot": "^1.0",
     "drupal/easy_breadcrumb": "^2.0",
     "drupal/eca": "^2.0",
     "drupal/eck": "^2.0.0",
@@ -93,7 +95,7 @@
     "drupal/migrate_source_csv": "^3.5",
     "drupal/migrate_tools": "^6.0",
     "drupal/migrate_upgrade": "^4.0",
-    "drupal/module_filter": "^4.0.1",
+    "drupal/module_filter": "^5.0",
     "drupal/name": "^1.0@RC",
     "drupal/node_revision_delete": "^2.0.0",
     "drupal/oembed_providers": "^2.0",
@@ -110,7 +112,6 @@
     "drupal/recaptcha": "^3.0",
     "drupal/recaptcha_v3": "^1.6",
     "drupal/role_delegation": "^1.2",
-    "drupal/rules": "^3.0@alpha",
     "drupal/scanner": "^1.0@RC",
     "drupal/scheduler": "^2.0.0",
     "drupal/search_api": "^1.23",
@@ -139,7 +140,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^12.4.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.4.4"
+    "uky-web/ukd8": "^3.5.0"
   },
   "config": {
     "optimize-autoloader": true,
@@ -154,9 +155,6 @@
       "drupal/linkit": {
         "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch",
         "fix double-encoded spaces in relative paths": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
-      },
-      "drupal/stage_file_proxy": {
-        "disable in config export": "https://www.drupal.org/files/issues/2019-11-18/disable_fetching-2864016-26.patch"
       },
       "drupal/field_group_settings": {
         "Fix for cog being covered up by other elements": "https://www.drupal.org/files/issues/2023-11-27/field_group_settings-3404420-2.patch"

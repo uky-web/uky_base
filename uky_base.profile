@@ -44,6 +44,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
           'access site in maintenance mode',
           'access taxonomy overview',
           'access toolbar',
+          'access user profiles',
           'access webform overview',
           'add embederator entity',
           'administer menu',
@@ -171,6 +172,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
           'view page revisions',
           'view person revisions',
           'view the administration theme',
+          'view user email addresses',
       ],
       RolesHelper::CONTENT_MANAGER => [
         'access administration pages',
@@ -184,6 +186,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'access site in maintenance mode',
         'access taxonomy overview',
         'access toolbar',
+        'access user profiles',
         'access webform overview',
         'add embederator entity',
         'administer emergency_alerts',
@@ -250,6 +253,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'view any unpublished content',
         'view any webform submission',
         'view the administration theme',
+        'view user email addresses',
       ],
       RolesHelper::SITE_BUILDER => [
         'access administration pages',
@@ -316,20 +320,19 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'use text format basic_html',
         'use text format inline_html',
         'use text format restricted_html',
-        'view any unpublished content'
+        'view any unpublished content',
+        'view user email addresses',
       ],
       RolesHelper::CONTENT_REVIEWER => [
         'access administration pages',
         'access content overview',
         'access help pages',
         'access toolbar',
+        'access user profiles',
         'view all revisions',
         'view any unpublished content',
-        'view the administration theme'
+        'view the administration theme',
+        'view user email addresses',
       ]
       ];
-
 }
-
-
-

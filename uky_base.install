@@ -301,3 +301,10 @@ function uky_base_update_9235() {
 function uky_base_update_9236() {
   include_once dirname(__FILE__) . '/hooks/9236.install';
 }
+
+/**
+ * uky_base - Role-based permissions for People view
+ */
+function uky_base_update_9237() {
+  include_once dirname(__FILE__) . '/hooks/9237.install';
+}

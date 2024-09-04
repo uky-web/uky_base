@@ -1,0 +1,66 @@
+<?php
+
+use Symfony\Component\Yaml\Yaml;
+
+$config_factory = \Drupal::configFactory();
+
+// Define config name and YAML path
+$config_name = 'views.view.user_admin_people';
+$config_path = sprintf("profiles/uky_platform/uky_base/modules/custom/uky_base_user/config/optional/%s.yml", $config_name);
+// Define roles to update and the permissions to add to them
+$update_roles = [
+    'content_editor',
+    'content_manager',
+    'content_reviewer',
+    'site_builder',
+];
+$update_perms = [
+    'access user profiles',
+    'view user email addresses',
+];
+
+// Load current config/data and parse updated YAML
+$config = $config_factory->getEditable($config_name);
+$config_new = Yaml::parseFile($config_path);
+$config_data = $config->get();
+
+/*
+* Update role permissions
+*/
+// Grant permissions to roles defined above
+foreach($update_roles as $role) {
+    $role_obj = \Drupal\user\Entity\Role::load($role);
+
+    if ($role_obj) {
+        // Add each permission to the role.
+        foreach ($update_perms as $perm) {
+            $role_obj->grantPermission($perm);
+        }
+
+        // Save the updated role.
+        $role_obj->save();
+    }
+}
+
+/*
+* Update view config
+*/
+// Update view dependencies
+$config_data['dependencies']['config'] = $config_new['dependencies']['config'];
+
+// Update display options
+$config_data['display']['default']['display_options']['access']['type'] = $config_new['display']['default']['display_options']['access']['type']; // 'perm' => 'role'
+unset($config_data['display']['default']['display_options']['access']['options']['perm']);
+$config_data['display']['default']['display_options']['access']['options']['role'] = $config_new['display']['default']['display_options']['access']['options']['role'];
+
+// Replace instances of 'user.permissions' with 'user.roles' in display metadata contexts
+foreach (['default', 'page_1'] as $display) {
+    $context = $config_data['display'][$display]['cache_metadata']['contexts'];
+
+    if (($x = array_search('user.permissions', $context)) !== FALSE) {
+        $context[$x] = 'user.roles';
+    }
+}
+
+// Save updated config
+$config->setData($config_data)->save();
