@@ -6,7 +6,7 @@ $config_factory = \Drupal::configFactory();
 
 // Define config name and YAML path
 $config_name = 'views.view.user_admin_people';
-$config_path = sprintf("profiles/uky_platform/uky_base/modules/custom/uky_base_user/config/optional/%s.yml", $config_name);
+$config_path = sprintf("profiles/uky_platform/uky_base/modules/custom/uky_base_user/config/install/%s.yml", $config_name);
 // Define roles to update and the permissions to add to them
 $update_roles = [
     'content_editor',
