@@ -1,0 +1,12 @@
+name: 'Paragraph: Pullquote'
+description: 'Provides configuration for the UKY Pullquote paragraph type.'
+type: 'Paragraph'
+install:
+  - better_formats
+  - entity_browser
+  - paragraphs
+  - text
+recipes:
+  - paragraph_description
+  - paragraph_media
+  - paragraph_theme_color_scheme

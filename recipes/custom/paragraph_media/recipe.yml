@@ -1,0 +1,6 @@
+name: 'Field: Media'
+description: 'Provides configuration for the Media field for paragraphs.'
+type: 'Field'
+install:
+  - media
+  - paragraphs

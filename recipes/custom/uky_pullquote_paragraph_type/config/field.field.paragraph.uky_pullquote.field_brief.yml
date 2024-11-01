@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_brief
+    - paragraphs.paragraphs_type.uky_pullquote
+id: paragraph.uky_pullquote.field_brief
+field_name: field_brief
+entity_type: paragraph
+bundle: uky_pullquote
+label: Brief
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

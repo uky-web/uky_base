@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.uky_body.field_uky_body
+    - paragraphs.paragraphs_type.uky_body
+  module:
+    - text
+id: paragraph.uky_body.default
+targetEntityType: paragraph
+bundle: uky_body
+mode: default
+content:
+  field_uky_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,11 @@
+{
+    "name": "uky-web/uky_pullquote_paragraph_type",
+    "type": "drupal-recipe",
+    "description": "Provides configuration for the UKY Pullquote paragraph type.",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/core": ">=10.3"
+    }
+}

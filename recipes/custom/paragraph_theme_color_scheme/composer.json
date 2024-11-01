@@ -1,0 +1,11 @@
+{
+    "name": "uky-web/paragraph_theme_color_scheme",
+    "type": "drupal-recipe",
+    "description": "Provides configuration for the Color Scheme field for paragraphs.",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/core": ">=10.3"
+    }
+}

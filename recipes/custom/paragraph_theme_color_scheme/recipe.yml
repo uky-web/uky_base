@@ -1,0 +1,5 @@
+name: 'Field: Media'
+description: 'Provides configuration for the Color Scheme field for paragraphs.'
+type: 'Field'
+install:
+  - paragraphs

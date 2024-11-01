@@ -1,0 +1,53 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.uky_pullquote.field_attribution_1
+    - field.field.paragraph.uky_pullquote.field_attribution_2
+    - field.field.paragraph.uky_pullquote.field_brief
+    - field.field.paragraph.uky_pullquote.field_description
+    - field.field.paragraph.uky_pullquote.field_media
+    - field.field.paragraph.uky_pullquote.field_theme_color_scheme
+    - paragraphs.paragraphs_type.uky_pullquote
+  module:
+    - text
+id: paragraph.uky_pullquote.default
+targetEntityType: paragraph
+bundle: uky_pullquote
+mode: default
+content:
+  field_attribution_1:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_attribution_2:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_brief: true
+  field_theme_color_scheme: true

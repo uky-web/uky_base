@@ -1,0 +1,9 @@
+name: 'Paragraph: Body'
+description: 'Provides configuration for the UKY Body paragraph type.'
+type: 'Paragraph'
+install:
+  # Core
+  - paragraphs
+  - text
+  # Contrib
+  - better_formats

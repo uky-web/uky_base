@@ -1,0 +1,11 @@
+{
+    "name": "uky-web/paragraph_media",
+    "type": "drupal-recipe",
+    "description": "Provides configuration for the Media field for paragraphs.",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/core": ">=10.3"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "uky-web/uky_body_paragraph_type",
+    "type": "drupal-recipe",
+    "description": "Provides configuration for the UKY Body paragraph type.",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/core": ">=10.3"
+    }
+}
