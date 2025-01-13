@@ -1,0 +1,8 @@
+name: 'Paragraph: Heading'
+description: 'Provides configuration for the Heading paragraph type.'
+type: 'Paragraph'
+install:
+  - better_formats
+  - options
+  - paragraphs
+  - text

@@ -2,9 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_description
-    - filter.format.basic_html
-    - paragraphs.paragraphs_type.uky_pullquote
+    - field.storage.paragraph.field_heading_text
+    - paragraphs.paragraphs_type.uky_heading
   module:
     - better_formats
     - text
@@ -30,17 +29,16 @@ third_party_settings:
           weight: '-7'
         webform_default:
           weight: '100'
-id: paragraph.uky_pullquote.field_description
-field_name: field_description
+id: paragraph.uky_heading.field_heading_text
+field_name: field_heading_text
 entity_type: paragraph
-bundle: uky_pullquote
-label: Quote
+bundle: uky_heading
+label: Text
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats:
-    - basic_html
-field_type: text_long
+  allowed_formats: {  }
+field_type: text

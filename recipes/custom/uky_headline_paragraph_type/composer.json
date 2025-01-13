@@ -1,7 +1,7 @@
 {
-    "name": "uky-web/paragraph_media",
+    "name": "uky-web/uky_headline_paragraph_type",
     "type": "drupal-recipe",
-    "description": "Provides configuration for the Media field for paragraphs.",
+    "description": "Provides configuration for the Headline Group paragraph type.",
     "keywords": [
     ],
     "minimum-stability": "dev",

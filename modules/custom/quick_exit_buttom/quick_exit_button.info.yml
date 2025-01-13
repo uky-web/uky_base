@@ -1,0 +1,9 @@
+name: 'UKY Quick Exit Emergency Button'
+type: module
+description: 'Provides a configurable block with a quick exit button that redirects to a user-defined external URL.'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - block
+  - config
+version: 1.0.0

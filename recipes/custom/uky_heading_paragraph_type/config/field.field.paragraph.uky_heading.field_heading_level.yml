@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading_level
+    - paragraphs.paragraphs_type.uky_heading
+  module:
+    - options
+id: paragraph.uky_heading.field_heading_level
+field_name: field_heading_level
+entity_type: paragraph
+bundle: uky_heading
+label: 'Heading Level'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

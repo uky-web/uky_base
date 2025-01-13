@@ -1,0 +1,7 @@
+name: 'Paragraph: Headline Group'
+description: 'Provides configuration for the Headline Group paragraph type.'
+type: 'Paragraph'
+install:
+  - better_formats
+  - entity_reference_revisions
+  - paragraphs

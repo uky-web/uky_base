@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.uky_heading.field_heading_level
+    - field.field.paragraph.uky_heading.field_heading_text
+    - paragraphs.paragraphs_type.uky_heading
+  module:
+    - text
+id: paragraph.uky_heading.default
+targetEntityType: paragraph
+bundle: uky_heading
+mode: default
+content:
+  field_heading_level:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_heading_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_heading_level: true

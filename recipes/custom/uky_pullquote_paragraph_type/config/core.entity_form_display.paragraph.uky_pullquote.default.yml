@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.browse_files_modal
+    - entity_browser.browser.media_browser_modal
     - field.field.paragraph.uky_pullquote.field_attribution_1
     - field.field.paragraph.uky_pullquote.field_attribution_2
     - field.field.paragraph.uky_pullquote.field_brief
@@ -54,7 +54,7 @@ content:
     weight: 4
     region: content
     settings:
-      entity_browser: browse_files_modal
+      entity_browser: media_browser_modal
       field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true

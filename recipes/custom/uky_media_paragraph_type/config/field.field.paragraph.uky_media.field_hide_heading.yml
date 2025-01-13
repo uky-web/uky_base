@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hide_heading
+    - paragraphs.paragraphs_type.uky_media
+id: paragraph.uky_media.field_hide_heading
+field_name: field_hide_heading
+entity_type: paragraph
+bundle: uky_media
+label: 'Hide Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

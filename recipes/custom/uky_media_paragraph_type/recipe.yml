@@ -1,0 +1,11 @@
+name: 'Paragraph: Media'
+description: 'Provides configuration for the UKY Media paragraph type.'
+type: 'Paragraph'
+install:
+  - better_formats
+  - entity_browser
+  - paragraphs
+  - text
+recipes:
+  - paragraph_description
+  - paragraph_media
