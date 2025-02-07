@@ -1,0 +1,7 @@
+name: 'UKY Base Admin'
+type: module
+description: 'Provides the UK Platform admin page.'
+core_version_requirement: ^10
+package: uky_base
+dependencies:
+  - drupal:menu_link_content

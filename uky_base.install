@@ -308,3 +308,38 @@ function uky_base_update_9236() {
 function uky_base_update_9237() {
   include_once dirname(__FILE__) . '/hooks/9237.install';
 }
+
+/**
+ * uky_base - Enable Gin admin theme and Gin Login
+ */
+function uky_base_update_9238() {
+  include_once dirname(__FILE__) . '/hooks/9238.install';
+}
+
+/**
+ * uky_base - Set paragraph fields to stable widget and default to closed.
+ */
+function uky_base_update_9239() {
+  include_once dirname(__FILE__) . '/hooks/9239.install';
+}
+
+/**
+ * uky_base - Update breadcrumb settings to not be on homepage.
+ */
+function uky_base_update_9240() {
+  include_once dirname(__FILE__) . '/hooks/9240.install';
+}
+
+/**
+ * uky_base - Create new Site Owner role.  
+ */
+function uky_base_update_9241() {
+  include_once dirname(__FILE__) . '/hooks/9241.install';
+}
+
+/**
+ * uky_base - Install new uky_base_admin module 
+ */
+function uky_base_update_9242() {
+  include_once dirname(__FILE__) . '/hooks/9242.install';
+}

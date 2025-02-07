@@ -11,6 +11,7 @@ class RolesHelper {
     const CONTENT_MANAGER = 'content_manager';
     const CONTENT_REVIEWER = 'content_reviewer';
     const SITE_BUILDER = 'site_builder';
+    const SITE_OWNER = 'site_owner';
 
     public static function assignModuleRoles($module){
         if ($roles = self::getModuleRoles($module)){

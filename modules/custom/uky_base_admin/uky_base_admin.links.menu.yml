@@ -1,0 +1,5 @@
+uky_base_admin.uky_platform:
+  title: 'UK Platform Settings'
+  description: 'Manage all UK Platform-related settings'
+  route_name: uky_base_admin.uky_platform_form
+  parent: system.admin_config

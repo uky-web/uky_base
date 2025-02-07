@@ -1,5 +1,5 @@
 uky_base_mega_menu.admin_settings:
-  path: '/admin/uky/menu'
+  path: '/admin/config/uky-platform/menu'
   defaults:
     _form: '\Drupal\uky_base_mega_menu\Form\MegaMenuSettingsForm'
     _title: 'Mega Menu Settings'

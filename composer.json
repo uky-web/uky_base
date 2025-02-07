@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.7.1",
+  "version": "3.8.0",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -77,6 +77,9 @@
     "drupal/focal_point": "^2.1.0",
     "drupal/fourxx_templates": "^2.0.0",
     "drupal/fpa": "^4.0.0",
+    "drupal/gin": "^4.0",
+    "drupal/gin_login": "^2.1",
+    "drupal/gin_toolbar": "^2.0",
     "drupal/google_analytics": "^4.0",
     "drupal/google_tag": "^2.0",
     "drupal/headline_group": "^1.8",
@@ -138,9 +141,9 @@
     "drupal/webform_score": "^2.1",
     "drupal/webp": "^1.0@RC",
     "drupal/xmlsitemap": "^1.1",
-    "drush/drush": "^12.4.0",
+    "drush/drush": "^13.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.7.1"
+    "uky-web/ukd8": "^3.8.0"
   },
   "config": {
     "optimize-autoloader": true,
@@ -158,6 +161,9 @@
       },
       "drupal/draggableviews": {
         "Reset button for Draggable Views": "https://www.drupal.org/files/issues/2023-09-21/3388659-reset-button-2.patch"
+      },
+      "drupal/gin_login": {
+        "Removes the Forgot Your Password link from the gin login screen": "web/profiles/uky_platform/uky_base/patches/gin-login-hide-forgot-password-link.patch"
       }
     },
     "composer-exit-on-patch-failure": true,

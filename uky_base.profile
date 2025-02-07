@@ -333,6 +333,7 @@ function uky_base_form_install_configure_submit($form, FormStateInterface $form_
         'view any unpublished content',
         'view the administration theme',
         'view user email addresses',
-      ]
+      ],
+      RolesHelper::SITE_OWNER => []
       ];
 }

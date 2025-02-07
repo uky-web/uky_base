@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: OhypfKr4_Eo8XwXg3Sios05lN-LjxOhSdSOSkEN9Ndo
+logo:
+  use_default: true
+  path: themes/uky_platform/ukd8/screenshot.png
+brand_image:
+  use_default: false
+  path: themes/uky_platform/ukd8/assets/static/UK-gin-login.png

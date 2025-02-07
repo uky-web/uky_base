@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+
+$config_factory = \Drupal::configFactory();
+$config = $config_factory->getEditable('easy_breadcrumb.settings');
+
+if ($config) {
+  $config->set('hide_single_home_item', TRUE);
+  $config->save();
+}
+
+
+

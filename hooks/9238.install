@@ -1,0 +1,64 @@
+<?php 
+
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Extension\ThemeInstallerInterface;
+
+// Get necessary services.
+$theme_installer = \Drupal::service('theme_installer');
+$theme_handler = \Drupal::service('theme_handler');
+
+// Install the Gin theme if not installed.
+if (!$theme_handler->themeExists('gin')) {
+  try {
+    $theme_installer->install(['gin']);
+    \Drupal::logger('uky_base')->notice('Gin theme installed.');
+  } catch (\Exception $e) {
+    \Drupal::logger('uky_base')->error('Error installing Gin theme: @error', ['@error' => $e->getMessage()]);
+  }
+} else {
+  \Drupal::logger('uky_base')->notice('Gin theme was already installed.');
+}
+
+// **Ensure Gin is set as the admin theme (even if already installed).**
+$config_factory = \Drupal::configFactory();
+$current_admin_theme = $config_factory->get('system.theme')->get('admin');
+
+// Only update if Gin is not already set as the admin theme.
+if ($current_admin_theme !== 'gin') {
+  $config_factory->getEditable('system.theme')
+    ->set('admin', 'gin')
+    ->save();
+  \Drupal::logger('uky_base')->notice('Gin theme set as the default admin theme.');
+}
+
+// Install the required modules: gin_login and gin_toolbar.
+$module_list = ['gin_login', 'gin_toolbar'];
+\Drupal::service('module_installer')->install($module_list);
+
+// Install the config for gin theme, gin_login, and gin_toolbar.
+$config_files = [
+  'gin.settings',
+  'gin_login.settings',
+  'gin_toolbar.settings'
+];
+
+// Get the active configuration storage.
+$config_storage = \Drupal::service('config.storage');
+
+// Install each config file.
+foreach ($config_files as $config_name) {
+  if ($config_storage->exists($config_name)) {
+    continue;
+  }
+
+  $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+  $config_path = $module_path . '/config/install/' . $config_name . '.yml';
+
+  // Load and save the YAML file.
+  if (file_exists($config_path)) {
+    $yaml_contents = file_get_contents($config_path);
+    $config_data = Yaml::parse($yaml_contents);
+    $config_storage->write($config_name, $config_data);
+  }
+}

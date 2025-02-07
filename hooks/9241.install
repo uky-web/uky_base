@@ -1,0 +1,33 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Extension\ExtensionPathResolver;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$config_storage = \Drupal::service('config.storage');
+$config_name = 'user.role.site_owner';
+
+// Get the path to the installation profile using ExtensionPathResolver.
+$extension_path_resolver = \Drupal::service('extension.path.resolver');
+$profile_path = $extension_path_resolver->getPath('profile', 'uky_base') . '/modules/custom/uky_base_user/config/install/' . $config_name . '.yml';
+
+// Check if the configuration file exists.
+if (file_exists($profile_path)) {
+  // Parse the YAML file and import its data.
+  $config_data = Yaml::parse(file_get_contents($profile_path));
+
+  if (!empty($config_data)) {
+    $config_storage->write($config_name, $config_data);
+    \Drupal::logger('uky_base')->notice("The 'site_owner' role configuration has been imported.");
+  }
+  else {
+    \Drupal::logger('uky_base')->warning("The 'site_owner' role configuration file is empty or invalid.");
+  }
+}
+else {
+  \Drupal::logger('uky_base')->error("The 'site_owner' role configuration file was not found at: $profile_path");
+}

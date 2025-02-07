@@ -1,0 +1,7 @@
+uky_base_admin.uky_platform_form:
+  path: '/admin/config/uky-platform'
+  defaults:
+    _form: '\Drupal\uky_base_admin\Form\UkyPlatformSettingsForm'
+    _title: 'UK Platform Settings'
+  requirements:
+    _permission: 'access uky platform settings page'
