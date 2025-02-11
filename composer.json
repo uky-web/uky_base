@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.8.1",
+  "version": "3.8.2",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -42,7 +42,7 @@
     "drupal/auto_entityqueue": "^2.0",
     "drupal/better_exposed_filters": "^6.0.3",
     "drupal/better_formats": "1.x-dev",
-    "drupal/block_visibility_groups": "^2.0.0",
+    "drupal/block_visibility_groups": "2.0.3",
     "drupal/bpmn_io": "^2.0",
     "drupal/captcha": "^1.0",
     "drupal/chosen": "^4.0.0",
@@ -143,7 +143,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^13.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.8.1"
+    "uky-web/ukd8": "^3.8.2"
   },
   "config": {
     "optimize-autoloader": true,
@@ -158,6 +158,9 @@
       "drupal/linkit": {
         "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch",
         "fix double-encoded spaces in relative paths": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
+      },
+      "drupal/block_visibility_groups": {
+        "MissingValueContextException from #11 on https://www.drupal.org/project/block_visibility_groups/issues/3487237": "https://www.drupal.org/files/issues/2024-11-27/3487237-11.patch"
       },
       "drupal/draggableviews": {
         "Reset button for Draggable Views": "https://www.drupal.org/files/issues/2023-09-21/3388659-reset-button-2.patch"
