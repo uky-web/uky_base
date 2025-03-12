@@ -392,3 +392,10 @@ function uky_base_update_9248() {
 function uky_base_update_9249() {
   include_once dirname(__FILE__) . '/hooks/9249.install';
 }
+
+/**
+ * uky_base - Set permissions for new paragraph types
+ */
+function uky_base_update_9250() {
+  include_once dirname(__FILE__) . '/hooks/9250.install';
+}
