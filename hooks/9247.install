@@ -1,0 +1,51 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$config_factory = \Drupal::configFactory();
+
+// Explicitly check if the configuration exists.
+$block_config_1 = $config_factory->getEditable('block.block.emergencyalert')->isNew();
+$block_config_2 = $config_factory->getEditable('block.block.ukd8_emergencyalert')->isNew();
+
+if ($block_config_1 && $block_config_2) {
+  $theme = 'ukd8';
+  $block_id = 'emergencyalert';
+  $region = 'alert';
+
+  // Create and place the block.
+  $block = \Drupal\block\Entity\Block::create([
+    'id' => $block_id,
+    'theme' => $theme,
+    'region' => $region,
+    'weight' => 0,
+    'plugin' => 'emergency_alert',
+    'provider' => 'emergency_alerts',
+    'status' => 1,
+    'settings' => [
+      'id' => 'emergency_alert',
+      'label' => 'Emergency Alert',
+      'label_display' => 0,
+      'provider' => 'emergency_alerts',
+    ],
+    'visibility' => [
+      'condition_group' => [
+        'id' => 'condition_group',
+        'negate' => false,
+        'block_visibility_group' => '',
+      ],
+    ],
+  ]);
+
+  $block->save();
+
+  \Drupal::logger('YOUR_MODULE')->notice('Emergency Alert block placed in the alert region.');
+}
+else {
+  \Drupal::logger('YOUR_MODULE')->notice('Emergency Alert block already exists in active config. Skipping creation.');
+}

@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.preview
     - field.field.media.video.field_attribution
+    - field.field.media.video.field_media_image
     - field.field.media.video.field_media_video_file
     - field.field.media.video.field_tags
     - media.type.video
@@ -15,15 +16,28 @@ targetEntityType: media
 bundle: video
 mode: preview
 content:
-  thumbnail:
+  field_media_image:
     type: responsive_image
-    weight: 0
-    region: content
     label: hidden
     settings:
       responsive_image_style: half_width
       image_link: ''
+      image_loading:
+        attribute: eager
     third_party_settings: {  }
+    weight: 0
+    region: content
+  thumbnail:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: half_width
+      image_link: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   field_attribution: true

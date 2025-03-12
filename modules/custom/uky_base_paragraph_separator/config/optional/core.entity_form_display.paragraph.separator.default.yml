@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.separator.field_separator_bottom_spacing
+    - field.field.paragraph.separator.field_separator_color
+    - field.field.paragraph.separator.field_separator_top_spacing
+    - field.field.paragraph.separator.field_separator_type
+    - field.field.paragraph.separator.field_separator_width
+    - paragraphs.paragraphs_type.separator
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_spacing:
+      children:
+        - field_separator_top_spacing
+        - field_separator_bottom_spacing
+      label: Spacing
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: dMxuTop1n0vvomlW2QpY3DV54-huUJpYRF51pJLOcpQ
+id: paragraph.separator.default
+targetEntityType: paragraph
+bundle: separator
+mode: default
+content:
+  field_separator_bottom_spacing:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_separator_color:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_separator_top_spacing:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_separator_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_separator_width:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

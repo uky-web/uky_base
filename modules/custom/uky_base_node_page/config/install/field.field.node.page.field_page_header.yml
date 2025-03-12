@@ -25,6 +25,7 @@ settings:
   handler_settings:
     target_bundles:
       full_width: full_width
+      full_width_hero_overlay: full_width_hero_overlay
       full_width_3x1: full_width_3x1
       split_header: split_header
       split_header_16x9: split_header_16x9

@@ -1,0 +1,92 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 98db3df5-6294-4fbd-9127-f3ad42c241ef
+  bundle: page
+  default_langcode: en
+  depends:
+    b6d95f1c-da82-4984-a0d4-956ab921c95b: page_header
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Home
+  created:
+    -
+      value: 1738968052
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Home | uky_base'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/home'
+    -
+      tag: link
+      attributes:
+        rel: image_src
+        href: 'http://default/sites/default/files/styles/medium_16x9/public/2025-02/1-the-sc-uk.jpeg?h=6eb229a4&itok=Z09Il7G3'
+    -
+      tag: meta
+      attributes:
+        property: 'og:site_name'
+        content: 'uky_base | University of Kentucky'
+    -
+      tag: meta
+      attributes:
+        property: 'og:url'
+        content: 'http://default/home'
+    -
+      tag: meta
+      attributes:
+        property: 'og:title'
+        content: 'Home | uky_base'
+    -
+      tag: meta
+      attributes:
+        property: 'og:image'
+        content: 'http://default/sites/default/files/styles/medium_16x9/public/2025-02/1-the-sc-uk.jpeg?h=6eb229a4&itok=Z09Il7G3'
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:card'
+        content: summary_large_image
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:title'
+        content: '| uky_base'
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:image'
+        content: 'http://default/sites/default/files/styles/medium_16x9/public/2025-02/1-the-sc-uk.jpeg?h=6eb229a4&itok=Z09Il7G3'
+  path:
+    -
+      alias: /home
+      langcode: en
+      pathauto: 1
+  field_page_header:
+    -
+      entity: b6d95f1c-da82-4984-a0d4-956ab921c95b

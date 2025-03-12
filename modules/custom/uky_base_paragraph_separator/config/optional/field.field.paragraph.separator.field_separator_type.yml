@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_separator_type
+    - paragraphs.paragraphs_type.separator
+  module:
+    - options
+id: paragraph.separator.field_separator_type
+field_name: field_separator_type
+entity_type: paragraph
+bundle: separator
+label: 'Separator Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: linear_checkerboard
+default_value_callback: ''
+settings: {  }
+field_type: list_string

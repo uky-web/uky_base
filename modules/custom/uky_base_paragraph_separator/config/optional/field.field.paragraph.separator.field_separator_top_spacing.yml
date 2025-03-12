@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_separator_top_spacing
+    - paragraphs.paragraphs_type.separator
+  module:
+    - options
+id: paragraph.separator.field_separator_top_spacing
+field_name: field_separator_top_spacing
+entity_type: paragraph
+bundle: separator
+label: 'Separator Top Spacing'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

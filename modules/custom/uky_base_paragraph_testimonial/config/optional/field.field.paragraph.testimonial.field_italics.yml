@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_italics
+    - paragraphs.paragraphs_type.testimonial
+id: paragraph.testimonial.field_italics
+field_name: field_italics
+entity_type: paragraph
+bundle: testimonial
+label: Italics
+description: 'Display the quote text in italics.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

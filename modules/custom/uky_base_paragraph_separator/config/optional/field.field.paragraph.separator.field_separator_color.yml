@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_separator_color
+    - paragraphs.paragraphs_type.separator
+  module:
+    - options
+id: paragraph.separator.field_separator_color
+field_name: field_separator_color
+entity_type: paragraph
+bundle: separator
+label: 'Separator Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

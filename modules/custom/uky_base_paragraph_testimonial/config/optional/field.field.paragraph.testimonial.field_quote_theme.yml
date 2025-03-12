@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote_theme
+    - paragraphs.paragraphs_type.testimonial
+  module:
+    - options
+id: paragraph.testimonial.field_quote_theme
+field_name: field_quote_theme
+entity_type: paragraph
+bundle: testimonial
+label: 'Quote Theme'
+description: 'Select a background texture for this component.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Blue Checker'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

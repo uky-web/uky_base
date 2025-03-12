@@ -1,0 +1,201 @@
+<?php
+
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+
+  $module_list = [
+    'uky_base_eck_page_header_overlay',
+  ];
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Set page content type page header field to include new header options.
+  $config_name = 'field.field.node.page.field_page_header';
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  // Get the current 'target_bundles' settings.
+  $target_bundles = $config->get('settings.handler_settings.target_bundles') ?? [];
+
+  // Define the new bundles to add.
+  $new_bundles = [
+    'full_width_hero_overlay' => 'full_width_hero_overlay',
+  ];
+
+  // Merge the new bundles with the existing ones.
+  $target_bundles = array_merge($target_bundles, $new_bundles);
+
+  // Set the updated 'target_bundles' settings.
+  $config->set('settings.handler_settings.target_bundles', $target_bundles);
+
+  // Save the updated configuration.
+  $config->save();
+
+  // Update media entity display for video.
+  $media_display_config_name = 'core.entity_view_display.media.video.default';
+  $media_display_config = \Drupal::configFactory()->getEditable($media_display_config_name);
+
+  $media_display_config->set('content', [
+    'field_media_image' => [
+      'type' => 'image_url',
+      'label' => 'hidden',
+      'settings' => [
+        'image_style' => 'max_1300x1300',
+      ],
+      'third_party_settings' => [],
+      'weight' => 1,
+      'region' => 'content',
+    ],
+    'field_media_video_file' => [
+      'type' => 'file_video',
+      'label' => 'visually_hidden',
+      'settings' => [
+        'controls' => false,
+        'autoplay' => true,
+        'loop' => true,
+        'multiple_file_display_type' => 'tags',
+        'muted' => true,
+        'width' => 640,
+        'height' => 480,
+      ],
+      'third_party_settings' => [],
+      'weight' => 0,
+      'region' => 'content',
+    ],
+  ]);
+
+  // Save the updated media entity view display configuration.
+  $media_display_config->save();
+
+  // Update media entity display for video preview.
+  $media_preview_config_name = 'core.entity_view_display.media.video.preview';
+  $media_preview_config = \Drupal::configFactory()->getEditable($media_preview_config_name);
+
+  $media_preview_config->set('content', [
+    'field_media_image' => [
+      'type' => 'responsive_image',
+      'label' => 'hidden',
+      'settings' => [
+        'responsive_image_style' => 'half_width',
+        'image_link' => '',
+        'image_loading' => [
+          'attribute' => 'eager',
+        ],
+      ],
+      'third_party_settings' => [],
+      'weight' => 0,
+      'region' => 'content',
+    ],
+    'thumbnail' => [
+      'type' => 'responsive_image',
+      'label' => 'hidden',
+      'settings' => [
+        'responsive_image_style' => 'half_width',
+        'image_link' => '',
+        'image_loading' => [
+          'attribute' => 'eager',
+        ],
+      ],
+      'third_party_settings' => [],
+      'weight' => 0,
+      'region' => 'content',
+    ],
+  ]);
+
+  // Save the updated media entity view display configuration for preview.
+  $media_preview_config->save();
+  
+  // Update media entity form display for video.
+  $media_form_config_name = 'core.entity_form_display.media.video.default';
+  $media_form_config = \Drupal::configFactory()->getEditable($media_form_config_name);
+
+  $media_form_config->set('content', [
+    'created' => [
+      'type' => 'datetime_timestamp',
+      'weight' => 3,
+      'region' => 'content',
+      'settings' => [],
+      'third_party_settings' => [],
+    ],
+    'field_attribution' => [
+      'type' => 'string_textfield',
+      'weight' => 27,
+      'region' => 'content',
+      'settings' => [
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'third_party_settings' => [],
+    ],
+    'field_media_image' => [
+      'type' => 'image_focal_point',
+      'weight' => 1,
+      'region' => 'content',
+      'settings' => [
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'medium',
+        'preview_link' => true,
+        'offsets' => '50,50',
+      ],
+      'third_party_settings' => [],
+    ],
+    'field_media_video_file' => [
+      'type' => 'file_generic',
+      'weight' => 0,
+      'region' => 'content',
+      'settings' => [
+        'progress_indicator' => 'throbber',
+      ],
+      'third_party_settings' => [],
+    ],
+    'field_tags' => [
+      'type' => 'chosen_select',
+      'weight' => 26,
+      'region' => 'content',
+      'settings' => [],
+      'third_party_settings' => [],
+    ],
+    'name' => [
+      'type' => 'string_textfield',
+      'weight' => -5,
+      'region' => 'content',
+      'settings' => [
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'third_party_settings' => [],
+    ],
+    'path' => [
+      'type' => 'path',
+      'weight' => 4,
+      'region' => 'content',
+      'settings' => [],
+      'third_party_settings' => [],
+    ],
+    'status' => [
+      'type' => 'boolean_checkbox',
+      'weight' => 5,
+      'region' => 'content',
+      'settings' => [
+        'display_label' => true,
+      ],
+      'third_party_settings' => [],
+    ],
+    'uid' => [
+      'type' => 'entity_reference_autocomplete',
+      'weight' => 2,
+      'region' => 'content',
+      'settings' => [
+        'match_operator' => 'CONTAINS',
+        'match_limit' => 10,
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'third_party_settings' => [],
+    ],
+  ]);
+
+  // Save the updated media entity form display configuration.
+  $media_form_config->save();

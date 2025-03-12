@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: in_page_alert
+label: 'In-page alert'
+icon_uuid: null
+icon_default: null
+description: 'Brief text alert (heading and message decorated by an icon).'
+behavior_plugins: {  }

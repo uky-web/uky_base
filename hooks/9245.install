@@ -1,0 +1,29 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$config_factory = \Drupal::configFactory();
+$config = $config_factory->getEditable('embederator.embederator_type.uky_maps_embed');
+
+if ($config->isNew()) {
+  \Drupal::logger('mymodule')->warning('Config embederator.embederator_type.uky_maps_embed does not exist.');
+  return;
+}
+
+// Update the embed_markup.value setting.
+$config->set('embed_markup.value', '<iframe width=100% height=[embederator:field_iframe_height] frameborder=0 scrolling=no marginheight=0 marginwidth=0 src=https://maps.uky.edu/campusmap/?app=embedded&Bldg=[embederator:field_building_number]> </iframe>');
+
+// Save the updated configuration.
+$config->save();
+
+\Drupal::logger('mymodule')->info('Updated embed_markup for embederator.embederator_type.uky_maps_embed.');
+
+
+
+
+

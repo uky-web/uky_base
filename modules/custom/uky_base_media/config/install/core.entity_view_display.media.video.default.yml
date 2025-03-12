@@ -3,29 +3,39 @@ status: true
 dependencies:
   config:
     - field.field.media.video.field_attribution
+    - field.field.media.video.field_media_image
     - field.field.media.video.field_media_video_file
     - field.field.media.video.field_tags
     - media.type.video
   module:
     - file
+    - image
 id: media.video.default
 targetEntityType: media
 bundle: video
 mode: default
 content:
+  field_media_image:
+    type: image_url
+    label: hidden
+    settings:
+      image_style: max_1300x1300
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_media_video_file:
     type: file_video
-    weight: 0
     label: visually_hidden
     settings:
-      muted: false
+      controls: false
+      autoplay: true
+      loop: true
+      multiple_file_display_type: tags
+      muted: true
       width: 640
       height: 480
-      controls: true
-      autoplay: false
-      loop: false
-      multiple_file_display_type: tags
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

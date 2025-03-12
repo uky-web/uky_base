@@ -343,3 +343,52 @@ function uky_base_update_9241() {
 function uky_base_update_9242() {
   include_once dirname(__FILE__) . '/hooks/9242.install';
 }
+
+/**
+ * uky_base - Install new uky_base_paragraph_testimonial module 
+ */
+function uky_base_update_9243() {
+  include_once dirname(__FILE__) . '/hooks/9243.install';
+}
+
+/**
+ * uky_base - Install new uky_base_paragraph_in_page_alert module 
+ */
+function uky_base_update_9244() {
+  include_once dirname(__FILE__) . '/hooks/9244.install';
+}
+
+/**
+ * uky_base - Update uky_maps embederator
+ */
+function uky_base_update_9245() {
+  include_once dirname(__FILE__) . '/hooks/9245.install';
+}
+
+/**
+ * uky_base - Install eck listing view
+ */
+function uky_base_update_9246() {
+  include_once dirname(__FILE__) . '/hooks/9246.install';
+}
+
+/**
+ * uky_base - Place emergency alert block if it isn't there already
+ */
+function uky_base_update_9247() {
+  include_once dirname(__FILE__) . '/hooks/9247.install';
+}
+
+/**
+ * uky_base - Enable uky_base_paragraphs_separator module
+ */
+function uky_base_update_9248() {
+  include_once dirname(__FILE__) . '/hooks/9248.install';
+}
+
+/**
+ * uky_base - Enable uky_base_eck_page_header_overlay module and update the field on page content type.
+ */
+function uky_base_update_9249() {
+  include_once dirname(__FILE__) . '/hooks/9249.install';
+}

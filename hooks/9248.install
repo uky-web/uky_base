@@ -1,0 +1,10 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+\Drupal::service('module_installer')->install(['uky_base_paragraph_separator']);

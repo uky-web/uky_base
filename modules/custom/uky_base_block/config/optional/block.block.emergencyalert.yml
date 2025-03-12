@@ -3,21 +3,22 @@ status: true
 dependencies:
   module:
     - block_visibility_groups
-    - _alerts
-id: alert
+    - emergency_alerts
+  theme:
+    - ukd8
+id: emergencyalert
 theme: ukd8
 region: alert
-weight: -10
+weight: 0
 provider: null
-plugin: _alert
+plugin: emergency_alert
 settings:
-  id: _alert
-  label: ' Alert'
-  provider: _alerts
+  id: emergency_alert
+  label: 'Emergency Alert'
   label_display: '0'
+  provider: emergency_alerts
 visibility:
   condition_group:
     id: condition_group
     negate: false
     block_visibility_group: ''
-    context_mapping: {  }

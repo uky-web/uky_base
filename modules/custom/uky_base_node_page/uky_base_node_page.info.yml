@@ -21,6 +21,7 @@ dependencies:
   - pathauto
   - uky_base_eck_page_header
   - uky_base_eck_page_header_small
+  - uky_base_eck_page_header_overlay
   - uky_base_node
   - uky_base_paragraph_body
   - uky_base_paragraph_calls_to_action

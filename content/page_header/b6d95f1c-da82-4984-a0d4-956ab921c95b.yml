@@ -1,0 +1,54 @@
+_meta:
+  version: '1.0'
+  entity_type: page_header
+  uuid: b6d95f1c-da82-4984-a0d4-956ab921c95b
+  bundle: split_header
+  default_langcode: en
+  depends:
+    cfd53bd9-8b3d-416d-acba-9e5b28ef7c2e: media
+default:
+  title:
+    -
+      value: Home
+  status:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: '| uky_base'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/user/login'
+    -
+      tag: meta
+      attributes:
+        property: 'og:site_name'
+        content: 'uky_base | University of Kentucky'
+    -
+      tag: meta
+      attributes:
+        property: 'og:title'
+        content: '| uky_base'
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:card'
+        content: summary_large_image
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:title'
+        content: '| uky_base'
+  field_headline_group:
+    -
+      superhead: ''
+      headline: Home
+      subhead: ''
+  field_media:
+    -
+      entity: cfd53bd9-8b3d-416d-acba-9e5b28ef7c2e

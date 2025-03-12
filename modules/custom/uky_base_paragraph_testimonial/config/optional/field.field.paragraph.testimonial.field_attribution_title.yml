@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attribution_title
+    - paragraphs.paragraphs_type.testimonial
+id: paragraph.testimonial.field_attribution_title
+field_name: field_attribution_title
+entity_type: paragraph
+bundle: testimonial
+label: 'Attribution title'
+description: 'Enter a job title or very brief description of the person being quoted.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: ea065153-8fdf-47b3-93a7-a75bf5a70e4c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: 1-the-sc-uk.jpeg
+  uri:
+    -
+      value: 'public://2025-02/1-the-sc-uk.jpeg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 125273
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1738968076

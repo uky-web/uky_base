@@ -1,0 +1,67 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: cfd53bd9-8b3d-416d-acba-9e5b28ef7c2e
+  bundle: image
+  default_langcode: en
+  depends:
+    ea065153-8fdf-47b3-93a7-a75bf5a70e4c: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 1-the-sc-uk.jpeg
+  created:
+    -
+      value: 1738968076
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: '| uky_base'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/user/login'
+    -
+      tag: meta
+      attributes:
+        property: 'og:site_name'
+        content: 'uky_base | University of Kentucky'
+    -
+      tag: meta
+      attributes:
+        property: 'og:title'
+        content: '| uky_base'
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:card'
+        content: summary_large_image
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:title'
+        content: '| uky_base'
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: ea065153-8fdf-47b3-93a7-a75bf5a70e4c
+      alt: 'Photo of UK brick wall at the Gatton Student Center.'
+      title: ''
+      width: 1200
+      height: 900

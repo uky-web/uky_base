@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_quote_theme
+field_name: field_quote_theme
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Blue Checker'
+      label: 'Blue Checker'
+    -
+      value: 'Light Blue Speckled'
+      label: 'Light Blue Speckled'
+    -
+      value: 'Blue Splash'
+      label: 'Blue Splash'
+    -
+      value: 'White Comb'
+      label: 'White Comb'
+    -
+      value: 'Light Blue Squares'
+      label: 'Light Blue Squares'
+    -
+      value: 'Blue Squares'
+      label: 'Blue Squares'
+    -
+      value: 'Yellow Radial'
+      label: 'Yellow Radial'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

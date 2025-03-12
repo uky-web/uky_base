@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_separator_width
+    - paragraphs.paragraphs_type.separator
+  module:
+    - options
+id: paragraph.separator.field_separator_width
+field_name: field_separator_width
+entity_type: paragraph
+bundle: separator
+label: 'Separator Width'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: content_width
+default_value_callback: ''
+settings: {  }
+field_type: list_string
