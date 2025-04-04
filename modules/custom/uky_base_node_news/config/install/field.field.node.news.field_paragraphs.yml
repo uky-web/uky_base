@@ -22,43 +22,64 @@ settings:
     negate: 1
     target_bundles: null
     target_bundles_drag_drop:
+      2_1_slab:
+        weight: -38
+        enabled: false
+      50_50_slab:
+        weight: -39
+        enabled: false
       body:
-        weight: -27
+        weight: -41
         enabled: false
       calls_to_action:
-        weight: -26
+        weight: -37
         enabled: false
       carousel:
-        weight: -25
+        weight: -36
         enabled: false
       custom_teasers:
-        weight: -24
-        enabled: false
-      feed:
-        weight: -23
-        enabled: false
-      gallery:
-        weight: -22
-        enabled: false
-      link_lists:
-        weight: -21
-        enabled: false
-      media:
-        weight: -20
-        enabled: false
-      statistics:
-        weight: -19
-        enabled: false
-      zipper:
-        weight: -18
+        weight: -35
         enabled: false
       editorial_aside:
-        weight: -17
+        weight: -34
         enabled: false
-      2_1_slab:
-        weight: -16
+      embederator:
+        weight: -33
+        enabled: false
+      feed:
+        weight: -32
         enabled: false
       flex_grid:
-        weight: -15
+        weight: -40
+        enabled: false
+      gallery:
+        weight: -31
+        enabled: false
+      in_page_alert:
+        weight: -30
+        enabled: false
+      link_lists:
+        weight: -29
+        enabled: false
+      media:
+        weight: -28
+        enabled: false
+      pullquote:
+        weight: -27
+        enabled: false
+      separator:
+        weight: -26
+        enabled: false
+      statistics:
+        weight: -25
+        enabled: false
+      testimonial:
+        weight: -24
+        enabled: false
+      webform:
+        weight: -23
+        enabled: false
+      zipper:
+        weight: -22
         enabled: false
 field_type: entity_reference_revisions

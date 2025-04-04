@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.page_header.16x9
+    - core.entity_view_mode.page_header.3x1
+    - eck.eck_type.page_header.full_width_hero_overlay
+    - field.storage.page_header.field_hero_image_size
+  module:
+    - view_mode_switch
+id: page_header.full_width_hero_overlay.field_hero_image_size
+field_name: field_hero_image_size
+entity_type: page_header
+bundle: full_width_hero_overlay
+label: 'Hero Image Size'
+description: 'Sets the aspect ratio for the hero image.  This does not work for video.  Video must be resized prior to upload.  '
+required: true
+translatable: false
+default_value:
+  -
+    value: 3x1
+default_value_callback: ''
+settings:
+  allowed_view_modes:
+    16x9: 16x9
+    3x1: 3x1
+field_type: view_mode_switch

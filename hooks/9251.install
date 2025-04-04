@@ -1,0 +1,84 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$config_factory = \Drupal::configFactory();
+$field_configs = [
+  'field.field.node.event.field_paragraphs',
+  'field.field.node.news.field_paragraphs',
+  'field.field.node.page.field_prefix_paragraphs',
+  'field.field.node.page.field_suffix_paragraphs',
+];
+
+$updated_weights = [
+  '2_1_slab' => -38,
+  '50_50_slab' => -39,
+  'body' => -41,
+  'calls_to_action' => -37,
+  'carousel' => -36,
+  'custom_teasers' => -35,
+  'editorial_aside' => -34,
+  'embederator' => -33,
+  'feed' => -32,
+  'flex_grid' => -40,
+  'gallery' => -31,
+  'in_page_alert' => -30,
+  'link_lists' => -29,
+  'media' => -28,
+  'pullquote' => -27,
+  'separator' => -26,
+  'statistics' => -25,
+  'testimonial' => -24,
+  'webform' => -23,
+  'zipper' => -22,
+];
+
+// Update each field configuration.
+foreach ($field_configs as $field_name) {
+  $config = $config_factory->getEditable($field_name);
+  $handler_settings = $config->get('settings.handler_settings') ?? [];
+
+  if (!isset($handler_settings['target_bundles_drag_drop'])) {
+    $handler_settings['target_bundles_drag_drop'] = [];
+  }
+
+  // Ensure all expected bundles exist and update their weight.
+  foreach ($updated_weights as $bundle => $weight) {
+    if (!isset($handler_settings['target_bundles_drag_drop'][$bundle])) {
+      $handler_settings['target_bundles_drag_drop'][$bundle] = ['enabled' => false];
+    }
+    $handler_settings['target_bundles_drag_drop'][$bundle]['weight'] = $weight;
+  }
+
+  $config->set('settings.handler_settings', $handler_settings)->save();
+}
+
+// Special case for field.field.node.page.field_paragraphs.
+$page_field = 'field.field.node.page.field_paragraphs';
+$config = $config_factory->getEditable($page_field);
+$handler_settings = $config->get('settings.handler_settings') ?? [];
+
+if (!isset($handler_settings['target_bundles_drag_drop'])) {
+  $handler_settings['target_bundles_drag_drop'] = [];
+}
+
+// Ensure all expected bundles exist and update their weight.
+foreach ($updated_weights as $bundle => $weight) {
+  if (!isset($handler_settings['target_bundles_drag_drop'][$bundle])) {
+    $handler_settings['target_bundles_drag_drop'][$bundle] = ['enabled' => false];
+  }
+  $handler_settings['target_bundles_drag_drop'][$bundle]['weight'] = $weight;
+}
+
+// Ensure '2_1_slab' remains enabled.
+if (isset($handler_settings['target_bundles_drag_drop']['2_1_slab'])) {
+  $handler_settings['target_bundles_drag_drop']['2_1_slab']['enabled'] = true;
+}
+
+$config->set('settings.handler_settings', $handler_settings)->save();

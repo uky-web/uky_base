@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: page_header.16x9
+label: '16x9 (Large)'
+description: ''
+targetEntityType: page_header
+cache: true

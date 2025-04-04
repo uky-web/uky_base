@@ -1,0 +1,48 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$config_name = 'views.view.content_teaser_grids';
+  
+// Load the current config.
+$config = \Drupal::configFactory()->getEditable($config_name);
+
+// Get the raw config data and serialize it to get the line count.
+$config_data = $config->getRawData();
+$serialized_data = Yaml::dump($config_data, 10, 2);
+
+// Count the number of lines.
+$line_count = substr_count($serialized_data, "\n") + 1;
+
+// Only run the update if the config has exactly 713 lines.
+if ($line_count == 713 || $line_count == 717) {
+  // Get the path to the config file from the install profile.
+  $module_path = \Drupal::service('extension.list.module')->getPath('uky_base');
+  $config_path = $module_path . '/config/install/' . $config_name . '.yml';
+
+  // Check if the config file exists in the install profile.
+  if (file_exists($config_path)) {
+    // Load the YAML file from the install profile.
+    $default_config_data = Yaml::parseFile($config_path);
+
+    // Use the config factory to overwrite the config with the new data.
+    \Drupal::configFactory()->getEditable($config_name)
+      ->setData($default_config_data)
+      ->save();
+
+    // Log the replacement.
+    \Drupal::logger('my_module')->notice('Replaced the active config for content_teaser_grids with the default from the install profile.');
+  }
+  else {
+    \Drupal::logger('my_module')->error('The config file for content_teaser_grids does not exist in the install profile.');
+  }
+}
+else {
+  \Drupal::logger('my_module')->notice('The active config for content_teaser_grids does not have the expected 713 or 717 lines. No update performed.');
+}

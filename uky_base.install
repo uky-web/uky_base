@@ -399,3 +399,31 @@ function uky_base_update_9249() {
 function uky_base_update_9250() {
   include_once dirname(__FILE__) . '/hooks/9250.install';
 }
+
+/**
+ * uky_base - Update hook to order paragraph order
+ */
+function uky_base_update_9251() {
+  include_once dirname(__FILE__) . '/hooks/9251.install';
+}
+
+/**
+ * uky_base - Update hook add hero image size selector
+ */
+function uky_base_update_9252() {
+  include_once dirname(__FILE__) . '/hooks/9252.install';
+}
+
+/**
+ * uky_base - Update hook to change carousel image to full width view mode
+ */
+function uky_base_update_9253() {
+  include_once dirname(__FILE__) . '/hooks/9253.install';
+}
+
+/**
+ * uky_base - Update hook to change taxonomy filtering for content teaser grids to term number (only runs on views that are default platform)
+ */
+function uky_base_update_9254() {
+  include_once dirname(__FILE__) . '/hooks/9254.install';
+}

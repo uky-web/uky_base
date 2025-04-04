@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.page_header.3x1
     - eck.eck_type.page_header.full_width_hero_overlay
     - field.field.page_header.full_width_hero_overlay.field_cta_link
     - field.field.page_header.full_width_hero_overlay.field_headline_group
@@ -13,10 +14,10 @@ dependencies:
   module:
     - headline_group
     - link
-id: page_header.full_width_hero_overlay.default
+id: page_header.full_width_hero_overlay.3x1
 targetEntityType: page_header
 bundle: full_width_hero_overlay
-mode: default
+mode: 3x1
 content:
   field_cta_link:
     type: link
@@ -45,7 +46,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 16x9
+      view_mode: 3x1
       link: false
     third_party_settings: {  }
     weight: 3

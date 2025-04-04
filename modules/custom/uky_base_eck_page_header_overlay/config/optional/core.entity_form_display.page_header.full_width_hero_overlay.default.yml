@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.media_browser_modal
     - field.field.page_header.full_width_hero_overlay.field_cta_link
     - field.field.page_header.full_width_hero_overlay.field_headline_group
+    - field.field.page_header.full_width_hero_overlay.field_hero_image_size
     - field.field.page_header.full_width_hero_overlay.field_media
     - field.field.page_header.full_width_hero_overlay.field_secondary_link
     - field.field.page_header.full_width_hero_overlay.field_secondary_media
@@ -15,6 +16,7 @@ dependencies:
     - headline_group
     - link
     - media_library
+    - view_mode_switch
 id: page_header.full_width_hero_overlay.default
 targetEntityType: page_header
 bundle: full_width_hero_overlay
@@ -22,7 +24,7 @@ mode: default
 content:
   field_cta_link:
     type: link_default
-    weight: 2
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
@@ -30,13 +32,19 @@ content:
     third_party_settings: {  }
   field_headline_group:
     type: headline_complete
-    weight: 1
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hero_image_size:
+    type: view_mode_switch
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_media:
     type: media_library_widget
-    weight: 0
+    weight: 1
     region: content
     settings:
       media_types:
@@ -45,7 +53,7 @@ content:
     third_party_settings: {  }
   field_secondary_link:
     type: link_default
-    weight: 3
+    weight: 5
     region: content
     settings:
       placeholder_url: ''
@@ -53,7 +61,7 @@ content:
     third_party_settings: {  }
   field_secondary_media:
     type: entity_browser_entity_reference
-    weight: 4
+    weight: 6
     region: content
     settings:
       entity_browser: media_browser_modal
@@ -65,6 +73,13 @@ content:
       field_widget_display_settings:
         view_mode: thumbnail
       selection_mode: selection_append
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   field_theme_color_scheme: true

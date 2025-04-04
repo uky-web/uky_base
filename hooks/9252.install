@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\Core\Extension\ExtensionPathResolver;
+
+  // Enable necessary modules.
+  $module_list = ['view_mode_switch'];
+  \Drupal::service('module_installer')->install($module_list);
+
+  // Rebuild cache to ensure all field types and other data are registered.
+  $command = "drush cr 2>&1";  // Execute 'drush cr' (cache rebuild)
+  exec($command, $output, $return_var);
+
+  // Get the path to the config/optional directory of the module.
+  $module_path = \Drupal::service('extension.path.resolver')->getPath('module', 'uky_base_eck_page_header_overlay');
+  $config_path = $module_path . '/config/optional';
+
+  // Run the Drush command to import the configuration.
+  $command = "drush config:import --partial --source={$config_path} 2>&1";
+  exec($command, $output, $return_var);
+
+  if ($return_var !== 0) {
+    throw new \Exception('Drush config import failed: ' . implode("\n", $output));
+  }
+
+  // Ensure the site is not left in maintenance mode.
+  \Drupal::state()->set('system.maintenance_mode', FALSE);

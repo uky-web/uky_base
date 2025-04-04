@@ -1,0 +1,24 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+
+$config_factory = \Drupal::service('config.factory');
+$config = $config_factory->getEditable('core.entity_view_display.paragraph.carousel.default');
+
+// Update the view mode for field_collection_items.
+$content = $config->get('content') ?? [];
+if (isset($content['field_collection_items'])) {
+  $content['field_collection_items']['settings']['view_mode'] = 'full_width';
+  $config->set('content', $content);
+  $config->save();
+  \Drupal::logger('uky_base_admin')->notice('Updated field_collection_items view mode to full_width in paragraph.carousel.default.');
+}
+
+
+
