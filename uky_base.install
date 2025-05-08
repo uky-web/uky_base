@@ -427,3 +427,10 @@ function uky_base_update_9253() {
 function uky_base_update_9254() {
   include_once dirname(__FILE__) . '/hooks/9254.install';
 }
+
+/**
+ * uky_base - Enable config_log and config_log_views
+ */
+function uky_base_update_9255() {
+  include_once dirname(__FILE__) . '/hooks/9255.install';
+}

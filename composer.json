@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.10.0",
+  "version": "3.11.0",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -47,8 +47,10 @@
     "drupal/captcha": "^1.0",
     "drupal/chosen": "^4.0.0",
     "drupal/config_ignore": "^3.1",
+    "drupal/config_log": "^4.0",
     "drupal/config_split": "^1.7",
     "drupal/config_update": "^2.0@alpha",
+    "drupal/confirm_unpublish": "^1.0",
     "drupal/content_access": "^2.0.0",
     "drupal/core": "^10.2.1",
     "drupal/core-composer-scaffold": "^10.2",
@@ -123,7 +125,7 @@
     "drupal/simplify_menu": "^3.1.1",
     "drupal/svg_image": "^3.0.1",
     "drupal/tab_toolbar": "^1.0@beta",
-    "drupal/tablefield": "^2.3",
+    "drupal/tablefield": "^3.0",
     "drupal/taxonomy_menu": "^3.5",
     "drupal/tvi": "^2.0",
     "drupal/twig_tweak": "^3.2.1",
@@ -145,7 +147,7 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^13.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.10.0"
+    "uky-web/ukd8": "^3.11.0"
   },
   "config": {
     "optimize-autoloader": true,
