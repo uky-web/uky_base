@@ -1,8 +1,0 @@
-alert_text: '<h2>Are you sure you want to unpublish this node?</h2><p class="intro">Please make sure this is what you are trying to do before saving the node. &nbsp;This will unpublish this page and make it unavailable to the public. &nbsp;This could have unintended consequences if for example, this is the homepage of your website.</p>'
-alert_text_format: basic_html
-logging: 1
-allowed_content_types:
-  event: 0
-  news: 0
-  page: 0
-  person: 0

@@ -25,7 +25,6 @@ dependencies:
   - taxonomy
   - telephone
   - text
-  - tour
   - user
   - views
 package: uky_base

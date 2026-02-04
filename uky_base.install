@@ -434,3 +434,10 @@ function uky_base_update_9254() {
 function uky_base_update_9255() {
   include_once dirname(__FILE__) . '/hooks/9255.install';
 }
+
+/**
+ * uky_base - Uninstall deprecated tour module
+ */
+function uky_base_update_9256() {
+  include_once dirname(__FILE__) . '/hooks/9256.install';
+}
