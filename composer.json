@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.12.1",
+  "version": "3.12.2",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -151,8 +151,8 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^13.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.12.1",
-    "uky-web/uky_utm": "^3.12.1"
+    "uky-web/ukd8": "^3.12.2",
+    "uky-web/uky_utm": "^3.12.2"
   },
   "config": {
     "optimize-autoloader": true,
