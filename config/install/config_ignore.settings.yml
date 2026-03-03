@@ -1,0 +1,3 @@
+mode: simple
+ignored_config_entities:
+  - 'core.extension:module.stage_file_proxy'

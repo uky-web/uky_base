@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.12.2",
+  "version": "3.13.0",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -18,7 +18,7 @@
   "repositories": [
     {
       "type": "composer",
-      "url": "https://composer.uky.dev"
+      "url": "https://composer.uky.edu"
     },
     {
       "type": "composer",
@@ -121,6 +121,7 @@
     "drupal/recaptcha_v3": "^1.6",
     "drupal/revision_author_tokens": "^1.0",
     "drupal/role_delegation": "^1.2",
+    "drupal/samlauth": "^3.11",
     "drupal/scanner": "^1.0@RC",
     "drupal/scheduler": "^2.0.0",
     "drupal/search_api": "^1.23",
@@ -151,8 +152,8 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^13.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.12.2",
-    "uky-web/uky_utm": "^3.12.2"
+    "uky-web/ukd8": "^3.13.0",
+    "uky-web/uky_utm": "^3.13.0"
   },
   "config": {
     "optimize-autoloader": true,

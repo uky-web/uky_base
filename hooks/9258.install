@@ -1,0 +1,46 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$config_name = 'views.view.user_admin_people';
+
+// -----------------------------
+// Load editable active config
+// -----------------------------
+$config = \Drupal::configFactory()->getEditable($config_name);
+
+// -----------------------------
+// Load YAML from uky_base
+// -----------------------------
+$profile_path = 'profiles/uky_platform/uky_base/modules/custom/uky_base_user/config/install';
+$yaml_file = $profile_path . '/views.view.user_admin_people.yml';
+
+if (!file_exists($yaml_file)) {
+  \Drupal::logger('uky_base')->error(
+    'Config update failed. YAML file not found: %file',
+    ['%file' => $yaml_file]
+  );
+  return;
+}
+
+$yaml_content = file_get_contents($yaml_file);
+$parsed_yaml  = Yaml::parse($yaml_content);
+
+// Normalize keys Drupal regenerates
+unset($parsed_yaml['uuid'], $parsed_yaml['langcode'], $parsed_yaml['_core']);
+
+// -----------------------------
+// Apply the update (force overwrite)
+// -----------------------------
+$config->setData($parsed_yaml)->save();
+
+\Drupal::logger('uky_base')->notice(
+  'View configuration %view was forcefully reset to platform defaults.',
+  ['%view' => $config_name]
+);

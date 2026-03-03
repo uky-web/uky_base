@@ -10,6 +10,8 @@ use Drupal\shortcut\Entity\Shortcut;
 use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+
 
 /**
  * Implements hook_install().
@@ -32,7 +34,7 @@ function uky_base_install()
   // Populate the default shortcut set.
   $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
-    'title' => t('Add content'),
+    'title' => \Drupal::translation()->translate('Add content'),
     'weight' => -20,
     'link' => ['uri' => 'internal:/node/add'],
   ]);
@@ -40,7 +42,7 @@ function uky_base_install()
 
   $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
-    'title' => t('All content'),
+    'title' => \Drupal::translation()->translate('All content'),
     'weight' => -19,
     'link' => ['uri' => 'internal:/admin/content'],
   ]);
@@ -223,7 +225,7 @@ function uky_base_update_9224() {
  */
 function uky_base_update_9225() {
   include_once dirname(__FILE__) . '/hooks/9225.install';
-}  
+}
 
 /**
  * uky_base - Adding max file size for audio, video and images
@@ -275,7 +277,7 @@ function uky_base_update_9232() {
 }
 
 /**
- * uky_base - Add sticky override perm to content manager role. 
+ * uky_base - Add sticky override perm to content manager role.
  */
 function uky_base_update_9233() {
   include_once dirname(__FILE__) . '/hooks/9233.install';
@@ -331,28 +333,28 @@ function uky_base_update_9240() {
 }
 
 /**
- * uky_base - Create new Site Owner role.  
+ * uky_base - Create new Site Owner role.
  */
 function uky_base_update_9241() {
   include_once dirname(__FILE__) . '/hooks/9241.install';
 }
 
 /**
- * uky_base - Install new uky_base_admin module 
+ * uky_base - Install new uky_base_admin module
  */
 function uky_base_update_9242() {
   include_once dirname(__FILE__) . '/hooks/9242.install';
 }
 
 /**
- * uky_base - Install new uky_base_paragraph_testimonial module 
+ * uky_base - Install new uky_base_paragraph_testimonial module
  */
 function uky_base_update_9243() {
   include_once dirname(__FILE__) . '/hooks/9243.install';
 }
 
 /**
- * uky_base - Install new uky_base_paragraph_in_page_alert module 
+ * uky_base - Install new uky_base_paragraph_in_page_alert module
  */
 function uky_base_update_9244() {
   include_once dirname(__FILE__) . '/hooks/9244.install';
@@ -440,4 +442,25 @@ function uky_base_update_9255() {
  */
 function uky_base_update_9256() {
   include_once dirname(__FILE__) . '/hooks/9256.install';
+}
+
+/**
+ * uky_base - Install samlauth, samlauth_user_fields, config_split, and config_ignore.  Import those config entities and new user fields from uky_base.
+ */
+function uky_base_update_9257() {
+  include_once dirname(__FILE__) . '/hooks/9257.install';
+}
+
+/**
+ * uky_base - Update admin/people view only if it matches the hash of the default uky_base install profile.
+ */
+function uky_base_update_9258() {
+  include_once dirname(__FILE__) . '/hooks/9258.install';
+}
+
+/**
+ * uky_base - Update user profile display to include new SAML attributes only if it matches the hash of the default uky_base install profile.
+ */
+function uky_base_update_9259() {
+  include_once dirname(__FILE__) . '/hooks/9259.install';
 }

@@ -1,0 +1,140 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+/*
+ * Update user display configs only if they match known platform hashes.
+ * This ensures we only override sites that are using standard platform defaults
+ * from either the "Newer" or "Older" platform baselines.
+ */
+
+// -------------------------------------------------
+// Config definitions + Multi-Baseline Hashes
+// -------------------------------------------------
+$config_updates = [
+
+  'core.entity_view_display.user.user.default' => [
+    'file' => 'core.entity_view_display.user.user.default.yml',
+    'allowed_hashes' => [
+      '18c5dc7910949fff3616d211e4d4e38a9131b4ce3218c18d6df9a37662629e37', // Newer Platform
+      '37b90b1bdf520235923904ada4cef1d1b9797295fb25b590429943f6b69be9c0', // Older Platform
+      'fb03febc6caddc8fb352c5b547af0fcf3a70172f01aa0492001a4d8feeac864f', // Registrar / StudentSuccess
+      '41ee173a714124f5e0ec1bd87c313cc3f02bfe122d5ed07a98b42995c2573fd1', // Pharmacy
+      '4f02c18b7a2ef17d9f075ddc75a16343f741fb869b29d346f98b3c65e654e380', // UFS
+      '4b4b700e6e1496279b78d6c067dd051b52a132d74e044840a57584041270bbb0', // libraries
+    ],
+  ],
+
+  'core.entity_view_display.user.user.compact' => [
+    'file' => 'core.entity_view_display.user.user.compact.yml',
+    'allowed_hashes' => [
+      '7249a0c7cd21db60ad41fb838139b47b1739a0216036aaf73ffed115eada4eb7', // Newer Platform
+      'f7b884e60fdcce05ee348cbf8280d991a636b2252da489f335121e016552dcbf', // Older Platform
+      '0fe7456e0b0a2f1ec4de14d6735fe41aaf331da96a72c056a717cb25ea09e8bf', // Registrar / StudentSuccess
+      '2fc845bb17b9f35fa336a0c24e34237c4fda26094a8202b3389f03c34e75fbc3', // Pharmacy
+      '02411afc7fd9333c23914d75d616e198677b3ad620658e8eb1955fddec58dd2a', // UFS
+      '15624544a9a4c7dd9c7b0d4518845b0ce1279da5db8a77d47352c11747ed185f', // libraries
+    ],
+  ],
+
+  'core.entity_form_display.user.user.default' => [
+    'file' => 'core.entity_form_display.user.user.default.yml',
+    'allowed_hashes' => [
+      '66fcc4d4e279fb4d8cb97bec856e2efbaeeb053b27767d64e029f7e37b98b192', // Standard
+      '15d9d0f72fe34b87d9d62f2c0c776bc7191be103734adba2c50aac8a3c1385bc', // Standard Post-9257
+      'f01a9945ad50484ab105f6923b98f5bd12d3eb5b854bc5b16e1a74ac15ebc378', // Alternate Standard
+      '8aa0fb8a9ce13c5225b70b5ea92159c859e4b9235f437403c4b6badaa7d26310', // healingstudy
+      '71844221644277528696e531640e39908c44815f6d1b033fc02882381989e699', // UFS Form
+    ],
+  ],
+
+];
+
+// -------------------------------------------------
+// Fields to ignore (the ones added in 9257)
+// -------------------------------------------------
+$new_fields = [
+  'field_uky_office',
+  'field_uky_name',
+  'field_uky_display_name',
+  'field_uky_department',
+];
+
+$profile_path = 'profiles/uky_platform/uky_base/modules/custom/uky_base_user/config/install';
+
+/**
+ * Normalization helper to ensure consistent hashing across platform versions.
+ */
+$normalize = function($data) use ($new_fields) {
+  // 1. Remove standard metadata
+  unset($data['uuid'], $data['langcode'], $data['_core']);
+
+  // 2. Strip the new fields from content and hidden arrays
+  foreach ($new_fields as $f) {
+    if (isset($data['content'][$f])) unset($data['content'][$f]);
+    if (isset($data['hidden'][$f])) unset($data['hidden'][$f]);
+  }
+
+  // 3. Strip the new fields from dependencies
+  if (isset($data['dependencies']['config'])) {
+    $data['dependencies']['config'] = array_values(array_filter($data['dependencies']['config'], function($d) use ($new_fields) {
+      foreach ($new_fields as $f) { if (strpos($d, $f) !== false) return false; }
+      return true;
+    }));
+  }
+
+  // 4. Recursive ksort to ensure key order consistency
+  $sort = function(&$a) use (&$sort) {
+    if (!is_array($a)) return;
+    ksort($a);
+    foreach ($a as &$i) { if (is_array($i)) $sort($i); }
+  };
+  $sort($data);
+  return $data;
+};
+
+// -------------------------------------------------
+// Main Update Loop
+// -------------------------------------------------
+foreach ($config_updates as $config_name => $info) {
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  if ($config->isNew()) {
+    continue;
+  }
+
+  // Normalize active data and generate hash
+  $clean_active_data = $normalize($config->getRawData());
+  $current_hash = hash('sha256', serialize($clean_active_data));
+
+  // Skip if the hash doesn't match either of our golden platform baselines
+  if (!in_array($current_hash, $info['allowed_hashes'], TRUE)) {
+    \Drupal::logger('uky_base')->notice(
+      'Skipping update of %config. Local modifications detected (hash: %hash).',
+      ['%config' => $config_name, '%hash' => $current_hash]
+    );
+    continue;
+  }
+
+  // Import the platform YAML
+  $yaml_file = $profile_path . '/' . $info['file'];
+  if (file_exists($yaml_file)) {
+    $parsed_yaml = Yaml::parse(file_get_contents($yaml_file));
+
+    // Safety: Strip metadata from YAML before saving
+    unset($parsed_yaml['uuid'], $parsed_yaml['langcode'], $parsed_yaml['_core']);
+
+    $config->setData($parsed_yaml)->save();
+
+    \Drupal::logger('uky_base')->notice(
+      'Successfully updated %config to platform default.',
+      ['%config' => $config_name]
+    );
+  }
+}

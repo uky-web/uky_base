@@ -1,0 +1,27 @@
+field_mappings:
+  0:
+    attribute_name: givenName
+    field_name: 'field_uky_name:given'
+    link_user_order: null
+  1:
+    attribute_name: sn
+    field_name: 'field_uky_name:family'
+    link_user_order: null
+  2:
+    attribute_name: initials
+    field_name: 'field_uky_name:middle'
+    link_user_order: null
+  3:
+    attribute_name: displayName
+    field_name: field_uky_display_name
+    link_user_order: null
+  4:
+    attribute_name: department
+    field_name: field_uky_department
+    link_user_order: null
+  6:
+    attribute_name: Office
+    field_name: field_uky_office
+    link_user_order: null
+link_first_user: null
+ignore_blocked: null

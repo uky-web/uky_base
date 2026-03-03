@@ -1,36 +1,93 @@
+uuid: ec88b7b4-cc64-42b7-9847-cf945db2d8f7
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_uky_department
+    - field.field.user.user.field_uky_display_name
+    - field.field.user.user.field_uky_name
+    - field.field.user.user.field_uky_office
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
     - image
+    - name
     - path
     - user
+_core:
+  default_config_hash: A4TTogK73KboZ5KYHmUh4LW8RdVBrKBe0n38-T4x-HE
 id: user.user.default
 targetEntityType: user
 bundle: user
 mode: default
 content:
   account:
-    weight: -10
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_uky_department:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uky_name:
+    type: name_default
+    weight: 1
+    region: content
+    settings:
+      override_field_settings: false
+      labels:
+        title: Title
+        given: Given
+        middle: 'Middle name(s)'
+        family: Family
+        generational: Generational
+        credentials: Credentials
+      widget_layout: stacked
+      show_component_required_marker: false
+      flag_required_input: false
+      credentials_inline: false
+      size:
+        title: 6
+        given: 20
+        middle: 20
+        family: 20
+        generational: 5
+        credentials: 35
+      title_display:
+        title: description
+        given: description
+        middle: description
+        family: description
+        generational: description
+        credentials: description
+      field_title_display: before
+    third_party_settings: {  }
+  field_uky_office:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   language:
-    weight: 0
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -41,10 +98,11 @@ content:
     third_party_settings: {  }
   user_picture:
     type: image_image
+    weight: 4
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: -1
-    region: content
-hidden: {  }
+hidden:
+  field_uky_display_name: true

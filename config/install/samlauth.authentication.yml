@@ -1,0 +1,64 @@
+login_menu_item_title: 'SSO Login'
+logout_menu_item_title: 'SSO Logout'
+login_link_title: 'Federated Login'
+login_auto_redirect: true
+login_redirect_url: ''
+logout_redirect_url: ''
+error_redirect_url: ''
+error_throw: false
+login_error_keep_session: false
+local_login_saml_error: true
+logout_different_user: false
+drupal_login_roles:
+  administrator: administrator
+sp_entity_id: SITE.uky.dev/saml/metadata
+sp_name_id_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
+sp_x509_certificate: 'file:/var/www/html/bedrock/cert/sp.crt'
+sp_new_certificate: ''
+sp_private_key: 'file:/var/www/html/bedrock/cert/sp.key'
+metadata_valid_secs: 1
+metadata_cache_http: false
+idp_entity_id: 'https://bedrock.uky.edu/idp'
+idp_single_sign_on_service: 'https://bedrock.uky.edu/simplesaml/saml2/idp/SSOService.php'
+idp_single_log_out_service: 'https://bedrock.uky.edu/simplesaml/saml2/idp/SingleLogoutService.php'
+idp_change_password_service: ''
+idp_certs:
+  - 'file:/var/www/html/bedrock/cert/idp.crt'
+idp_cert_encryption: ''
+unique_id_attribute: linkblue
+map_users: false
+map_users_name: true
+map_users_mail: true
+map_users_roles:
+  - anonymous
+create_users: true
+sync_name: true
+sync_mail: true
+user_name_attribute: linkblue
+user_mail_attribute: mail
+request_set_name_id_policy: true
+strict: true
+security_metadata_sign: true
+security_authn_requests_sign: true
+security_logout_requests_sign: true
+security_logout_responses_sign: true
+security_nameid_encrypt: true
+security_signature_algorithm: ''
+security_encryption_algorithm: ''
+security_messages_sign: true
+security_assertions_signed: false
+security_assertions_encrypt: false
+security_nameid_encrypted: false
+security_want_name_id: true
+security_request_authn_context: true
+security_lowercase_url_encoding: false
+security_logout_reuse_sigs: false
+security_allow_repeat_attribute_name: false
+debug_display_error_details: false
+debug_log_in: false
+debug_log_saml_in: false
+debug_log_saml_out: false
+debug_phpsaml: false
+use_proxy_headers: false
+use_base_url: true
+bypass_relay_state_check: false
