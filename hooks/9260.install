@@ -1,0 +1,57 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+
+/**
+ * Install Turnstile, import config, and uninstall reCAPTCHA.
+ */
+
+$module_installer = \Drupal::service('module_installer');
+$module_handler = \Drupal::service('module_handler');
+$database = \Drupal::database();
+$schema = $database->schema();
+
+// 1. FIX: Handle orphaned 'captcha_sessions' table.
+// If the table exists but the module isn't actually installed, drop it.
+if ($schema->tableExists('captcha_sessions') && !$module_handler->moduleExists('captcha')) {
+$schema->dropTable('captcha_sessions');
+}
+
+// 2. Install Turnstile and Key.
+$modules_to_install = ['turnstile', 'key'];
+foreach ($modules_to_install as $module) {
+if (!$module_handler->moduleExists($module)) {
+    $module_installer->install([$module]);
+}
+}
+
+// 3. Define the path and import config.
+$profile_path = \Drupal::service('extension.list.profile')->getPath('uky_base');
+$config_path = $profile_path . '/config/install';
+
+$configs_to_import = [
+'captcha.settings',
+'key.key.uky_cloudflare_turnstile',
+'turnstile.settings',
+];
+
+foreach ($configs_to_import as $config_name) {
+$file_path = $config_path . '/' . $config_name . '.yml';
+if (file_exists($file_path)) {
+    $raw_data = file_get_contents($file_path);
+    $value = \Drupal\Component\Serialization\Yaml::decode($raw_data);
+    \Drupal::configFactory()->getEditable($config_name)->setData($value)->save();
+}
+}
+
+// 4. Uninstall reCAPTCHA if it exists.
+if ($module_handler->moduleExists('recaptcha')) {
+$module_installer->uninstall(['recaptcha']);
+}

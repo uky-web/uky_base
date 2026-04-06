@@ -1,6 +1,6 @@
 name: University of Kentucky Drupal Platform
 type: profile
-version: '3.13.1'
+version: '3.14.0'
 core_version_requirement: ^9.5 || ^10
 
 # Modules to install to support the profile but not make required.
@@ -22,9 +22,9 @@ install:
   - metatag_open_graph
   - metatag_twitter_cards
   - r4032login
-  - recaptcha
   - samlauth
   - samlauth_user_fields
+  - turnstile
   - update
   - upgrade_status
 

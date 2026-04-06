@@ -464,3 +464,10 @@ function uky_base_update_9258() {
 function uky_base_update_9259() {
   include_once dirname(__FILE__) . '/hooks/9259.install';
 }
+
+/**
+ * uky_base - Enable Cloudflare Turnstile module.  Import all relevant config.  Uninstall Google Recaptcha module.
+ */
+function uky_base_update_9260() {
+  include_once dirname(__FILE__) . '/hooks/9260.install';
+}
