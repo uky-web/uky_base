@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: '-ABo0LTcvKlKboFL0Td8-7eUFTwjyaPXiZl09rAI3ms'
 field_mappings:
   0:
     attribute_name: givenName
@@ -22,6 +24,10 @@ field_mappings:
   6:
     attribute_name: Office
     field_name: field_uky_office
+    link_user_order: null
+  7:
+    attribute_name: dn
+    field_name: field_uky_dn
     link_user_order: null
 link_first_user: null
 ignore_blocked: null

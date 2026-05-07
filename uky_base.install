@@ -471,3 +471,17 @@ function uky_base_update_9259() {
 function uky_base_update_9260() {
   include_once dirname(__FILE__) . '/hooks/9260.install';
 }
+
+/**
+ * uky_base - Add field_uky_dn for Distinguished Name from Azure / ADFS.
+ */
+function uky_base_update_9261() {
+  include_once dirname(__FILE__) . '/hooks/9261.install';
+}
+
+/**
+ * uky_base - Update user field displays to add new field_uky_dn field.
+ */
+function uky_base_update_9262() {
+  include_once dirname(__FILE__) . '/hooks/9262.install';
+}

@@ -1,0 +1,55 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+
+// Define the path.
+$base_path = 'profiles/uky_platform/uky_base';
+$user_module_path = $base_path . '/modules/custom/uky_base_user/config/install';
+
+// Categorize config files.
+// Order matters: Storage must exist before the Field instance.
+$config_to_import = [
+  'storage' => [
+    $user_module_path . '/field.storage.user.field_uky_dn.yml',
+  ],
+  'fields' => [
+    $user_module_path . '/field.field.user.user.field_uky_dn.yml',
+  ],
+  'general' => [
+    $base_path . '/config/install/samlauth_user_fields.mappings.yml',
+  ],
+];
+
+// Process Field Storages (Creates the DB tables).
+foreach ($config_to_import['storage'] as $file) {
+  if (!file_exists($file)) continue;
+  $data = Yaml::parse(file_get_contents($file));
+  if (!FieldStorageConfig::load($data['id'])) {
+    FieldStorageConfig::create($data)->save();
+  }
+}
+
+// Process Field Instances (Attaches fields to the User entity).
+foreach ($config_to_import['fields'] as $file) {
+  if (!file_exists($file)) continue;
+  $data = Yaml::parse(file_get_contents($file));
+  if (!FieldConfig::load($data['id'])) {
+    FieldConfig::create($data)->save();
+  }
+}
+
+// Process General Config (Using Config Factory).
+foreach ($config_to_import['general'] as $file) {
+  if (!file_exists($file)) continue;
+  $config_name = str_replace('.yml', '', basename($file));
+  $data = Yaml::parse(file_get_contents($file));
+  \Drupal::configFactory()->getEditable($config_name)->setData($data)->save();
+}

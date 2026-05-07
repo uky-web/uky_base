@@ -1,10 +1,10 @@
-uuid: 7044bcd0-8660-489d-8728-7b604e639b8b
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.user.user.field_uky_department
     - field.field.user.user.field_uky_display_name
+    - field.field.user.user.field_uky_dn
     - field.field.user.user.field_uky_name
     - field.field.user.user.field_uky_office
     - field.field.user.user.user_picture
@@ -13,8 +13,6 @@ dependencies:
     - image
     - name
     - user
-_core:
-  default_config_hash: RdwfEZs7IXrVOtuAF8LqDXvMIDxi_gnVYIbDO0FmeiE
 id: user.user.default
 targetEntityType: user
 bundle: user
@@ -35,6 +33,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_uky_dn:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_uky_name:
     type: name_default

@@ -1,0 +1,131 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+/*
+ * Update user display configs only if they match known platform hashes.
+ * This ensures we only override sites that are using standard platform defaults
+ * from either the "Newer" or "Older" platform baselines.
+ */
+
+// -------------------------------------------------
+// Config definitions + Multi-Baseline Hashes
+// -------------------------------------------------
+$config_updates = [
+
+  'core.entity_view_display.user.user.default' => [
+    'file' => 'core.entity_view_display.user.user.default.yml',
+    'allowed_hashes' => [
+      'c26b59ee00c09317f23a0c2c3aad43c680c887a32b2a4829c4ff25c782f9b831', // Standard
+      'fb0a72be6e2cfb9b968376797035346ee4de61d4cbbf3ad722808b3ef7268ed9', // Pharmacy
+      '2c244394d7915800ed0656a4de63f7ab87a29e22d9d0ec35951ed9a895817fc1', // Libraries
+    ],
+  ],
+
+  'core.entity_view_display.user.user.compact' => [
+    'file' => 'core.entity_view_display.user.user.compact.yml',
+    'allowed_hashes' => [
+      'db517992e912a3b9b2603970c02a1e801816bc78cd8984030d16af8125a622d7', // Standard
+      'dcced43e773e62ec000732d8338a08eb8c1c622e6f0ed7bbc90bc226f2e72800', // Pharmacy
+      'a8e1605a88532f0cf45e9391c8b8f53c839d57ec1300d4bfae2f6c2735ce6428', // Libraries
+    ],
+  ],
+
+  'core.entity_form_display.user.user.default' => [
+    'file' => 'core.entity_form_display.user.user.default.yml',
+    'allowed_hashes' => [
+      'ec0403d67d7da2ba669409e88167260dbec8ac23cf2de1cd175ca8584b943cf3', // Standard Prod/Live
+      'b1933f0a5cbc7323e63bef22c4bca07f657cb1c738faba06bd11a3eb3908132b', // Codespaces / Local Baseline
+      '82be9fcac2c081e55c4cfe2a628e21ea5ffd15b49ca2f0cf4ecae688fec71783', // Dev/Test Baseline (acat, eday, etc)
+      '60b3a3bd3d4a45235b5902e94a006d0e60873f30f19ad123e97ec26905beef2f', // Pharmacy
+      '009906f5696b37fba636bc9fe99ee5f988e1efa14d13cd71718f68172a9189c8', // Libraries
+    ],
+  ],
+
+];
+
+// -------------------------------------------------
+// Fields to ignore (the ones added in 9257)
+// -------------------------------------------------
+$new_fields = [
+  'field_uky_dn'
+];
+
+$profile_path = 'profiles/uky_platform/uky_base/modules/custom/uky_base_user/config/install';
+
+/**
+ * Normalization helper to ensure consistent hashing across platform versions.
+ */
+$normalize = function($data) use ($new_fields) {
+  // 1. Remove standard metadata
+  unset($data['uuid'], $data['langcode'], $data['_core']);
+
+  // 2. Strip the new fields from content and hidden arrays
+  foreach ($new_fields as $f) {
+    if (isset($data['content'][$f])) unset($data['content'][$f]);
+    if (isset($data['hidden'][$f])) unset($data['hidden'][$f]);
+  }
+
+  // 3. Strip the new fields from dependencies
+  if (isset($data['dependencies']['config'])) {
+    $data['dependencies']['config'] = array_values(array_filter($data['dependencies']['config'], function($d) use ($new_fields) {
+      foreach ($new_fields as $f) { if (strpos($d, $f) !== false) return false; }
+      return true;
+    }));
+  }
+
+  // 4. Recursive ksort to ensure key order consistency
+  $sort = function(&$a) use (&$sort) {
+    if (!is_array($a)) return;
+    ksort($a);
+    foreach ($a as &$i) { if (is_array($i)) $sort($i); }
+  };
+  $sort($data);
+  return $data;
+};
+
+// -------------------------------------------------
+// Main Update Loop
+// -------------------------------------------------
+foreach ($config_updates as $config_name => $info) {
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  if ($config->isNew()) {
+    continue;
+  }
+
+  // Normalize active data and generate hash
+  $clean_active_data = $normalize($config->getRawData());
+  $current_hash = hash('sha256', serialize($clean_active_data));
+
+  // Skip if the hash doesn't match either of our golden platform baselines
+  if (!in_array($current_hash, $info['allowed_hashes'], TRUE)) {
+    \Drupal::logger('uky_base')->notice(
+      'Skipping update of %config. Local modifications detected (hash: %hash).',
+      ['%config' => $config_name, '%hash' => $current_hash]
+    );
+    continue;
+  }
+
+  // Import the platform YAML
+  $yaml_file = $profile_path . '/' . $info['file'];
+  if (file_exists($yaml_file)) {
+    $parsed_yaml = Yaml::parse(file_get_contents($yaml_file));
+
+    // Safety: Strip metadata from YAML before saving
+    unset($parsed_yaml['uuid'], $parsed_yaml['langcode'], $parsed_yaml['_core']);
+
+    $config->setData($parsed_yaml)->save();
+
+    \Drupal::logger('uky_base')->notice(
+      'Successfully updated %config to platform default.',
+      ['%config' => $config_name]
+    );
+  }
+}

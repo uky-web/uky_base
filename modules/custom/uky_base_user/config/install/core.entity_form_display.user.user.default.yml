@@ -1,10 +1,10 @@
-uuid: ec88b7b4-cc64-42b7-9847-cf945db2d8f7
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.user.user.field_uky_department
     - field.field.user.user.field_uky_display_name
+    - field.field.user.user.field_uky_dn
     - field.field.user.user.field_uky_name
     - field.field.user.user.field_uky_office
     - field.field.user.user.user_picture
@@ -14,8 +14,6 @@ dependencies:
     - name
     - path
     - user
-_core:
-  default_config_hash: A4TTogK73KboZ5KYHmUh4LW8RdVBrKBe0n38-T4x-HE
 id: user.user.default
 targetEntityType: user
 bundle: user
@@ -37,6 +35,14 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uky_dn:
+    type: string_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_uky_name:

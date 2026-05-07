@@ -1,4 +1,3 @@
-uuid: b2f1e1c6-40e6-4fc8-852e-27acd1f7024c
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,7 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_uky_department
     - field.field.user.user.field_uky_display_name
+    - field.field.user.user.field_uky_dn
     - field.field.user.user.field_uky_name
     - field.field.user.user.field_uky_office
     - field.field.user.user.user_picture
@@ -13,8 +13,6 @@ dependencies:
   module:
     - image
     - user
-_core:
-  default_config_hash: bE1Q2CHc4lQo04Xhtl5uSUZcwDVEVHxZJMZqBkRg8iI
 id: user.user.compact
 targetEntityType: user
 bundle: user
@@ -37,6 +35,7 @@ content:
 hidden:
   field_uky_department: true
   field_uky_display_name: true
+  field_uky_dn: true
   field_uky_name: true
   field_uky_office: true
   member_for: true
