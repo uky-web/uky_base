@@ -5,7 +5,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
-  "version": "3.16.4",
+  "version": "3.16.5",
   "authors": [
     {
       "name": "University of Kentucky Webcom",
@@ -152,8 +152,8 @@
     "drupal/xmlsitemap": "^1.1",
     "drush/drush": "^13.0.0",
     "oomphinc/composer-installers-extender": "^2.0",
-    "uky-web/ukd8": "^3.16.4",
-    "uky-web/uky_utm": "^3.16.4"
+    "uky-web/ukd8": "^3.16.5",
+    "uky-web/uky_utm": "^3.16.5"
   },
   "config": {
     "optimize-autoloader": true,
@@ -166,8 +166,7 @@
     ],
     "patches": {
       "drupal/linkit": {
-        "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch",
-        "fix double-encoded spaces in relative paths": "https://www.drupal.org/files/issues/2024-04-11/3436733-5-linkit-link-field-with-php81-deprecation.patch"
+        "simple matcher patch": "https://www.drupal.org/files/issues/2018-06-20/fix-non-entity-path.interdiff.patch"
       },
       "drupal/block_visibility_groups": {
         "MissingValueContextException from #11 on https://www.drupal.org/project/block_visibility_groups/issues/3487237": "https://www.drupal.org/files/issues/2024-11-27/3487237-11.patch"
