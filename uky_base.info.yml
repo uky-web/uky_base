@@ -1,6 +1,6 @@
 name: University of Kentucky Drupal Platform
 type: profile
-version: '3.16.5'
+version: '3.16.6'
 core_version_requirement: ^9.5 || ^10
 
 # Modules to install to support the profile but not make required.
@@ -51,7 +51,6 @@ dependencies:
   - field_ui
   - file_browser
   - file_replace
-  - fourxx_templates
   - gin_login
   - gin_toolbar
   - help
@@ -69,7 +68,6 @@ dependencies:
   - shortcut
   - simple_sitemap
   - system
-  - tab_toolbar
   - ukd8_customizations
   - uky_base_admin
   - uky_base_block

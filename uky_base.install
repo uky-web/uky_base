@@ -485,3 +485,10 @@ function uky_base_update_9261() {
 function uky_base_update_9262() {
   include_once dirname(__FILE__) . '/hooks/9262.install';
 }
+
+/**
+ * uky_base - Uninstall fourxx_templates and tab_toolbar to prep for D11 update.
+ */
+function uky_base_update_9263() {
+  include_once dirname(__FILE__) . '/hooks/9263.install';
+}

@@ -1,0 +1,29 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+/* Place just the php of the hook below.  Do not include the function here. */
+
+$module_installer = \Drupal::service('module_installer');
+
+$modules = [
+  'fourxx_templates',
+  'tab_toolbar',
+];
+
+$enabled_modules = array_filter(
+  $modules,
+  static fn (string $module): bool => \Drupal::moduleHandler()->moduleExists($module)
+);
+
+if ($enabled_modules) {
+  $module_installer->uninstall($enabled_modules);
+}
+
+
+
+
